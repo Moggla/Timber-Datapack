@@ -1,3 +1,4 @@
+### create scoreboard ###
 scoreboard objectives add t_wooden_axe minecraft.used:minecraft.wooden_axe
 scoreboard objectives add t_stone_axe minecraft.used:minecraft.stone_axe
 scoreboard objectives add t_iron_axe minecraft.used:minecraft.iron_axe
@@ -8,7 +9,8 @@ scoreboard objectives add t_sneak_time minecraft.custom:minecraft.sneak_time
 
 scoreboard objectives add timber dummy
 
-tellraw @a [{"text":"Timber Datapack installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]
+### installation message ###
+tellraw @a [{"text":"Timber Datapack V7 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]
 
 ### non-overriding default values ###
 execute unless score min_leaves_found timber matches 1.. run scoreboard players set min_leaves_found timber 5

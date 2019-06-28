@@ -1,5 +1,10 @@
-#execute if block ~ ~ ~ minecraft:jungle_leaves[distance=7] run 
-setblock ~ ~ ~ minecraft:air destroy
+### get leaf distance ###
+function timber:jungle_tree/get_leaf_distance
 
-execute if entity @e[distance=..5,type=minecraft:item,nbt={Age:0s,Item:{id:"minecraft:jungle_log"}}] run function timber:jungle_tree/leaves_search
-execute if entity @e[distance=..5,type=minecraft:item,nbt={Age:0s,Item:{id:"minecraft:jungle_wood"}}] run function timber:jungle_tree/leaves_search
+### decide if leaf is closer to the current tree then destroy it ###
+execute unless score drop_loot timber matches 1.. if score leaf_distance_old timber < leaf_distance timber run setblock ~ ~ ~ minecraft:air destroy
+execute if score drop_loot timber matches 1.. if score leaf_distance_old timber < leaf_distance timber run loot give @s mine ~ ~ ~ mainhand
+execute if score drop_loot timber matches 1.. if score leaf_distance_old timber < leaf_distance timber run setblock ~ ~ ~ minecraft:air replace
+
+### search for next leaf ###
+execute if score leaf_distance_old timber < leaf_distance timber run function timber:jungle_tree/leaves_search
