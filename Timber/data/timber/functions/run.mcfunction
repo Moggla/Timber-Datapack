@@ -33,7 +33,7 @@ execute if score sneaking timber matches 1.. if score @s t_sneak_time matches 1.
 kill @e[tag=timber_checked]
 
 ### if tree has been validated ###
-execute if score leaves_found timber >= min_leaves_found timber run function timber:validated
+execute if score leaves_found timber >= min_leaves_found timber unless score tree_size timber matches 0 run function timber:validated
 
 ### reset scores ###
 scoreboard players set @s t_wooden_axe 0
