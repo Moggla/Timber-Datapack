@@ -10,7 +10,7 @@ scoreboard objectives add t_sneak_time minecraft.custom:minecraft.sneak_time
 scoreboard objectives add timber dummy
 
 ### installation message ###
-tellraw @a [{"text":"Timber Datapack V7 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]
+tellraw @a [{"text":"Timber Datapack V7.1 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]
 
 ### non-overriding default values ###
 execute unless score min_leaves_found timber matches 1.. run scoreboard players set min_leaves_found timber 5
