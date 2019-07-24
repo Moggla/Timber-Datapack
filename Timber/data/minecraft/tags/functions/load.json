@@ -1,6 +1,5 @@
 {
     "values": [
-        "timber:init",
-        "timber:main10s"
+        "timber:init"
     ]
 }
