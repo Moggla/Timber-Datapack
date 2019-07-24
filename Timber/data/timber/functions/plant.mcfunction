@@ -6,6 +6,9 @@ execute if entity @e[distance=0,type=minecraft:item,nbt={Item:{id:"minecraft:jun
 execute if entity @e[distance=0,type=minecraft:item,nbt={Item:{id:"minecraft:oak_sapling"}}] run setblock ~ ~ ~ minecraft:oak_sapling
 execute if entity @e[distance=0,type=minecraft:item,nbt={Item:{id:"minecraft:spruce_sapling"}}] run setblock ~ ~ ~ minecraft:spruce_sapling
 
+function timber:plant_custom
+
+### on stacks -1 ###
 execute store result score @s timber run data get entity @s Item.Count
 scoreboard players remove @s timber 1
 execute store result entity @s Item.Count byte 1 run scoreboard players get @s timber
