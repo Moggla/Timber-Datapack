@@ -1,10 +1,8 @@
-### get leaf distance ###
+#> get leaf distance (in score leaf_distance_old timber)
 function timber:birch_tree/get_leaf_distance
 
-### decide if leaf is closer to the current tree then destroy it ###
-execute unless score drop_loot timber matches 1.. if score leaf_distance_old timber < leaf_distance timber run setblock ~ ~ ~ minecraft:air destroy
-execute if score drop_loot timber matches 1.. if score leaf_distance_old timber < leaf_distance timber run loot give @s mine ~ ~ ~ mainhand
-execute if score drop_loot timber matches 1.. if score leaf_distance_old timber < leaf_distance timber run setblock ~ ~ ~ minecraft:air replace
+#> decide if leaf is closer to the current tree then mark it so that it will get destroyed
+execute if score leaf_distance_old timber < leaf_distance timber run summon area_effect_cloud ~ ~ ~ {Tags:["timber_destroy"],Duration:1}
 
-### search for next leaf ###
+#> search for next leaf
 execute if score leaf_distance_old timber < leaf_distance timber run function timber:birch_tree/leaves_search

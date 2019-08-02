@@ -1,4 +1,5 @@
-### search for sapling on ground ###
+#> search for sapling on ground
+# Vanilla
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"minecraft:acacia_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"minecraft:birch_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"minecraft:dark_oak_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
@@ -6,6 +7,7 @@ execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"minecraft:jungle_sa
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"minecraft:oak_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"minecraft:spruce_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 
+# BiomesO'Plenty
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:origin_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:flowering_oak_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:yellow_autumn_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
@@ -24,3 +26,23 @@ execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:magic
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:umbran_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:hellbark_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
 execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"biomesoplenty:ethereal_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+
+# Terrestria
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:redwood_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:hemlock_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:rubber_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:cypress_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:willow_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:japanese_maple_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:japanese_maple_shrub_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:dark_japanese_maple_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:rainbow_eucalyptus_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:sakura_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"terrestria:jungle_palm_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+
+# Traverse
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"traverse:brown_autumnal_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"traverse:fir_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"traverse:red_autumnal_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"traverse:orange_autumnal_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
+execute as @e[type=minecraft:item,nbt={OnGround:1b,Item:{id:"traverse:yellow_autumnal_sapling"}}] at @s if block ~ ~ ~ minecraft:air if block ~ ~-1 ~ #timber:grow run function timber:plant
