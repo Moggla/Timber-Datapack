@@ -1,4 +1,8 @@
 scoreboard players set plant_sapling timber 1
-tellraw @s ["",{"text":"Auto Plant Saplings "},{"text":"enabled","color":"green"},{"text":"."}]
-tellraw @s ["",{"text":"This setting requires a ","color":"yellow"},{"text":"/reload","color":"yellow","clickEvent":{"action":"run_command","value":"/reload"}}]
+playsound minecraft:ui.button.click master @s ~ ~ ~ .2 1.9 .2
+tellraw @s ["",{"text":"This setting requires a reload.\nReloading...","color":"yellow"}]
+reload
+# Show refreshed settings after reload (schedule forgets @s so I tag him to find him)
+tag @s add timber_schedule
+schedule function timber:settings/settings_schedule 1s
 gamerule sendCommandFeedback false

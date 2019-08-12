@@ -1,4 +1,4 @@
-execute if score wear_out timber matches 1.. run tellraw @s ["",{"text":"\"Stop Chopping Once Axe Breaks\" can't be enabled when \"Additionally Wear out Tool Depending on Tree Size\" is disabled.","color":"yellow"}]
-execute unless score wear_out timber matches 1.. run scoreboard players set stop_chopping timber 0
-execute unless score wear_out timber matches 1.. run tellraw @s ["",{"text":"Stop Chopping Once Axe Breaks "},{"text":"enabled","color":"green"},{"text":"."}]
+scoreboard players set stop_chopping timber 0
+function timber:settings/settings
+playsound minecraft:ui.button.click master @s ~ ~ ~ .2 1.9 .2
 gamerule sendCommandFeedback false

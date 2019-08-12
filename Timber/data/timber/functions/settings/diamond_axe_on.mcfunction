@@ -1,3 +1,4 @@
 scoreboard players set diamond_axe timber 0
-tellraw @s ["",{"text":"Enable Diamond Axe "},{"text":"enabled","color":"green"},{"text":"."}]
+function timber:settings/settings
+playsound minecraft:ui.button.click master @s ~ ~ ~ .2 1.9 .2
 gamerule sendCommandFeedback false

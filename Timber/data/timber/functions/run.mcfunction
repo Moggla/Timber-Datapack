@@ -3,11 +3,11 @@ scoreboard players set leaves_found timber 0
 scoreboard players set tree_size timber 0
 
 #> remove markers
-kill @e[tag=timber_leaf_distance]
-kill @e[tag=timber_randomizer]
-kill @e[tag=timber_checked]
-kill @e[tag=timber_destroy]
-kill @e[tag=timber_tree]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_leaf_distance]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_randomizer]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_checked]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_destroy]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_tree]
 
 #> search tree and set a marker
 function timber:search_tree

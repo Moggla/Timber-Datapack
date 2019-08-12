@@ -1,3 +1,4 @@
 scoreboard players set wooden_axe timber 0
-tellraw @s ["",{"text":"Enable Wooden Axe "},{"text":"enabled","color":"green"},{"text":"."}]
+function timber:settings/settings
+playsound minecraft:ui.button.click master @s ~ ~ ~ .2 1.9 .2
 gamerule sendCommandFeedback false
