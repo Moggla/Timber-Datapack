@@ -11,11 +11,11 @@ scoreboard objectives add t_sneak_time minecraft.custom:minecraft.sneak_time
 scoreboard objectives add timber dummy
 
 #> run 10s clock for auto plant
-execute if score plant_sapling timber matches 1.. run schedule function timber:main10s 10s
+execute if score plant_sapling timber matches 1.. run schedule function timber:plant_loop 2s
 
 #> non-overriding default values
 execute unless score max_tree_size timber matches 1.. run scoreboard players set min_leaves_found timber 5
 execute unless score max_tree_size timber matches 1.. run scoreboard players set max_tree_size timber 555
 
 #> installation message
-tellraw @a [{"text":"Timber Datapack V9 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]
+tellraw @a [{"text":"Timber Datapack V10 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]

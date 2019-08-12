@@ -1,3 +1,4 @@
 scoreboard players set interfere timber 0
-tellraw @s ["",{"text":"Interferes with Other Tree Types "},{"text":"enabled","color":"green"},{"text":"."}]
+function timber:settings/settings
+playsound minecraft:ui.button.click master @s ~ ~ ~ .2 1.9 .2
 gamerule sendCommandFeedback false

@@ -15,4 +15,4 @@ execute if score interfere timber matches 1.. at @e[distance=..7,type=minecraft:
 execute if score interfere timber matches 1.. at @e[distance=..7,type=minecraft:item,limit=1,nbt={Age:0s,Item:{id:"minecraft:spruce_wood"}}] run function timber:spruce_tree/durability_check
 
 # interfering (all trees)
-execute unless score interfere timber matches 1.. at @e[tag=timber_tree,sort=nearest,limit=1] run function timber:all_tree/durability_check
+execute unless score interfere timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run function timber:all_tree/durability_check

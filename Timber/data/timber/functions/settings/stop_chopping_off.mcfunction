@@ -1,3 +1,4 @@
 scoreboard players set stop_chopping timber 1
-tellraw @s ["",{"text":"Stop Chopping Once Axe Breaks "},{"text":"disabled","color":"red"},{"text":"."}]
+function timber:settings/settings
+playsound minecraft:ui.button.click master @s ~ ~ ~ .2 1.3 .2
 gamerule sendCommandFeedback false
