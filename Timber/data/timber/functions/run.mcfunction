@@ -13,15 +13,15 @@ kill @e[type=minecraft:area_effect_cloud,tag=timber_tree]
 function timber:search_tree
 
 #> validate tree
-execute unless score standing timber matches 1.. if score @s t_sneak_time matches 0 run function timber:validate
-execute if score sneaking timber matches 1.. if score @s t_sneak_time matches 1.. run function timber:validate
+execute unless score standing timber matches 1.. if score @s timber_sneak_t matches 0 run function timber:validate
+execute if score sneaking timber matches 1.. if score @s timber_sneak_t matches 1.. run function timber:validate
 
 #> if tree has been validated
 execute if score leaves_found timber >= min_leaves_found timber unless score tree_size timber matches 0 run function timber:validated
 
 #> reset scores
-scoreboard players set @s t_wooden_axe 0
-scoreboard players set @s t_stone_axe 0
-scoreboard players set @s t_iron_axe 0
-scoreboard players set @s t_golden_axe 0
-scoreboard players set @s t_diamond_axe 0
+scoreboard players set @s timber_w_axe 0
+scoreboard players set @s timber_s_axe 0
+scoreboard players set @s timber_i_axe 0
+scoreboard players set @s timber_g_axe 0
+scoreboard players set @s timber_d_axe 0
