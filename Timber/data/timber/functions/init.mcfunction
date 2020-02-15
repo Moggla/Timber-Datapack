@@ -21,4 +21,4 @@ execute unless score max_tree_size timber matches 1.. run scoreboard players set
 execute if score plant_sapling timber matches 1.. run schedule function timber:autoplant/plant_loop 2s
 
 #> installation message
-tellraw @a [{"text":"Timber Datapack V11 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]
+tellraw @a [{"text":"Timber Datapack V12 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/mod/timber-datapack/"}}]

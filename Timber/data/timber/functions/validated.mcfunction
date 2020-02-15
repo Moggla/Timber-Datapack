@@ -18,7 +18,7 @@ scoreboard players remove durability timber 1
 #> mark all blocks that will get destroyed
 function timber:chop
 
-# When full inventory fix
+# when full inventory fix
 execute store result score inventory timber run data get entity @s Inventory
 execute if entity @s[nbt={Inventory:[{Slot:-100b}]}] run scoreboard players remove inventory timber 1
 execute if entity @s[nbt={Inventory:[{Slot:-101b}]}] run scoreboard players remove inventory timber 1
@@ -27,17 +27,21 @@ execute if entity @s[nbt={Inventory:[{Slot:-103b}]}] run scoreboard players remo
 execute if entity @s[nbt={Inventory:[{Slot:-106b}]}] run scoreboard players remove inventory timber 1
 
 #> destroy all marked blocks
+execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
+execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run setblock ~ ~ ~ minecraft:air replace
+execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run particle minecraft:block oak_leaves ~ ~ ~ .2 .2 .2 1 20
+execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=!timber_leaf] run setblock ~ ~ ~ minecraft:air destroy
+
 execute if score drop_loot timber matches 1.. if score inventory timber matches 36.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 execute if score drop_loot timber matches 1.. unless score inventory timber matches 36.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run particle minecraft:block oak_leaves ~ ~ ~ .2 .2 .2 1 20
 execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air replace
-execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
+
+# tp hand broken loot into inventory
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run tp @e[type=minecraft:item,sort=nearest,limit=1] @s
 
 #> stop sound
-execute if score stopsound timber matches 1.. run stopsound @s block minecraft:block.wood.break
-execute if score stopsound timber matches 1.. run stopsound @s block minecraft:block.grass.break
-
-#> tp last drop loot into invertory
-execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run tp @e[type=minecraft:item,sort=nearest,limit=1] @s
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20] block minecraft:block.wood.break
 
 #> wear out tool
 execute unless score wear_out timber matches 1.. run setblock ~ 255 ~ minecraft:shulker_box
