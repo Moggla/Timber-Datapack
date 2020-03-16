@@ -1,3 +1,6 @@
+#> resets
+scoreboard players set durability_okay timber 0
+
 #> keep track of tree size
 scoreboard players add tree_size timber 1
 
@@ -7,26 +10,29 @@ execute as @e[type=minecraft:area_effect_cloud,tag=timber_randomizer,sort=random
 #> mark block that will get destroyed
 summon area_effect_cloud ~ ~ ~ {Tags:["timber_destroy"],Duration:1}
 
-#> search for next log
-execute if score tree_size timber < max_tree_size timber positioned ~ ~1 ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~ ~1 ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~ ~1 ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~1 ~1 ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~1 ~1 ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~1 ~1 ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~-1 ~1 ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~-1 ~1 ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~-1 ~1 ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
+#> tool durability check
+function timber:durability_check
 
-execute if score tree_size timber < max_tree_size timber positioned ~ ~ ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~ ~ ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~1 ~ ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~1 ~ ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~1 ~ ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~-1 ~ ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~-1 ~ ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
-execute if score tree_size timber < max_tree_size timber positioned ~-1 ~ ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/durability_check
+#> search for next log
+execute if score tree_size timber < max_tree_size timber positioned ~ ~1 ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~ ~1 ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~ ~1 ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~1 ~1 ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~1 ~1 ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~1 ~1 ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~-1 ~1 ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~-1 ~1 ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~-1 ~1 ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+
+execute if score tree_size timber < max_tree_size timber positioned ~ ~ ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~ ~ ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~1 ~ ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~1 ~ ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~1 ~ ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~-1 ~ ~ if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~-1 ~ ~1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
+execute if score tree_size timber < max_tree_size timber positioned ~-1 ~ ~-1 if block ~ ~ ~ #timber:acacia unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...9,sort=arbitrary,limit=1] run function timber:acacia_tree/chop
 
 #> destroy leaves
-execute if score destroy_leaves timber matches 1.. run scoreboard players set leaf_distance timber 0
-execute if score destroy_leaves timber matches 1.. run function timber:acacia_tree/leaves_search
+execute unless score destroy_leaves timber matches 1.. run scoreboard players set leaf_distance timber 0
+execute unless score destroy_leaves timber matches 1.. run function timber:acacia_tree/leaves_search

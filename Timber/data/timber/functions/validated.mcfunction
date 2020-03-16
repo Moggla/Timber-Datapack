@@ -1,5 +1,5 @@
 #> reset
-# tree size reset, again because second use
+# tree size reset again because second use
 scoreboard players set tree_size timber 0
 
 #> Enchantments randomizer
@@ -27,26 +27,29 @@ execute if entity @s[nbt={Inventory:[{Slot:-103b}]}] run scoreboard players remo
 execute if entity @s[nbt={Inventory:[{Slot:-106b}]}] run scoreboard players remove inventory timber 1
 
 #> destroy all marked blocks
-execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
-execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run setblock ~ ~ ~ minecraft:air replace
-execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run particle minecraft:block oak_leaves ~ ~ ~ .2 .2 .2 1 20
-execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=!timber_leaf] run setblock ~ ~ ~ minecraft:air destroy
-
+execute unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 execute if score drop_loot timber matches 1.. if score inventory timber matches 36.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 execute if score drop_loot timber matches 1.. unless score inventory timber matches 36.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
-execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,tag=timber_leaf] run particle minecraft:block oak_leaves ~ ~ ~ .2 .2 .2 1 20
-execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air replace
+gamerule doTileDrops false
+execute at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
+gamerule doTileDrops true
 
 # tp hand broken loot into inventory
-execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run tp @e[type=minecraft:item,sort=nearest,limit=1] @s
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run setblock ~ 255 ~ minecraft:lime_shulker_box
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run data modify block ~ 255 ~ Items append from entity @e[type=minecraft:item,sort=nearest,limit=1] Item
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run kill @e[type=minecraft:item,sort=nearest,limit=1]
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run loot give @s mine ~ 255 ~ iron_pickaxe{ucit:{id:"inventory_modifier"}}
+execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run setblock ~ 255 ~ minecraft:air
+# execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,sort=nearest,limit=1] run tp @e[type=minecraft:item,sort=nearest,limit=1] @s
 
 #> stop sound
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20] block minecraft:block.wood.break
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20] block minecraft:block.grass.break
 
 #> wear out tool
-execute unless score wear_out timber matches 1.. run setblock ~ 255 ~ minecraft:shulker_box
+execute unless score wear_out timber matches 1.. run setblock ~ 255 ~ minecraft:lime_shulker_box
 execute unless score wear_out timber matches 1.. run data modify block ~ 255 ~ Items append from entity @s SelectedItem
-execute unless score wear_out timber matches 1.. run execute store result block ~ 255 ~ Items[0].tag.Damage int 1 run scoreboard players get durability timber
+execute unless score wear_out timber matches 1.. store result block ~ 255 ~ Items[0].tag.Damage int 1 run scoreboard players get durability timber
 execute unless score wear_out timber matches 1.. run loot replace entity @s weapon.mainhand 1 mine ~ 255 ~ iron_pickaxe{ucit:{id:"inventory_modifier"}}
 execute unless score wear_out timber matches 1.. run setblock ~ 255 ~ minecraft:air
 # execute unless score wear_out timber matches 1.. store result entity @s SelectedItem.tag.Damage int 1 run scoreboard players get durability timber
