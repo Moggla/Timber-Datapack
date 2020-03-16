@@ -6,8 +6,8 @@
     "#timber:jungle",
     "#timber:oak",
     "#timber:spruce",
-    "#timber:biomesoplenty",
-    "#timber:terrestria",
-    "#timber:traverse"
+    "#timber_custom_trees:biomesoplenty",
+    "#timber_custom_trees:terrestria",
+    "#timber_custom_trees:traverse"
   ]
 }
