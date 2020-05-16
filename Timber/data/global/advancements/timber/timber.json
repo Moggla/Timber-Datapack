@@ -1,0 +1,17 @@
+{
+    "display": {
+        "title": "Timber V13.1           ",
+        "description": "/function timber:help",
+        "icon": {
+            "item": "minecraft:dark_oak_sapling"
+        },
+        "announce_to_chat": false,
+        "show_toast": false
+    },
+    "parent": "global:moggla",
+    "criteria": {
+        "trigger": {
+            "trigger": "minecraft:tick"
+        }
+    }
+}
