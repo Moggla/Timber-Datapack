@@ -23,3 +23,4 @@ scoreboard players set @s timber_s_axe 0
 scoreboard players set @s timber_i_axe 0
 scoreboard players set @s timber_g_axe 0
 scoreboard players set @s timber_d_axe 0
+scoreboard players set @s timber_n_axe 0
