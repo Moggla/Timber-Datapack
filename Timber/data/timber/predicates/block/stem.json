@@ -1,0 +1,21 @@
+{
+  "condition": "minecraft:alternative",
+  "terms": [
+    {
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "block": {
+          "tag": "minecraft:logs"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "block": {
+          "block": "minecraft:mushroom_stem"
+        }
+      }
+    }
+  ]
+}

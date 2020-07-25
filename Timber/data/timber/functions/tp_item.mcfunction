@@ -1,4 +1,4 @@
-# tp hand-broken loot into inventory
+#> tp hand-broken loot into inventory
 setblock ~ 255 ~ minecraft:yellow_shulker_box
 data modify block ~ 255 ~ Items append from entity @e[type=minecraft:item,sort=nearest,limit=1] Item
 kill @e[type=minecraft:item,sort=nearest,limit=1]

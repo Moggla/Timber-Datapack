@@ -1,7 +1,7 @@
 {
     "display": {
-        "title": "Timber V14           ",
-        "description": "/function timber:help",
+        "title": "Timber V15             ",
+        "description": "Get help and options by using the following command:\n\n/function timber:help",
         "icon": {
             "item": "minecraft:dark_oak_sapling"
         },
