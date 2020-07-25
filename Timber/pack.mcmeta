@@ -1,6 +1,6 @@
 {
     "pack": {
-        "pack_format": 1, 
-        "description": "Wrong installation! Put me into /saves/\"WORLD\"/datapacks/"
+        "pack_format": 5, 
+        "description": "Timber Datapack allows you to instantly chop down a tree just by breaking one log"
     }
 }
