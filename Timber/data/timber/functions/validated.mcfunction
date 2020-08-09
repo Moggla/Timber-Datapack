@@ -1,19 +1,19 @@
-#> reset
+# reset
 # tree size reset again because second use
 scoreboard players set tree_size timber 0
 
-#> Enchantments randomizer
+# Enchantments randomizer
 scoreboard players set unbreaking timber 0
 execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:1s}]}}}] run scoreboard players set unbreaking timber 1
 execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:2s}]}}}] run scoreboard players set unbreaking timber 2
 execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:3s}]}}}] run scoreboard players set unbreaking timber 3
 
-#> get durability
+# get durability
 execute store result score durability timber run data get entity @s SelectedItem.tag.Damage
 scoreboard players remove durability timber 1
 execute if entity @s[nbt=!{SelectedItem:{}}] run scoreboard players set durability timber 9999
 
-#> mark all blocks that will get destroyed
+# mark all blocks that will get destroyed
     # tree
     execute if score tree_type timber matches 1 at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:algorithm/tree/chop
     
@@ -33,7 +33,7 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot:-103b}]}] run scoreboard players remove inventory timber 1
 execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot:-106b}]}] run scoreboard players remove inventory timber 1
 
-#> destroy all marked blocks
+# destroy all marked blocks
 execute unless score slow_chop timber matches 1.. unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
 execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
@@ -49,7 +49,7 @@ execute if score slow_chop timber matches 1.. run tag @e[type=minecraft:area_eff
 # tp hand-broken loot into inventory
 execute if score drop_loot timber matches 1.. unless score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:tp_item
 
-#> stop sound
+# stop sound
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.grass.break
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.wood.break
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.wart_block.break
@@ -57,12 +57,12 @@ execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.nether_wart.break
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.stem.break
 
-#> wear out tool
+# wear out tool
 execute unless score wear_out timber matches 1.. run function timber:tool/wear_out
 
-#> break axe if worn out
+# break axe if worn out
 execute unless score wear_out timber matches 1.. run function timber:tool/worn_out
 
-#> remove markers
+# remove markers
 kill @e[type=minecraft:area_effect_cloud,tag=timber_leaf_distance]
 execute unless score slow_chop timber matches 1.. run kill @e[type=minecraft:area_effect_cloud,tag=timber_destroy]

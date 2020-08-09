@@ -1,14 +1,10 @@
-#> if axe is used
-execute as @a[scores={timber_w_axe=1..},tag=!global.ignore] at @s unless score wooden_axe timber matches 1.. run function timber:run
-execute as @a[scores={timber_s_axe=1..},tag=!global.ignore] at @s unless score stone_axe timber matches 1.. run function timber:run
-execute as @a[scores={timber_i_axe=1..},tag=!global.ignore] at @s unless score iron_axe timber matches 1.. run function timber:run
-execute as @a[scores={timber_g_axe=1..},tag=!global.ignore] at @s unless score golden_axe timber matches 1.. run function timber:run
-execute as @a[scores={timber_d_axe=1..},tag=!global.ignore] at @s unless score diamond_axe timber matches 1.. run function timber:run
-execute as @a[scores={timber_n_axe=1..},tag=!global.ignore] at @s unless score netherite_axe timber matches 1.. run function timber:run
+# if any axe is used
+execute as @a[tag=!global.ignore] store success score axe timber unless score @s timber_w_axe matches 1.. unless score @s timber_s_axe matches 1.. unless score @s timber_i_axe matches 1.. unless score @s timber_g_axe matches 1.. unless score @s timber_d_axe matches 1.. unless score @s timber_n_axe matches 1..
+execute as @a[tag=!global.ignore] if score axe timber matches 0 run function timber:axe
 
-#> toggle timber datapack per player
+# toggle timber datapack per player
 execute as @a[scores={TimberToggle=1..},tag=!global.ignore] run function timber:settings/toggle/timber
 
-#> reset
+# reset
 gamerule sendCommandFeedback true
 scoreboard players enable @a TimberToggle
