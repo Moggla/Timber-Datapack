@@ -1,4 +1,4 @@
-#> wear out tool
+# wear out tool
 setblock ~ 255 ~ minecraft:yellow_shulker_box
 data modify block ~ 255 ~ Items append from entity @s SelectedItem
 execute store result block ~ 255 ~ Items[0].tag.Damage int 1 run scoreboard players get durability timber

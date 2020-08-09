@@ -1,4 +1,4 @@
-#> check if axe is broken
+# check if axe is broken
 execute if score @s timber_w_axe matches 1.. unless score durability timber matches ..59 run scoreboard players set durability_okay timber 0
 execute if score @s timber_s_axe matches 1.. unless score durability timber matches ..131 run scoreboard players set durability_okay timber 0
 execute if score @s timber_i_axe matches 1.. unless score durability timber matches ..250 run scoreboard players set durability_okay timber 0
