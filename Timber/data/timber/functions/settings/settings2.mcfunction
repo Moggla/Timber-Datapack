@@ -49,4 +49,5 @@ execute unless score min_leaves_found timber matches 5 run tellraw @s ["",{"text
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
+schedule function timber:settings/reset_gamerule 1t
 gamerule sendCommandFeedback false
