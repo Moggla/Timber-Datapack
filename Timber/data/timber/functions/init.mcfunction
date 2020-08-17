@@ -1,5 +1,5 @@
 # installation message
-    tellraw @a [{"text":"Timber Datapack V15.2 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
+    tellraw @a [{"text":"Timber Datapack V15.3 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
 
 # longer maxCommandChainLength
     gamerule maxCommandChainLength 1000000000

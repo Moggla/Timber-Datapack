@@ -34,13 +34,16 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot:-106b}]}] run scoreboard players remove inventory timber 1
 
 # destroy all marked blocks
-execute unless score slow_chop timber matches 1.. unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
-execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
-execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
-# destroy animation
-gamerule doTileDrops false
-execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
-gamerule doTileDrops true
+    # api
+    execute unless score slow_chop timber matches 1.. if score destroy_leaves timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run function #timber:api/break_log
+    # loot
+    execute unless score slow_chop timber matches 1.. unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
+    execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
+    execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
+    # destroy animation
+    gamerule doTileDrops false
+    execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
+    gamerule doTileDrops true
 
 # stop sound
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.grass.break
