@@ -29,7 +29,8 @@
       "predicate": {
         "equipment": {
           "mainhand": {
-            "item": "minecraft:knowledge_book"
+            "item": "minecraft:knowledge_book",
+            "nbt": "{Tags:[timber_location]}"
           }
         }
       }

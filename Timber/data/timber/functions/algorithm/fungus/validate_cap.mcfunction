@@ -1,0 +1,6 @@
+# mark leaf that have been checked
+execute positioned ~ ~ ~1 unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
+execute positioned ~ ~ ~-1 unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
+execute positioned ~1 ~ ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
+execute positioned ~-1 ~ ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
+execute positioned ~ ~ ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
