@@ -1,7 +1,7 @@
-# Destroy 5 block
+# destroy 5 block
 execute unless score b_p_c timber matches ..4 run function timber:slow_chop/destroy5
 
-# Destroy 1 block
+# destroy 1 block
 execute unless score b_p_c timber matches 5.. run function timber:slow_chop/destroy1
 
 # loop

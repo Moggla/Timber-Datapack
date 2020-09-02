@@ -1,0 +1,17 @@
+{
+    "display": {
+        "title": "Timber                           ",
+        "description": ["",{"text":"Trees can be instantly chopped with any axe in survival mode.\n","color":"gold"},{"text":"Enter","color":"green"},{"text":" ","color":"gold"},{"text":"/trigger TimberToggle","color":"yellow"},{"text":" to toggle the datapack on or off.\n","color":"gold"},{"text":"Enter","color":"green"},{"text":" ","color":"gold"},{"text":"/function timber:help","color":"yellow"},{"text":" for config options.","color":"gold"}],
+        "icon": {
+            "item": "minecraft:iron_axe"
+        },
+        "announce_to_chat": false,
+        "show_toast": false
+    },
+    "parent": "global:moggla",
+    "criteria": {
+        "trigger": {
+            "trigger": "minecraft:tick"
+        }
+    }
+}

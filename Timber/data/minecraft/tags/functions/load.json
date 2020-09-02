@@ -1,5 +1,6 @@
 {
-    "values": [
-        "timber:init"
-    ]
+	"values": [
+		"timber:init",
+		"timber:main"
+	]
 }
