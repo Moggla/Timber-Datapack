@@ -1,6 +1,6 @@
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
-tellraw @s ["",{"text":"                            Timber Datapack"}]
+tellraw @s ["",{"text":"                              Timber Datapack"}]
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 

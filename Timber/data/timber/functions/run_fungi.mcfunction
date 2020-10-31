@@ -1,9 +1,9 @@
 # reset
 scoreboard players set tree_size timber 0
 kill @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found]
-#kill @e[type=minecraft:area_effect_cloud,tag=timber_destroy,nbt={Age:0}]
-kill @e[type=minecraft:area_effect_cloud,tag=timber_logs,nbt={Age:0}]
-kill @e[type=minecraft:area_effect_cloud,tag=timber_leaf,nbt={Age:0}]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_logs,tag=!timber_destroy]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_leaf,tag=!timber_destroy]
+
 # get durability
 function timber:tool/durability_get
 
