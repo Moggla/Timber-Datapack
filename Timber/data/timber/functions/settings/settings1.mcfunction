@@ -5,7 +5,7 @@ tellraw @s ["",{"text":" "}]
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
-tellraw @s ["",{"text":"                          Timber "},{"text":"/","color":"gray"},{"text":" Global Settings            "},{"text":" < ","clickEvent":{"action":"run_command","value":"/function timber:settings/settings1_click"}},{"text":"1/2"},{"text":" > ","clickEvent":{"action":"run_command","value":"/function timber:settings/settings2_click"}}]
+tellraw @s ["",{"text":"                         Timber "},{"text":"/","color":"gray"},{"text":" Global Settings            "},{"text":" < ","clickEvent":{"action":"run_command","value":"/function timber:settings/settings1_click"}},{"text":"1/2"},{"text":" > ","clickEvent":{"action":"run_command","value":"/function timber:settings/settings2_click"}}]
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
