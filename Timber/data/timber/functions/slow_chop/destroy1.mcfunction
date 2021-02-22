@@ -1,5 +1,5 @@
 # api
-execute as @e[type=minecraft:area_effect_cloud,tag=timber_destroy,sort=nearest,limit=1] at @s if entity @s[tag=timber_logs] run function #timber:api/break_log
+execute as @e[type=minecraft:area_effect_cloud,tag=timber_destroy,sort=nearest,limit=1] at @s run function timber:slow_chop/api
 
 # destroy 1 block
 execute as @e[type=minecraft:armor_stand,tag=timber_tool,y=0,distance=...1,sort=arbitrary,limit=1] at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,sort=nearest,limit=1] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand

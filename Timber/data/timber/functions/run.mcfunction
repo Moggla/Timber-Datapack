@@ -36,7 +36,7 @@ execute unless score tree_type timber matches 0 run function timber:validated
 execute if score chop_fungi timber matches 1.. run kill @e[type=minecraft:item,nbt={Item:{tag:{Tags:[timber_location]}}}]
 execute if score chop_fungi timber matches 1.. run clear @s knowledge_book{Tags:[timber_location]}
 kill @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop]
-kill @e[type=minecraft:area_effect_cloud,tag=timber_logs,tag=!timber_destroy]
+kill @e[type=minecraft:area_effect_cloud,tag=timber_log,tag=!timber_destroy]
 kill @e[type=minecraft:area_effect_cloud,tag=timber_leaf,tag=!timber_destroy]
 kill @e[type=minecraft:area_effect_cloud,tag=timber_stem,tag=!timber_destroy]
 kill @e[type=minecraft:area_effect_cloud,tag=timber_cap,tag=!timber_destroy]
