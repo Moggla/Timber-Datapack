@@ -8,12 +8,12 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 
 # destroy blocks
     # mark blocks that need to be destroyed
-    tag @e[type=minecraft:area_effect_cloud,tag=timber_logs] add timber_destroy
+    tag @e[type=minecraft:area_effect_cloud,tag=timber_log] add timber_destroy
     tag @e[type=minecraft:area_effect_cloud,tag=timber_leaf] add timber_destroy
     tag @e[type=minecraft:area_effect_cloud,tag=timber_stem] add timber_destroy
     tag @e[type=minecraft:area_effect_cloud,tag=timber_cap] add timber_destroy
     # api
-    execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_logs] run function #timber:api/break_log
+    execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_log] run function #timber:api/break_log
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_leaf] run function #timber:api/break_leaf
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_stem] run function #timber:api/break_stem
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_cap] run function #timber:api/break_cap
@@ -32,7 +32,7 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 execute if score stopsound timber matches 1.. as @a[distance=..20,tag=!global.ignore.gui] run function timber:utils/stopsound
 
 # save tool for slow chopping process
-execute if score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run summon minecraft:armor_stand ~ 0 ~ {Invisible:1b,Marker:1b,Tags:["timber_tool"],Rotation:[45f],Pose:{RightArm:[0f,270f,0f]}}
+execute if score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run summon minecraft:armor_stand ~ 0 ~ {Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:["timber_tool"],Rotation:[45f],Pose:{RightArm:[0f,270f,0f]}}
 execute if score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run data modify entity @e[type=minecraft:armor_stand,tag=timber_tool,y=0,distance=...1,sort=arbitrary,limit=1] HandItems[0] merge from entity @s SelectedItem
 execute if score slow_chop timber matches 1.. run tag @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] add timber_slow_chop
 
