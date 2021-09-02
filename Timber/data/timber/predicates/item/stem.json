@@ -18,7 +18,7 @@
       "predicate": {
         "equipment": {
           "mainhand": {
-            "item": "minecraft:mushroom_stem"
+            "items": ["minecraft:mushroom_stem"]
           }
         }
       }
@@ -29,7 +29,7 @@
       "predicate": {
         "equipment": {
           "mainhand": {
-            "item": "minecraft:knowledge_book",
+            "items": ["minecraft:knowledge_book"],
             "nbt": "{Tags:[timber_location]}"
           }
         }

@@ -14,6 +14,6 @@ scoreboard objectives remove timber_disabled
 scoreboard objectives remove timber_prsistent
 
 # remove markers
-kill @e[type=minecraft:area_effect_cloud,tag=timber_slow_chop]
-kill @e[type=minecraft:area_effect_cloud,tag=timber_destroy]
+kill @e[type=minecraft:marker,tag=timber_slow_chop]
+kill @e[type=minecraft:marker,tag=timber_destroy]
 kill @e[type=minecraft:armor_stand,tag=timber_tool]

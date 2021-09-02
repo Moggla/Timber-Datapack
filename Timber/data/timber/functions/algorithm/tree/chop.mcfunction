@@ -11,15 +11,15 @@ function timber:tool/durability_count
 execute if score stop_chopping timber matches 1.. unless score unbreakable timber matches 1 run function timber:tool/durability_check
 
 # mark leaf that have been checked
-execute positioned ~ ~ ~1 unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
-execute positioned ~ ~ ~-1 unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
-execute positioned ~1 ~ ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
-execute positioned ~-1 ~ ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
-execute positioned ~ ~1 ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
-execute positioned ~ ~-1 ~ unless entity @e[type=minecraft:area_effect_cloud,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon area_effect_cloud ~ ~ ~ {Tags:["timber_leaves_found"],Duration:1}
+execute positioned ~ ~ ~1 unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
+execute positioned ~ ~ ~-1 unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
+execute positioned ~1 ~ ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
+execute positioned ~-1 ~ ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
+execute positioned ~ ~1 ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
+execute positioned ~ ~-1 ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/leaf run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
 
 # mark block that will get destroyed
-execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run summon area_effect_cloud ~ ~ ~ {Tags:["timber_log"],Duration:2147483647}
+execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run summon marker ~ ~ ~ {Tags:["timber_log"]}
 
 # search for next log
 execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run function timber:algorithm/tree/search

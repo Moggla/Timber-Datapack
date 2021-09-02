@@ -13,7 +13,7 @@
       "condition": "minecraft:location_check",
       "predicate": {
         "block": {
-          "block": "minecraft:mushroom_stem"
+          "blocks": ["minecraft:mushroom_stem"]
         }
       }
     }
