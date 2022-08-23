@@ -2,67 +2,24 @@
   "condition": "minecraft:alternative",
   "terms": [
     {
-      "condition": "minecraft:inverted",
-      "term": {
-        "condition": "minecraft:alternative",
-        "terms": [
-          {
-            "condition": "minecraft:inverted",
-            "term": {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "block": {
-                  "tag": "minecraft:leaves",
-                  "state": {
-                    "persistent": "false"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "condition": "minecraft:entity_scores",
-            "entity": "this",
-            "scores": {
-              "timber_prsistent": {
-                "min": 1,
-                "max": 2147483647
-              }
-            }
-          }
-        ]
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "block": {
+          "tag": "minecraft:leaves"
+        }
       }
     },
     {
-      "condition": "minecraft:inverted",
-      "term": {
-        "condition": "minecraft:alternative",
-        "terms": [
-          {
-            "condition": "minecraft:inverted",
-            "term": {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "block": {
-                  "tag": "minecraft:leaves"
-                }
-              }
-            }
-          },
-          {
-            "condition": "minecraft:inverted",
-            "term": {
-              "condition": "minecraft:entity_scores",
-              "entity": "this",
-              "scores": {
-                "timber_prsistent": {
-                  "min": 1,
-                  "max": 2147483647
-                }
-              }
-            }
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "block": {
+          "blocks": [
+            "minecraft:mangrove_propagule"
+          ],
+          "state": {
+            "hanging": true
           }
-        ]
+        }
       }
     }
   ]
