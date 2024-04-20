@@ -17,4 +17,4 @@ execute if entity @e[type=minecraft:item,nbt={Item:{id:"biomesoplenty:dead_sapli
 execute if entity @e[type=minecraft:item,nbt={Item:{id:"biomesoplenty:magic_sapling"}}] run setblock ~ ~ ~ biomesoplenty:magic_sapling
 execute if entity @e[type=minecraft:item,nbt={Item:{id:"biomesoplenty:umbran_sapling"}}] run setblock ~ ~ ~ biomesoplenty:umbran_sapling
 execute if entity @e[type=minecraft:item,nbt={Item:{id:"biomesoplenty:hellbark_sapling"}}] run setblock ~ ~ ~ biomesoplenty:hellbark_sapling
-execute if entity @e[type=minecraft:item,nbt={Item:{id:"biomesoplenty:ethereal_sapling"}}] run setblock ~ ~ ~ biomesoplenty:ethereal_sapling
+execute if entity @e[type=minecraft:item,nbt={Item:{id:"biomesoplenty:rainbow_birch_sapling"}}] run setblock ~ ~ ~ biomesoplenty:ethereal_sapling

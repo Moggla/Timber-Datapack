@@ -11,7 +11,6 @@
     "biomesoplenty:magic_log",
     "biomesoplenty:umbran_log",
     "biomesoplenty:hellbark_log",
-    "biomesoplenty:ethereal_log",
     "biomesoplenty:fir_wood",
     "biomesoplenty:redwood_wood",
     "biomesoplenty:cherry_wood",
@@ -22,7 +21,6 @@
     "biomesoplenty:dead_wood",
     "biomesoplenty:magic_wood",
     "biomesoplenty:umbran_wood",
-    "biomesoplenty:hellbark_wood",
-    "biomesoplenty:ethereal_wood"
+    "biomesoplenty:hellbark_wood"
   ]
 }
