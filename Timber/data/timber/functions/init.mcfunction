@@ -37,8 +37,5 @@ execute if score doTileDrops timber matches 0 run tellraw @a ["",{"text":"Timber
 execute store result score game_version timber run data get entity @r DataVersion
 execute if score game_version timber matches ..2565 run tellraw @a ["",{"text":"Timber Datapack Warning: ","color":"red"},{"text":"This datapack is not compatible with all the versions before 1.16!"}]
 
-    # Checking if the server uses a different jar from the vanilla one
-    execute unless score not_vanilla timber matches 1.. store success score not_vanilla timber run data get entity @r "Spigot.ticksLived"
-    execute unless score not_vanilla timber matches 1.. store success score not_vanilla timber run data get entity @r "Bukkit.updateLevel"
-    execute unless score not_vanilla timber matches 1.. store success score not_vanilla timber run data get entity @r "Paper.SpawnReason"
-    execute if score not_vanilla timber matches 1 run tellraw @a ["",{"text":"Timber Datapack Warning: ","color":"red"},{"text":"Compatibility in non-vanilla servers is not guaranteed! For more information please visit official download site.","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
+# Checking if the server uses a different jar from the vanilla one
+function timber:utils/check_server
