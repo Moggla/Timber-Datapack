@@ -1,4 +1,5 @@
-### replace item-sapling with block-sapling ###
+#> replace item-sapling with block-sapling
+# BiomesO'Plenty
 execute if entity @e[distance=0,type=minecraft:item,nbt={Item:{id:"biomesoplenty:origin_sapling"}}] run setblock ~ ~ ~ biomesoplenty:origin_sapling
 execute if entity @e[distance=0,type=minecraft:item,nbt={Item:{id:"biomesoplenty:flowering_oak_sapling"}}] run setblock ~ ~ ~ biomesoplenty:flowering_oak_sapling
 execute if entity @e[distance=0,type=minecraft:item,nbt={Item:{id:"biomesoplenty:yellow_autumn_sapling"}}] run setblock ~ ~ ~ biomesoplenty:yellow_autumn_sapling
