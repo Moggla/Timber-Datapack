@@ -7,8 +7,8 @@ scoreboard players set tree_type timber 0
 execute unless score persistent timber matches 1.. run scoreboard players set @s timber_prsistent 0
 execute if score persistent timber matches 1.. run scoreboard players set @s timber_prsistent 1
 
-# search last broken item (place of tree) and set a marker
-execute at @e[type=minecraft:item,distance=..7,limit=1,nbt={Age:0s}] run summon marker ~ ~ ~ {Tags:["timber_tree","global.ignore"]}
+# search last broken item (place of tree) and set a marker  (limit=1 removed, because carpet on log breaks this)
+execute at @e[type=minecraft:item,distance=..7,nbt={Age:0s}] run summon marker ~ ~ ~ {Tags:["timber_tree","global.ignore"]}
 
 # Enchantments randomizer
 scoreboard players set unbreaking timber 0
@@ -20,8 +20,8 @@ execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbrea
 function timber:tool/durability_get
 
 # scan through tree
-    # tree
-        execute if score chop_trees timber matches 1.. at @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:algorithm/tree/run
+    # tree  (limit=1,sort=arbitrary removed, because carpet on log breaks this)
+        execute if score chop_trees timber matches 1.. at @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7] run function timber:algorithm/tree/run
         execute store result score leaves_found timber if entity @e[type=minecraft:marker,tag=timber_leaves_found]
         # if tree is valid
         execute if score leaves_found timber >= min_leaves_found timber unless score tree_size timber matches 0 run scoreboard players set tree_type timber 1
@@ -38,6 +38,7 @@ execute if score chop_fungi timber matches 1.. run clear @s knowledge_book{Tags:
 kill @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop]
 kill @e[type=minecraft:marker,tag=timber_log,tag=!timber_destroy]
 kill @e[type=minecraft:marker,tag=timber_leaf,tag=!timber_destroy]
+kill @e[type=minecraft:marker,tag=timber_root,tag=!timber_destroy]
 kill @e[type=minecraft:marker,tag=timber_stem,tag=!timber_destroy]
 kill @e[type=minecraft:marker,tag=timber_cap,tag=!timber_destroy]
 kill @e[type=minecraft:marker,tag=timber_leaves_found]

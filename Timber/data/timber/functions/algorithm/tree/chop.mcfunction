@@ -21,8 +21,8 @@ execute positioned ~ ~-1 ~ unless entity @e[type=minecraft:marker,tag=timber_lea
 # mark block that will get destroyed
 execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run summon marker ~ ~ ~ {Tags:["timber_log"]}
 
-# search for next log
-execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run function timber:algorithm/tree/search
+# search for next log/root
+execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run function timber:algorithm/tree/search_1
 
 # destroy leaves
 execute if score destroy_leaves timber matches 1.. run scoreboard players set leaf_distance timber 0

@@ -9,12 +9,14 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 # destroy blocks
     # mark blocks that need to be destroyed
     tag @e[type=minecraft:marker,tag=timber_log] add timber_destroy
-    tag @e[type=minecraft:marker,tag=timber_leaf] add timber_destroy
+    execute if score destroy_leaves timber matches 1.. run tag @e[type=minecraft:marker,tag=timber_leaf] add timber_destroy
+    execute if score destroy_roots timber matches 1.. run tag @e[type=minecraft:marker,tag=timber_root] add timber_destroy
     tag @e[type=minecraft:marker,tag=timber_stem] add timber_destroy
     tag @e[type=minecraft:marker,tag=timber_cap] add timber_destroy
     # api
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_log] run function #timber:api/break_log
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_leaf] run function #timber:api/break_leaf
+    execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_root] run function #timber:api/break_root
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_stem] run function #timber:api/break_stem
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_cap] run function #timber:api/break_cap
     # loot
