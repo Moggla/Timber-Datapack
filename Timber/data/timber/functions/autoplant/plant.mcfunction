@@ -10,5 +10,5 @@ scoreboard players reset @s timber
 # cheap custom server fix
 execute if score not_vanilla timber matches 1 run kill @s
 
-# check sapling every time
+# sapling will be checked every time
 tag @s remove timber_checked
