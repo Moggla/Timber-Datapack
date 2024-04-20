@@ -2,7 +2,7 @@
 execute as @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] at @s run function timber:slow_chop/api
 
 # destroy 5 block
-execute as @e[type=minecraft:armor_stand,tag=timber_tool,y=0,distance=...1,sort=arbitrary,limit=1] at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=5] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
+execute as @e[type=minecraft:armor_stand,tag=timber_tool,y=-64,distance=...1,sort=arbitrary,limit=1] at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=5] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 
 # destroy animation
 gamerule doTileDrops false

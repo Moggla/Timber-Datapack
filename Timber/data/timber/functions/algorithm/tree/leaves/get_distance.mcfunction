@@ -13,3 +13,5 @@ execute if block ~ ~ ~ #minecraft:leaves[distance=11] run scoreboard players set
 execute if block ~ ~ ~ #minecraft:leaves[distance=12] run scoreboard players set leaf_distance timber 12
 execute if block ~ ~ ~ #minecraft:leaves[distance=13] run scoreboard players set leaf_distance timber 13
 execute if block ~ ~ ~ #minecraft:leaves[distance=14] run scoreboard players set leaf_distance timber 14
+# always destroy mangrove sapling
+execute if block ~ ~ ~ minecraft:mangrove_propagule run scoreboard players set leaf_distance timber 15
