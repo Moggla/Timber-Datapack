@@ -1,4 +1,4 @@
-#> search for next log downwards
+# search for next log downwards
 execute positioned ~ ~-1 ~ if predicate timber:block/stem unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...1,sort=arbitrary,limit=1] run function timber:algorithm/fungus/chop
 execute positioned ~ ~-1 ~1 if predicate timber:block/stem unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...1,sort=arbitrary,limit=1] run function timber:algorithm/fungus/chop
 execute positioned ~ ~-1 ~-1 if predicate timber:block/stem unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...1,sort=arbitrary,limit=1] run function timber:algorithm/fungus/chop

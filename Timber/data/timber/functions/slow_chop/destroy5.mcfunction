@@ -1,4 +1,4 @@
-#> Destroy 5 block
+# Destroy 5 block
 execute as @e[type=minecraft:armor_stand,tag=timber_tool,y=0,distance=...1,sort=arbitrary,limit=1] at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,sort=nearest,limit=5] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 # destroy animation
 gamerule doTileDrops false
