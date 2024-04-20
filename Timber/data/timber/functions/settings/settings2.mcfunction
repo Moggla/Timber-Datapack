@@ -26,7 +26,8 @@ execute if score golden_axe timber matches 1.. run tellraw @s ["",{"text":"[ ❌
 execute unless score diamond_axe timber matches 1.. run tellraw @s ["",{"text":"[ ✔ ]","color":"green","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/diamond_axe"}},{"text":" Enable Diamond Axe"}]
 execute if score diamond_axe timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"red","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/diamond_axe"}},{"text":" Enable Diamond Axe"}]
 
-tellraw @s ["",{"text":" "}]
+execute unless score netherite_axe timber matches 1.. run tellraw @s ["",{"text":"[ ✔ ]","color":"green","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/netherite_axe"}},{"text":" Enable Netherite Axe"}]
+execute if score netherite_axe timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"red","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/netherite_axe"}},{"text":" Enable Netherite Axe"}]
 
 execute unless score slow_chop timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"gray","hoverEvent":{"action":"show_text","value":"Not active when \"Chop Slowly\" is disabled."}},{"text":" Set Amount of Destroyed Blocks per Chop"}]
 execute if score blocks_per_chop timber matches 1 if score slow_chop timber matches 1.. run tellraw @s ["",{"text":"[ ✎ ]","color":"gray","clickEvent":{"action":"suggest_command","value":"/scoreboard players set blocks_per_chop timber "},"hoverEvent":{"action":"show_text","value":"Default: 1"}},{"text":" Set Amount of Destroyed Blocks per Chop"}]

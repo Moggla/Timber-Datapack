@@ -7,6 +7,7 @@ scoreboard objectives add timber_s_axe minecraft.used:minecraft.stone_axe
 scoreboard objectives add timber_i_axe minecraft.used:minecraft.iron_axe
 scoreboard objectives add timber_g_axe minecraft.used:minecraft.golden_axe
 scoreboard objectives add timber_d_axe minecraft.used:minecraft.diamond_axe
+scoreboard objectives add timber_n_axe minecraft.used:minecraft.netherite_axe
 scoreboard objectives add timber dummy
 scoreboard objectives add TimberToggle trigger {"text":"Timber Toggle","color":"#724E21"}
 scoreboard objectives add timber_disabled dummy
@@ -30,4 +31,4 @@ execute unless data block ~ 255 ~ Items[{id:"minecraft:anvil"}] run tellraw @a [
 fill ~-1 255 ~-1 ~1 255 ~1 minecraft:air
 
 #> installation message
-tellraw @a [{"text":"Timber Datapack V13.1 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
+tellraw @a [{"text":"Timber Datapack V14 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
