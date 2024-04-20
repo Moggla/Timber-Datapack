@@ -1,5 +1,5 @@
 # installation message
-    tellraw @a [{"text":"Timber Datapack V15.1 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
+    tellraw @a [{"text":"Timber Datapack V15.2 installed!","color":"dark_green"},{"text":"\n[click here to check for new updates]","color":"gold","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
 
 # longer maxCommandChainLength
     gamerule maxCommandChainLength 1000000000
@@ -41,7 +41,7 @@
     execute if score game_version timber matches ..2565 run tellraw @a [{"text":"Timber Datapack Warning: This datapack is not compatible with all the versions before 1.16!","color":"red"}]
 
     # Checking if the server uses a different jar from the vanilla one
-        execute if score not_vanilla timber matches 0 store success score not_vanilla timber run data get entity @r "Spigot.ticksLived"
-        execute if score not_vanilla timber matches 0 store success score not_vanilla timber run data get entity @r "Bukkit.updateLevel"
-        execute if score not_vanilla timber matches 0 store success score not_vanilla timber run data get entity @r "Paper.SpawnReason"
+        execute unless score not_vanilla timber matches 1.. store success score not_vanilla timber run data get entity @r "Spigot.ticksLived"
+        execute unless score not_vanilla timber matches 1.. store success score not_vanilla timber run data get entity @r "Bukkit.updateLevel"
+        execute unless score not_vanilla timber matches 1.. store success score not_vanilla timber run data get entity @r "Paper.SpawnReason"
         execute if score not_vanilla timber matches 1 run tellraw @a [{"text":"Timber Datapack Warning: Compatibility in non-vanilla servers is not guaranteed! For more information please visit official download site.","color":"red","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]

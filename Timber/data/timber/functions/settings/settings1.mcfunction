@@ -40,12 +40,15 @@ execute if score drop_loot timber matches 1.. run tellraw @s ["",{"text":"[ ✔ 
 execute unless score drop_loot timber matches 1.. unless score slow_chop timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"red","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/drop_loot"}},{"text":" Drop Loot Straight into Inventory","hoverEvent":{"action":"show_text","value":"Lets the dropped items of the tree teleport straight into your own inventory. As soon as you have a full inventory the loot gets dropped on the ground.\nThis option can increase performance."}}]
 execute unless score drop_loot timber matches 1.. if score slow_chop timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"red","hoverEvent":{"action":"show_text","value":"Can't be enabled when \"Chop Slowly\" is enabled."}},{"text":" Drop Loot Straight into Inventory","hoverEvent":{"action":"show_text","value":"Lets the dropped items of the tree teleport straight into your own inventory. As soon as you have a full inventory the loot gets dropped on the ground.\nThis option can increase performance."}}]
 
+execute if score hunger timber matches 1.. run tellraw @s ["",{"text":"[ ✔ ]","color":"green","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/hunger"}},{"text":" Give Additional Hunger Effect","hoverEvent":{"action":"show_text","value":"Gives a hunger effect for 1 second with the same level as the size of the chopped tree."}}]
+execute unless score hunger timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"red","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/hunger"}},{"text":" Give Additional Hunger Effect","hoverEvent":{"action":"show_text","value":"Gives a hunger effect for 1 second with the same level as the size of the chopped tree."}}]
+
 execute if score stopsound timber matches 1.. run tellraw @s ["",{"text":"[ ✔ ]","color":"green","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/stopsound"}},{"text":" Stop Loud Breaking Noises","hoverEvent":{"action":"show_text","value":"Suppresses loud breaking noises when chopping a tree.\nThis option is experimental because sometimes it still sounds loud for a fraction of a second."}}]
 execute unless score stopsound timber matches 1.. run tellraw @s ["",{"text":"[ ❌ ]","color":"red","clickEvent":{"action":"run_command","value":"/function timber:settings/toggle/stopsound"}},{"text":" Stop Loud Breaking Noises","hoverEvent":{"action":"show_text","value":"Suppresses loud breaking noises when chopping a tree.\nThis option is experimental because sometimes it still sounds loud for a fraction of a second."}}]
 
 tellraw @s ["",{"text":" "}]
-tellraw @s ["",{"text":" "}]
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
+schedule function timber:settings/reset_gamerule 1t
 gamerule sendCommandFeedback false

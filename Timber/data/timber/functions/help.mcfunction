@@ -18,4 +18,5 @@ tellraw @s ["","                    ",{"text":"[click here to see the settings]"
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
+schedule function timber:settings/reset_gamerule 1t
 gamerule sendCommandFeedback false

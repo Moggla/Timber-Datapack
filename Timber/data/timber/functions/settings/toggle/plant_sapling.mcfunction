@@ -10,4 +10,5 @@ execute if score plant_sapling timber matches 1 run playsound minecraft:ui.butto
 execute if score plant_sapling timber matches 1 run tag @s add timber_settings1
 execute if score plant_sapling timber matches 1 run function timber:settings/settings_reload
 
+schedule function timber:settings/reset_gamerule 1t
 gamerule sendCommandFeedback false
