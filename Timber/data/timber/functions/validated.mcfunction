@@ -11,9 +11,19 @@ execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbrea
 #> get durability
 execute store result score durability timber run data get entity @s SelectedItem.tag.Damage
 scoreboard players remove durability timber 1
+execute if entity @s[nbt=!{SelectedItem:{}}] run scoreboard players set durability timber 9999
 
 #> mark all blocks that will get destroyed
-execute at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:tree/algorithm/chop
+    # tree
+    execute if score tree_type timber matches 1 at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:algorithm/tree/chop
+    
+    # fungus
+    execute if score tree_type timber matches 2 at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:algorithm/fungus/chop
+
+    execute if score tree_type timber matches 2 at @e[type=minecraft:area_effect_cloud,tag=timber_leaf] unless entity @e[type=minecraft:area_effect_cloud,tag=timber_destroy,distance=...1] run summon area_effect_cloud ~ ~ ~ {Tags:["timber_destroy"],Duration:2147483647}
+    execute if score tree_type timber matches 2 run function timber:algorithm/fungus/leaves/find_other_stems
+    # Don't destroy the blocks in a radius of 5 blocks from other stems
+    execute if score tree_type timber matches 2 at @e[type=minecraft:area_effect_cloud,tag=timber_other_stem] at @e[type=minecraft:area_effect_cloud,tag=timber_destroy,sort=nearest,distance=..5] unless predicate timber:block/stem run kill @e[type=minecraft:area_effect_cloud,tag=timber_destroy,sort=arbitrary,distance=...1]
 
 # when full inventory fix
 execute if score drop_loot timber matches 1.. store result score inventory timber run data get entity @s Inventory
@@ -25,8 +35,8 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 
 #> destroy all marked blocks
 execute unless score slow_chop timber matches 1.. unless score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
-execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 36.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
-execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 36.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
+execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
+execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 # destroy animation
 gamerule doTileDrops false
 execute unless score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
@@ -37,11 +47,15 @@ execute if score slow_chop timber matches 1.. at @e[type=minecraft:area_effect_c
 execute if score slow_chop timber matches 1.. run tag @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] add timber_slow_chop
 
 # tp hand-broken loot into inventory
-execute if score drop_loot timber matches 1.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:tree/tp_item
+execute if score drop_loot timber matches 1.. unless score inventory timber matches 37.. at @e[type=minecraft:area_effect_cloud,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run function timber:tp_item
 
 #> stop sound
-execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.wood.break
 execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.grass.break
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.wood.break
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.wart_block.break
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.shroomlight.break
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.nether_wart.break
+execute if score stopsound timber matches 1.. run stopsound @a[distance=..20,tag=!global.ignore,tag=!global.ignore.gui] block minecraft:block.stem.break
 
 #> wear out tool
 execute unless score wear_out timber matches 1.. run function timber:tool/wear_out
