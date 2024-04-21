@@ -8,11 +8,11 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
 
 # destroy blocks
     # mark blocks that need to be destroyed
-    tag @e[type=minecraft:marker,tag=timber_log] add timber_destroy
-    tag @e[type=minecraft:marker,tag=timber_leaf] add timber_destroy
-    tag @e[type=minecraft:marker,tag=timber_stem] add timber_destroy
-    tag @e[type=minecraft:marker,tag=timber_cap] add timber_destroy
-    # api
+    execute if score mode timber matches 1 run tag @e[type=minecraft:marker,tag=timber_log] add timber_destroy
+    execute if score mode timber matches 1 run tag @e[type=minecraft:marker,tag=timber_leaf] add timber_destroy
+    execute if score mode timber matches 1 run tag @e[type=minecraft:marker,tag=timber_stem] add timber_destroy
+    execute if score mode timber matches 1 run tag @e[type=minecraft:marker,tag=timber_cap] add timber_destroy
+    # apirun 
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_log] run function #timber:api/break_log
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_leaf] run function #timber:api/break_leaf
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_stem] run function #timber:api/break_stem
@@ -27,6 +27,11 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
     gamerule doTileDrops true
     # remove destroy marker
     execute unless score slow_chop timber matches 1.. run kill @e[type=minecraft:marker,tag=timber_destroy]
+
+# trim blocks
+    # mark blocks that need to be trimmed
+    execute if score mode timber matches 2 run tag @e[type=minecraft:marker,tag=timber_log] add timber_destroy
+    execute if score mode timber matches 2 run tag @e[type=minecraft:marker,tag=timber_stem] add timber_destroy
 
 # stop sound
 execute if score stopsound timber matches 1.. as @a[distance=..20,tag=!global.ignore.gui] run function timber:utils/stopsound

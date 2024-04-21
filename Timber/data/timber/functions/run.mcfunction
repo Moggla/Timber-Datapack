@@ -2,13 +2,17 @@
 scoreboard players set leaves_found timber 0
 scoreboard players set tree_size timber 0
 scoreboard players set tree_type timber 0
+scoreboard players set mode timber 0
 
 # load settings to other scoreboard (leaves persistent)
 execute unless score persistent timber matches 1.. run scoreboard players set @s timber_prsistent 0
 execute if score persistent timber matches 1.. run scoreboard players set @s timber_prsistent 1
 
 # search last broken item (place of tree) and set a marker
-execute at @e[type=minecraft:item,distance=..7,limit=1,nbt={Age:0s}] run summon marker ~ ~ ~ {Tags:["timber_tree","global.ignore"]}
+execute store success score mode timber at @e[type=minecraft:item,distance=..7,limit=1,nbt={Age:0s}] run summon marker ~ ~ ~ {Tags:["timber_tree","global.ignore"]}
+
+#
+execute if score mode timber matches 0 anchored eyes positioned ^ ^ ^ anchored feet run function timber:algorithm/raycast/start
 
 # Enchantments randomizer
 scoreboard players set unbreaking timber 0
