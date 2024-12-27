@@ -17,7 +17,7 @@
             "minecraft:mangrove_propagule"
           ],
           "state": {
-            "hanging": true
+            "hanging": "true"
           }
         }
       }
