@@ -1,6 +1,7 @@
 {
     "pack": {
-        "pack_format": 15, 
-        "description": "Timber Datapack allows you to instantly chop down a tree just by breaking one log"
+        "description": "Timber Datapack allows you to instantly chop down a tree just by breaking one log", 
+        "pack_format": 18, 
+        "supported_formats": [18]
     }
 }
