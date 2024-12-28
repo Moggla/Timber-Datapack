@@ -1,14 +1,39 @@
 {
     "display": {
         "title": "Datapacks by Moggla                                            ",
-        "description": "Check out Moggla on the website PlanetMinecraft for more",
-        "frame": "goal",
+        "description": [
+            "",
+            {
+                "text": "https://www.planetminecraft.com/data-pack/timber-datapack/\n",
+                "color": "dark_green"
+            },
+            {
+                "text": "https://github.com/Moggla\n",
+                "color": "dark_aqua"
+            }
+        ],
         "icon": {
-            "item": "minecraft:player_head",
-            "nbt": "{SkullOwner: 'Moggla'}"
-        },
-        "announce_to_chat": false,
-        "show_toast": false
+			"id": "minecraft:player_head",
+			"components": {
+				"minecraft:profile": {
+					"properties": [
+						{
+							"name": "textures",
+							"value": "ewogICJ0aW1lc3RhbXAiIDogMTczNTQxNjMyODQ0NiwKICAicHJvZmlsZUlkIiA6ICIxMTk3YmJiMTk2Nzg0NmFlOTc1ZjYxMzcxZTI1OThkNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJNb2dnbGEiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmYyNGQyNjE3NGZkZjFkZWQ3NDIzMmM3YzdlMjIzZjcyYjkyYWMxZjJhMjRiZTk1NGVjODU1NjNiYjI4MjAxZiIKICAgIH0sCiAgICAiQ0FQRSIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjlhNzY1Mzc2NDc5ODlmOWEwYjZkMDAxZTMyMGRhYzU5MWMzNTllOWU2MWEzMWY0Y2UxMWM4OGYyMDdmMGFkNCIKICAgIH0KICB9Cn0="
+						}
+					],
+                    "name": "Moggla",
+                    "id": [
+                        295156657,
+                        -1770502482,
+                        -1755356873,
+                        505780436
+                    ]
+				}
+			}
+		},
+        "show_toast": false,
+        "announce_to_chat": false
     },
     "parent": "global:root",
     "criteria": {
