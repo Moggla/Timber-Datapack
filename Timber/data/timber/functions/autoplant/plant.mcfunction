@@ -8,7 +8,8 @@ execute positioned ~ ~0.125 ~ run data modify entity @e[type=minecraft:falling_b
 # on stacks -1
 execute store result score @s timber run data get entity @s Item.count
 scoreboard players remove @s timber 1
-execute store result entity @s Item.count byte 1 run scoreboard players get @s timber
+execute if score @s timber matches ..0 run kill @s
+execute if score @s timber matches 1.. store result entity @s Item.count byte 1 run scoreboard players get @s timber
 scoreboard players reset @s timber
 # cheap custom server fix
 execute if score not_vanilla timber matches 1 run kill @s
