@@ -13,7 +13,7 @@ gamerule doTileDrops true
 execute if score stopsound timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] as @a[distance=..20,tag=!global.ignore.gui] run function timber:utils/stopsound
 
 # delete location item
-execute at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] run kill @e[type=minecraft:item,distance=..1,nbt={Item:{tag:{Tags:["timber_location"]}}}]
+execute at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] run kill @e[type=minecraft:item,distance=..1,nbt={Item:{components:{"minecraft:custom_data":{Tags:["timber_location"]}}}}]
 
 # remove marker of processed blocks
 kill @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1]

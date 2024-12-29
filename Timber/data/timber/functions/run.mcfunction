@@ -12,9 +12,9 @@ execute at @e[type=minecraft:item,distance=..7,nbt={Age:0s}] run summon marker ~
 
 # Enchantments randomizer
 scoreboard players set unbreaking timber 0
-execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:1s}]}}}] run scoreboard players set unbreaking timber 1
-execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:2s}]}}}] run scoreboard players set unbreaking timber 2
-execute if entity @s[nbt={SelectedItem:{tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:3s}]}}}] run scoreboard players set unbreaking timber 3
+execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{levels:{"minecraft:unbreaking": 1}}}}}] run scoreboard players set unbreaking timber 1
+execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{levels:{"minecraft:unbreaking": 2}}}}}] run scoreboard players set unbreaking timber 2
+execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{levels:{"minecraft:unbreaking": 3}}}}}] run scoreboard players set unbreaking timber 3
 
 # get durability
 function timber:tool/durability_get
@@ -33,8 +33,8 @@ function timber:tool/durability_get
 execute unless score tree_type timber matches 0 run function timber:validated
 
 # remove markers
-execute if score chop_fungi timber matches 1.. run kill @e[type=minecraft:item,nbt={Item:{tag:{Tags:[timber_location]}}}]
-execute if score chop_fungi timber matches 1.. run clear @s knowledge_book{Tags:[timber_location]}
+execute if score chop_fungi timber matches 1.. run kill @e[type=minecraft:item,nbt={Item:{components:{"minecraft:custom_data":{Tags:["timber_location"]}}}}]
+#execute if score chop_fungi timber matches 1.. run clear @s knowledge_book{Tags:[timber_location]}
 kill @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop]
 kill @e[type=minecraft:marker,tag=timber_log,tag=!timber_destroy]
 kill @e[type=minecraft:marker,tag=timber_leaf,tag=!timber_destroy]

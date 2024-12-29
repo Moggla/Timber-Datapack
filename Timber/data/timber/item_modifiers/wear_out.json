@@ -1,16 +1,11 @@
-[
-  {
-    "function": "minecraft:copy_nbt",
-    "source": {
-      "type": "minecraft:storage",
-      "source": "timber:temp"
+{
+  "function": "minecraft:set_damage",
+  "damage": {
+    "type": "minecraft:score",
+    "target": {
+      "type": "minecraft:fixed",
+      "name": "durability"
     },
-    "ops": [
-      {
-        "source": "durability",
-        "target": "Damage",
-        "op": "replace"
-      }
-    ]
+    "score": "timber"
   }
-]
+}

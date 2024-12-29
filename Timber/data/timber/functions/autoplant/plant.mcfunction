@@ -6,9 +6,9 @@ summon minecraft:falling_block ~ ~0.125 ~ {BlockState:{Name:"minecraft:barrier"}
 execute positioned ~ ~0.125 ~ run data modify entity @e[type=minecraft:falling_block,tag=timber_item_to_block,distance=...1,sort=arbitrary,limit=1] BlockState.Name set from entity @s Item.id
 
 # on stacks -1
-execute store result score @s timber run data get entity @s Item.Count
+execute store result score @s timber run data get entity @s Item.count
 scoreboard players remove @s timber 1
-execute store result entity @s Item.Count byte 1 run scoreboard players get @s timber
+execute store result entity @s Item.count byte 1 run scoreboard players get @s timber
 scoreboard players reset @s timber
 # cheap custom server fix
 execute if score not_vanilla timber matches 1 run kill @s

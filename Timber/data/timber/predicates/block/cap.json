@@ -5,7 +5,7 @@
       "condition": "minecraft:location_check",
       "predicate": {
         "block": {
-          "tag": "minecraft:wart_blocks"
+          "blocks": "#minecraft:wart_blocks"
         }
       }
     },
@@ -13,7 +13,7 @@
       "condition": "minecraft:location_check",
       "predicate": {
         "block": {
-          "blocks": ["minecraft:shroomlight"]
+          "blocks": "minecraft:shroomlight"
         }
       }
     },
@@ -21,7 +21,7 @@
       "condition": "minecraft:location_check",
       "predicate": {
         "block": {
-          "blocks": ["minecraft:brown_mushroom_block"]
+          "blocks": "minecraft:brown_mushroom_block"
         }
       }
     },
@@ -29,7 +29,7 @@
       "condition": "minecraft:location_check",
       "predicate": {
         "block": {
-          "blocks": ["minecraft:red_mushroom_block"]
+          "blocks": "minecraft:red_mushroom_block"
         }
       }
     }

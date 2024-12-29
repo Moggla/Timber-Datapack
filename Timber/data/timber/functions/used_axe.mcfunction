@@ -7,7 +7,7 @@ execute unless score @s timber_disabled matches 1.. if score @s timber_d_axe mat
 execute unless score @s timber_disabled matches 1.. if score @s timber_n_axe matches 1.. if score netherite_axe timber matches 1.. run function timber:sneaking
 
 # remove mushroom_stem marker
-kill @e[type=minecraft:item,distance=..7,nbt={Item:{tag:{Tags:[timber_location]}}}]
+kill @e[type=minecraft:item,distance=..7,nbt={Item:{components:{"minecraft:custom_data":{Tags:["timber_location"]}}}}]
 
 # reset scores
 scoreboard players set @s timber_w_axe 0

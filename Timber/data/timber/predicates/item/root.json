@@ -4,11 +4,8 @@
   "predicate": {
     "equipment": {
       "mainhand": {
-        "items": [
-          "minecraft:mangrove_roots"
-        ]
+        "items": "minecraft:mangrove_roots"
       }
     }
   }
 }
-  
