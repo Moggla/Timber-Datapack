@@ -1,8 +1,8 @@
 {
     "pack": {
         "description": "Timber Datapack allows you to instantly chop down a tree just by breaking one log", 
-        "pack_format": 57, 
-        "supported_formats": [18, 57]
+        "pack_format": 61, 
+        "supported_formats": [18, 61]
     },
     "overlays": {
         "entries": [
