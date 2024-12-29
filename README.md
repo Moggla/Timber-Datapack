@@ -1,4 +1,4 @@
-![logo](image_resources/logo.png)  
+![logo](.github/resources/logo.png)  
 
 This is a really useful addition for those who don't want to spend expensive time on gathering resources! After installing, the Timber Datapack allows you to instantly chop down a tree just by breaking one log with any axe.  
 By default, sneaking while breaking will not chop the tree.  
@@ -17,10 +17,10 @@ Optionally, you can adjust everything as you wish.
 ³ All kind of custom trees like from **BiomesO'Plenty**, **The Biome Overhaul**, **Terrestria and Traverse**.  
 
 # Preview
-<img src="image_resources/chop_tree.gif" width="40.4%" height="40.4%"/>
+<img src=".github/resources/chop_tree.gif" width="40.4%" height="40.4%"/>
 
-<img src="image_resources/chop_nether_tree.gif" width="20%" height="20%"/>
-<img src="image_resources/chop_fungi.gif" width="20%" height="20%"/>
+<img src=".github/resources/chop_nether_tree.gif" width="20%" height="20%"/>
+<img src=".github/resources/chop_fungi.gif" width="20%" height="20%"/>
  
 *Enable the option "Chop Fungi"
 
@@ -40,9 +40,9 @@ Every player can individually turn the datapack ON or OFF by using:
 
 ```/trigger TimberToggle```
 
-![help](image_resources/help.png)  
-![settings1](image_resources/settings1.png)  
-![settings2](image_resources/settings2.png)  
+![help](.github/resources/help.png)  
+![settings1](.github/resources/settings1.png)  
+![settings2](.github/resources/settings2.png)  
 
 # Advanced Manual
 Todo
