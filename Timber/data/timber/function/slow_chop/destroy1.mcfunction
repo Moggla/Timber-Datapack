@@ -4,7 +4,7 @@ execute as @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] at 
 # destroy 1 block
 execute as @e[type=minecraft:armor_stand,tag=timber_tool,y=-64,distance=...1,sort=arbitrary,limit=1] at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 
-# destroy animation
+# destroy animation (doTileDrops can be changed, because datapack wouldn't get to this point otherwise)
 gamerule doTileDrops false
 execute at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=1] run setblock ~ ~ ~ minecraft:air destroy
 gamerule doTileDrops true
