@@ -1,3 +1,5 @@
+execute store result storage timber:max_command_chain_length value int 1 run gamerule maxCommandChainLength
+
 # is this axe enabled?
 execute unless score @s timber_disabled matches 1.. if score @s timber_w_axe matches 1.. if score wooden_axe timber matches 1.. run function timber:sneaking
 execute unless score @s timber_disabled matches 1.. if score @s timber_s_axe matches 1.. if score stone_axe timber matches 1.. run function timber:sneaking
@@ -16,3 +18,5 @@ scoreboard players set @s timber_i_axe 0
 scoreboard players set @s timber_g_axe 0
 scoreboard players set @s timber_d_axe 0
 scoreboard players set @s timber_n_axe 0
+
+function timber:utils/set_max_command_chain_length with storage timber:max_command_chain_length
