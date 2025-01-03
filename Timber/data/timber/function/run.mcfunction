@@ -31,11 +31,10 @@ function timber:tool/durability_get
 
 # if tree or fungi is valid (tree = 1 | fungus = 2)
 execute unless score tree_type timber matches 0 if score tree_size timber <= max_tree_size timber run function timber:validated
-execute unless score tree_type timber matches 0 if score tree_size timber > max_tree_size timber run say tree too big
 
 # remove markers
 execute if score chop_fungi timber matches 1.. run kill @e[type=minecraft:item,nbt={Item:{components:{"minecraft:custom_data":{Tags:["timber_location"]}}}}]
-#execute if score chop_fungi timber matches 1.. run clear @s knowledge_book{Tags:[timber_location]}
+execute if score chop_fungi timber matches 1.. run clear @s knowledge_book[minecraft:custom_data={Tags:["timber_location"]}]
 kill @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop]
 kill @e[type=minecraft:marker,tag=timber_log,tag=!timber_destroy]
 kill @e[type=minecraft:marker,tag=timber_leaf,tag=!timber_destroy]
