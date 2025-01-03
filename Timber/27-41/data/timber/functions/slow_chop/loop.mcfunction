@@ -1,12 +1,4 @@
-# Loop
-execute if score slow_chop timber matches 1.. run schedule function timber:slow_chop/loop 1t replace
-
-scoreboard players add t_b_c timber 1
-
-# chop trees
-execute if score t_b_c timber >= time_between_chops timber at @e[type=minecraft:marker,tag=timber_slow_chop] run function timber:slow_chop/destroy_loop
-
-# delete tree markers after chopping
-execute if score t_b_c timber >= time_between_chops timber unless entity @e[type=minecraft:marker,tag=timber_destroy] run function timber:slow_chop/delete_markers
-
-execute if score t_b_c timber >= time_between_chops timber run scoreboard players set t_b_c timber 0
+# destroy loop
+execute store result storage timber:slow_chop blocks_per_chop int 1 run scoreboard players get blocks_per_chop timber
+execute store result storage timber:slow_chop time_between_chops int 1 run scoreboard players get time_between_chops timber
+execute if score slow_chop timber matches 1.. run function timber:slow_chop/destroy_loop with storage timber:slow_chop

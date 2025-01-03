@@ -23,7 +23,7 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
     execute unless score slow_chop timber matches 1.. unless score drop_loot timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
     execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 36.. at @e[type=minecraft:marker,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
     execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 36.. at @e[type=minecraft:marker,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
-    # destroy animation
+    # destroy animation (doTileDrops can be changed, because datapack wouldn't get to this point otherwise)
     gamerule doTileDrops false
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
     gamerule doTileDrops true

@@ -16,6 +16,7 @@ scoreboard objectives add timber_prsistent dummy
 # non-overriding default values
 function timber:settings/default_values
 function timber:tool/durability_max
+scoreboard players set running timber 0
 
 # start optional loops
 execute if score plant_sapling timber matches 1.. run function timber:autoplant/loop
