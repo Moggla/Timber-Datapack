@@ -1,6 +1,6 @@
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
-tellraw @s ["",{"text":"                            Timber Datapack"}]
+tellraw @s ["",{"text":"                              Timber Datapack"}]
 
 tellraw @s ["",{"text":"\u00A7m                                                                                ","color":"dark_gray"}]
 
@@ -14,7 +14,7 @@ tellraw @s ["",{"text":"Every player can use "},{"text":"/trigger TimberToggle",
 
 tellraw @s [""]
 
-tellraw @s ["",{"text":"For in-depth description and manual "},{"text":"click here","color":"dark_green","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}},{"text":"."}]
+tellraw @s ["","                ",{"text":"[click here to check for new updates]","color":"green","clickEvent":{"action":"open_url","value":"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
 
 tellraw @s [""]
 

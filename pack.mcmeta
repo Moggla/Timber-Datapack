@@ -6,7 +6,7 @@
     },
     "overlays": {
         "entries": [
-            {"formats": [18, 41], "directory": "27-41"},
+            {"formats": [18, 41], "directory": "18-41"},
             {"formats": [18, 26], "directory": "18-26"}
         ]
     }
