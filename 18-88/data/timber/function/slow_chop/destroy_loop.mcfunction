@@ -7,10 +7,10 @@ $execute at @e[type=minecraft:marker,tag=timber_slow_chop] as @e[type=minecraft:
 # destroy n block
 $execute at @e[type=minecraft:marker,tag=timber_slow_chop] as @e[type=minecraft:armor_stand,tag=timber_tool,y=-64,distance=...1,sort=arbitrary,limit=1] at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=$(blocks_per_chop)] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
 
-# destroy animation (minecraft:block_drops can be changed, because datapack wouldn't get to this point otherwise)
-gamerule minecraft:block_drops false
+# destroy animation (doTileDrops can be changed, because datapack wouldn't get to this point otherwise)
+gamerule doTileDrops false
 $execute at @e[type=minecraft:marker,tag=timber_slow_chop] at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=$(blocks_per_chop)] run setblock ~ ~ ~ minecraft:air destroy
-gamerule minecraft:block_drops true
+gamerule doTileDrops true
 
 # stop sound
 $execute at @e[type=minecraft:marker,tag=timber_slow_chop] if score stopsound timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy,sort=nearest,limit=$(blocks_per_chop)] as @a[distance=..20,tag=!global.ignore.gui] run function timber:utils/stopsound

@@ -1,1 +1,1 @@
-gamerule sendCommandFeedback true
+gamerule minecraft:send_command_feedback true

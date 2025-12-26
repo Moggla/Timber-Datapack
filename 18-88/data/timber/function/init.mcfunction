@@ -1,5 +1,5 @@
-# longer minecraft:max_command_sequence_length
-gamerule minecraft:max_command_sequence_length 1000000000
+# longer maxCommandChainLength
+gamerule maxCommandChainLength 1000000000
 
 # create scoreboards
 scoreboard objectives add timber_w_axe minecraft.used:minecraft.wooden_axe
@@ -28,8 +28,8 @@ setblock ~ 255 ~1 minecraft:mushroom_stem
 loot insert ~ 255 ~ mine ~ 255 ~1 minecraft:diamond_axe
 execute unless data block ~ 255 ~ Items[{id:"minecraft:knowledge_book",components:{"minecraft:custom_data":{Tags:["timber_location"]}}}] run tellraw @a[tag=!noTimberWarning] ["",{text:"Timber Datapack Warning: ",color:"red"},{text:"Incompatibility with the mushroom_stem loottable of another datapack!"}]
 fill ~-1 255 ~-1 ~1 255 ~1 minecraft:air
-execute store result score block_drops timber run gamerule minecraft:block_drops
-execute if score block_drops timber matches 0 run tellraw @a[tag=!noTimberWarning] ["",{text:"Timber Datapack Warning: ",color:"red"},{text:"This datapack only works when gamerule minecraft:block_drops is set to true!"}]
+execute store result score doTileDrops timber run gamerule doTileDrops
+execute if score doTileDrops timber matches 0 run tellraw @a[tag=!noTimberWarning] ["",{text:"Timber Datapack Warning: ",color:"red"},{text:"This datapack only works when gamerule doTileDrops is set to true!"}]
 
 # Getting the game version and checking if it is compatible with the datapack https://minecraft.fandom.com/wiki/Data_version
 execute store result score game_version timber run data get entity @r DataVersion
