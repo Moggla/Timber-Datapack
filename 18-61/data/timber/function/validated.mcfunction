@@ -35,7 +35,7 @@ execute if score stopsound timber matches 1.. as @a[distance=..20,tag=!global.ig
 
 # save tool for slow chopping process
 execute if score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run summon minecraft:armor_stand ~ -64 ~ {Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:["timber_tool"],Rotation:[45f],Pose:{RightArm:[0f,270f,0f]}}
-execute if score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run data modify entity @e[type=minecraft:armor_stand,tag=timber_tool,y=-64,distance=...1,sort=arbitrary,limit=1] equipment.mainhand merge from entity @s SelectedItem
+execute if score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] run data modify entity @e[type=minecraft:armor_stand,tag=timber_tool,y=-64,distance=...1,sort=arbitrary,limit=1] HandItems[0] merge from entity @s SelectedItem
 execute if score slow_chop timber matches 1.. run tag @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7,sort=arbitrary,limit=1] add timber_slow_chop
 
 # tp hand-broken loot into inventory
