@@ -15,6 +15,9 @@ execute unless score wooden_axe timber matches 1.. run tellraw @s ["",{text:"[ �
 execute if score stone_axe timber matches 1.. run tellraw @s ["",{text:"[ ✔ ]",color:"green",click_event:{action:"run_command",command:"/function timber:settings/toggle/stone_axe"}},{text:" Enable Stone Axe"}]
 execute unless score stone_axe timber matches 1.. run tellraw @s ["",{text:"[ ❌ ]",color:"red",click_event:{action:"run_command",command:"/function timber:settings/toggle/stone_axe"}},{text:" Enable Stone Axe"}]
 
+execute if score copper_axe timber matches 1.. run tellraw @s ["",{text:"[ ✔ ]",color:"green",click_event:{action:"run_command",command:"/function timber:settings/toggle/copper_axe"}},{text:" Enable Copper Axe"}]
+execute unless score copper_axe timber matches 1.. run tellraw @s ["",{text:"[ ❌ ]",color:"red",click_event:{action:"run_command",command:"/function timber:settings/toggle/copper_axe"}},{text:" Enable Copper Axe"}]
+
 execute if score iron_axe timber matches 1.. run tellraw @s ["",{text:"[ ✔ ]",color:"green",click_event:{action:"run_command",command:"/function timber:settings/toggle/iron_axe"}},{text:" Enable Iron Axe"}]
 execute unless score iron_axe timber matches 1.. run tellraw @s ["",{text:"[ ❌ ]",color:"red",click_event:{action:"run_command",command:"/function timber:settings/toggle/iron_axe"}},{text:" Enable Iron Axe"}]
 

@@ -4,6 +4,7 @@ gamerule minecraft:max_command_sequence_length 1000000000
 # create scoreboards
 scoreboard objectives add timber_w_axe minecraft.used:minecraft.wooden_axe
 scoreboard objectives add timber_s_axe minecraft.used:minecraft.stone_axe
+scoreboard objectives add timber_c_axe minecraft.used:minecraft.copper_axe
 scoreboard objectives add timber_i_axe minecraft.used:minecraft.iron_axe
 scoreboard objectives add timber_g_axe minecraft.used:minecraft.golden_axe
 scoreboard objectives add timber_d_axe minecraft.used:minecraft.diamond_axe

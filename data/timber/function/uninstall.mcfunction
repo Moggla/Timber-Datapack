@@ -4,6 +4,7 @@ schedule clear timber:main
 # remove scoreboards
 scoreboard objectives remove timber_w_axe
 scoreboard objectives remove timber_s_axe
+scoreboard objectives remove timber_c_axe
 scoreboard objectives remove timber_i_axe
 scoreboard objectives remove timber_g_axe
 scoreboard objectives remove timber_d_axe

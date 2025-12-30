@@ -58,6 +58,31 @@
         "name": "damage"
       },
       "score": "timber",
+      "scale": 0.005
+    },
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "mainhand": {
+              "items": "minecraft:copper_axe"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_damage",
+    "damage": {
+      "type": "minecraft:score",
+      "target": {
+        "type": "minecraft:fixed",
+        "name": "damage"
+      },
+      "score": "timber",
       "scale": 0.004
     },
     "conditions": [
