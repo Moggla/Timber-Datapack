@@ -58,7 +58,7 @@
         "name": "damage"
       },
       "score": "timber",
-      "scale": 0.005
+      "scale": 0.0052631578947368421
     },
     "conditions": [
       {
