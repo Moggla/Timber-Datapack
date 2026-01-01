@@ -15,6 +15,7 @@ execute unless score stopsound timber = stopsound timber run scoreboard players 
 
 execute unless score wooden_axe timber = wooden_axe timber run scoreboard players set wooden_axe timber 1
 execute unless score stone_axe timber = stone_axe timber run scoreboard players set stone_axe timber 1
+execute unless score copper_axe timber = copper_axe timber run scoreboard players set copper_axe timber 1
 execute unless score iron_axe timber = iron_axe timber run scoreboard players set iron_axe timber 1
 execute unless score golden_axe timber = golden_axe timber run scoreboard players set golden_axe timber 1
 execute unless score diamond_axe timber = diamond_axe timber run scoreboard players set diamond_axe timber 1
