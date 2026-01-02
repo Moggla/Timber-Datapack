@@ -14,7 +14,7 @@ tellraw @s ["",{text:"Every player can use "},{text:"/trigger TimberToggle",colo
 
 tellraw @s [""]
 
-tellraw @s ["","                ",{text:"[click here to check for new updates]",color:"green",click_event:{action:"open_url",url:"https://www.planetminecraft.com/data-pack/timber-datapack/"}}]
+tellraw @s ["","                ",{text:"[click here to check for new updates]",color:"green",click_event:{action:"open_url",url:"https://github.com/Moggla/Timber-Datapack/releases"}}]
 
 tellraw @s [""]
 
