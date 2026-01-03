@@ -1,0 +1,1 @@
+$dialog show @a $(settings_runtime)

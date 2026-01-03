@@ -1,0 +1,770 @@
+{
+    "type": "minecraft:notice",
+    "title": "Timber Global Settings",
+    "external_title": "Timber Settings",
+    "inputs": [
+        {
+            "type": "minecraft:single_option",
+            "key": "standing",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Works When Standing"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": {
+                        "translate": "options.on"
+                    },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": {
+                        "translate": "options.off"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "sneaking",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Works When Sneaking"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "destroy_leaves",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Destroy Leaves"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "plant_sapling",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Auto Plant Saplings",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "All kind of saplings laying on the ground will get planted every 2 seconds."
+                            },
+                            {
+                                "text": "\n\nWhen a sapling get placed on mud, it turns into muddy mangrove roots for a fraction of a second due to datapack limitations.",
+                                "color": "gray"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "destroy_roots",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Destroy Roots",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Only root blocks which are not in the ground count."
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "start_chop_on_root",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Chop Tree When Roots Get Destroyed",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "The datapack will chop the tree if you break its root blocks.\nOnly root blocks which are not in the ground count."
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "slow_chop",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Chop Slowly",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "The tree won't be chopped instantly anymore."
+                            },
+                            {
+                                "text": "\n\nThis option can increase performance.",
+                                "color": "gray"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "chop_down",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Chopping Down",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "Normally when you cut a tree in the middle only the top part of the tree gets destroyed. But if this option is enabled the bottom part will get destroyed as well."
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "stop_chopping",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Stop Chopping Once Axe Breaks",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "Stops the process of chopping the tree as soon as your axe doesn't have any durability left for the whole tree. When disabled, the tree will always be chopped finish."
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "wear_out",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Additionally Wear out Tool Depending on Tree Size",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "The tool's durability will get decreased by the amount of destroyed logs (or stems). When disabled, only one durability gets deducted."
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "drop_loot",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Drop Loot Straight into Inventory",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Lets the dropped items of the tree teleport straight into your own inventory. As soon as you have a full inventory the loot gets dropped on the ground."
+                            },
+                            {
+                                "text": "\n\nThis option can increase performance.",
+                                "color": "gray"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "hunger",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Give Additional Hunger Effect",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "Gives a hunger effect for 1 second with the same level as the size of the chopped tree."
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "stopsound",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Stop Loud Breaking Noises",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Suppresses loud breaking noises when chopping a tree."
+                            },
+                            {
+                                "text": "\n\nThis option is",
+                                "color": "gray"
+                            },
+                            {
+                                "text": " experimental",
+                                "color": "dark_red"
+                            },
+                            {
+                                "text": " because sometimes it still sounds loud for a fraction of a second.",
+                                "color": "gray"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "wooden_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Wooden Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "stone_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Stone Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "copper_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Copper Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "iron_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Iron Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "golden_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Golden Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "diamond_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Diamond Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "netherite_axe",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Enable Netherite Axe"
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "chop_trees",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Chop Trees",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "All kind of trees will get chopped."
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" },
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "chop_fungi",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Chop Fungi",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Huge fungi (nether trees) as well as huge mushrooms will get chopped."
+                            },
+                            {
+                                "text": "\n\nUse it on your own risk!\nWhen enabled, this datapack can't differentiate between generated fungi and player-placed fungi and therefore can potentially destroy your buildings.",
+                                "color": "dark_red"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "persistent",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Destroy Player-Placed Trees",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Player-placed trees are trees made out of player-placed leaves (Look at leaf block with F3 debug screen: persistent = true)."
+                            },
+                            {
+                                "text": "\n\nUse it on your own risk!\nWhen enabled, this datapack can't differentiate between generated trees and player-placed trees anymore and therefore can potentially destroy your buildings.",
+                                "color": "dark_red"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "1",
+                    "display": { "translate": "options.on" }
+                },
+                {
+                    "id": "0",
+                    "display": { "translate": "options.off" },
+                    "initial": true
+                }
+            ]
+        },
+        {
+            "type": "minecraft:number_range",
+            "key": "blocks_per_chop",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Set Amount of Destroyed Blocks per Chop",
+                    "strikethrough": true,
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "Not active when \"Chop Slowly\" is disabled."
+                    }
+                }
+            ],
+            "start": 1,
+            "end": 100,
+            "step": 1,
+            "initial": 1
+        },
+        {
+            "type": "minecraft:number_range",
+            "key": "time_between_chops",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Set Time in Ticks Between Chops",
+                    "strikethrough": true,
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "Not active when \"Chop Slowly\" is disabled."
+                    }
+                }
+            ],
+            "start": 1,
+            "end": 100,
+            "step": 1,
+            "initial": 1
+        },
+        {
+            "type": "minecraft:number_range",
+            "key": "max_tree_size",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Set Max. Tree Size",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Default: 555"
+                            },
+                            {
+                                "text": "\n\nTrees bigger than this set value won't get further processed."
+                            }
+                        ]
+                    }
+                }
+            ],
+            "start": 0,
+            "end": 1000,
+            "step": 1,
+            "initial": 555
+        },
+        {
+            "type": "minecraft:number_range",
+            "key": "min_leaves_found",
+            "width": 300,
+            "label": [
+                "",
+                {
+                    "text": "Set Min. Leaves to Valid a Tree",
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": [
+                            "",
+                            {
+                                "text": "Default: 5"
+                            },
+                            {
+                                "text": "\n\nThis datapack considers a tree only if it has this set value amount of naturally generated leaves at its trunk.\nFungi will get checked by the amount of cap blocks and additionally a 3×3 big cross on top of the stem."
+                            }
+                        ]
+                    }
+                }
+            ],
+            "start": 0,
+            "end": 10,
+            "step": 1,
+            "initial": 5
+        }
+    ],
+    "can_close_with_escape": true,
+    "pause": true,
+    "after_action": "close",
+    "action": {
+        "label": {
+            "translate": "gui.done"
+        },
+        "action": {
+            "type": "minecraft:dynamic/run_command",
+            "template": "function timber:settings/set {\"standing\":$(standing),\"sneaking\":$(sneaking),\"destroy_leaves\":$(destroy_leaves),\"plant_sapling\":$(plant_sapling),\"destroy_roots\":$(destroy_roots),\"start_chop_on_root\":$(start_chop_on_root),\"slow_chop\":$(slow_chop),\"chop_down\":$(chop_down),\"stop_chopping\":$(stop_chopping),\"wear_out\":$(wear_out),\"drop_loot\":$(drop_loot),\"hunger\":$(hunger),\"stopsound\":$(stopsound),\"wooden_axe\":$(wooden_axe),\"stone_axe\":$(stone_axe),\"copper_axe\":$(copper_axe),\"iron_axe\":$(iron_axe),\"golden_axe\":$(golden_axe),\"diamond_axe\":$(diamond_axe),\"netherite_axe\":$(netherite_axe),\"chop_trees\":$(chop_trees),\"chop_fungi\":$(chop_fungi),\"persistent\":$(persistent),\"blocks_per_chop\":$(blocks_per_chop),\"time_between_chops\":$(time_between_chops),\"max_tree_size\":$(max_tree_size),\"min_leaves_found\":$(min_leaves_found)}"
+        }
+    }
+}

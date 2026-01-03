@@ -1,0 +1,53 @@
+{
+  "type": "minecraft:multi_action",
+  "title": "Timber v8.0.0",
+  "external_title": "Timber",
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": [
+      "",
+      {
+        "text": "The Timber Datapack allows you to instantly chop down a tree just by breaking one log with any axe."
+      },
+      "\n\n",
+      {
+        "text": "By default, sneaking while breaking will not chop the tree."
+      },
+      "\n\n",
+      {
+        "text": "Every player can use "
+      },
+      {
+        "text": "/trigger TimberToggle",
+        "color": "blue",
+        "click_event": {
+          "action": "suggest_command",
+          "command": "/trigger TimberToggle"
+        }
+      },
+      {
+        "text": " to individually turn the datapack on or off."
+      }
+    ],
+    "width": 300
+  },
+  "inputs": [],
+  "can_close_with_escape": true,
+  "pause": true,
+  "actions": [
+    {
+      "label": "Check for New Updates",
+      "action": {
+        "type": "minecraft:open_url",
+        "url": "https://github.com/Moggla/Timber-Datapack/releases"
+      }
+    },
+    {
+      "label": "Settings",
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "function timber:settings/settings_runtime"
+      }
+    }
+  ]
+}
