@@ -27,7 +27,9 @@ Optionally, you can adjust everything as you wish.
 # Settings
 To get descriptions and settings for this datapack use:
 
-```/function timber:help```
+```
+/function timber:help
+```
 
 <details>
 
@@ -42,7 +44,9 @@ To get descriptions and settings for this datapack use:
 
 Every player can individually turn the datapack ON or OFF by using:
 
-```/trigger TimberToggle```
+```
+/trigger TimberToggle
+```
 
 ![help](.github/resources/help.png)  
 ![settings1](.github/resources/settings1.png)  
