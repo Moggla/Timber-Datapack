@@ -26,40 +26,50 @@
         }
       },
       {
-        "text": " to individually turn the datapack on or off."
+        "text": " or the button below to individually turn the datapack on or off."
       }
     ],
     "width": 300
   },
   "inputs": [],
   "can_close_with_escape": true,
-  "pause": true,
+  "pause": false,
   "actions": [
-    {
-      "label": "Toggle Timber for Me",
-      "tooltip": "Turns the datapack on or off for you only.",
-      "action": {
-        "type": "minecraft:run_command",
-        "command": "trigger TimberToggle"
-      }
-    },
-    {
-      "label": "Settings",
-      "tooltip": {
-        "text": "Requires operator permissions.",
-        "color": "gray"
-      },
-      "action": {
-        "type": "minecraft:run_command",
-        "command": "function timber:settings/open"
-      }
-    },
     {
       "label": "Check for New Updates",
       "action": {
         "type": "minecraft:open_url",
         "url": "https://github.com/Moggla/Timber-Datapack/releases"
       }
+    },
+    {
+      "label": "Settings",
+      "tooltip": {
+        "text": "Requires the tag timber_admin.",
+        "color": "gray"
+      },
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger TimberToggle set 2"
+      }
+    },
+    {
+      "label": "Toggle Timber for Me",
+      "tooltip": "Turns the datapack on or off for you only.",
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger TimberToggle set 3"
+      }
     }
-  ]
+  ],
+  "after_action": "none",
+  "exit_action": {
+    "label": {
+      "translate": "gui.back"
+    },
+    "action": {
+      "type": "minecraft:run_command",
+      "command": "trigger TimberToggle set 4"
+    }
+  }
 }

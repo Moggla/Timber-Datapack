@@ -11,8 +11,20 @@ scoreboard objectives add timber_d_axe minecraft.used:minecraft.diamond_axe
 scoreboard objectives add timber_n_axe minecraft.used:minecraft.netherite_axe
 scoreboard objectives add timber dummy
 scoreboard objectives add TimberToggle trigger {text:"Timber Toggle",color:"#724E21"}
+scoreboard objectives add TimberSettings trigger {text:"Timber Settings",color:"#724E21"}
+scoreboard objectives add TimberSetBlocks trigger
+scoreboard objectives add TimberSetTicks trigger
+scoreboard objectives add TimberSetTreeSize trigger
+scoreboard objectives add TimberSetLeaves trigger
+scoreboard objectives add timber_menu dummy
 scoreboard objectives add timber_disabled dummy
 scoreboard objectives add timber_prsistent dummy
+
+scoreboard players reset * TimberSettings
+scoreboard players reset * TimberSetBlocks
+scoreboard players reset * TimberSetTicks
+scoreboard players reset * TimberSetTreeSize
+scoreboard players reset * TimberSetLeaves
 
 # non-overriding default values
 function timber:settings/default_values

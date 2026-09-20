@@ -11,6 +11,12 @@ scoreboard objectives remove timber_d_axe
 scoreboard objectives remove timber_n_axe
 scoreboard objectives remove timber
 scoreboard objectives remove TimberToggle
+scoreboard objectives remove TimberSettings
+scoreboard objectives remove TimberSetBlocks
+scoreboard objectives remove TimberSetTicks
+scoreboard objectives remove TimberSetTreeSize
+scoreboard objectives remove TimberSetLeaves
+scoreboard objectives remove timber_menu
 scoreboard objectives remove timber_disabled
 scoreboard objectives remove timber_prsistent
 
