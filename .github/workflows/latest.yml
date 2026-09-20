@@ -1,0 +1,109 @@
+name: Latest Minecraft
+
+# Checks whether the datapack works on a Minecraft release newer than the ones in the test matrix
+# and opens an issue with the result, so that nobody has to look at the runs.
+# Not a required check: Fabric, Fabric API and PackTest usually lag a few days behind a new release.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  latest:
+    name: Latest Minecraft release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find latest release
+        id: version
+        run: |
+          MANIFEST=$(curl -fsSL https://piston-meta.mojang.com/mc/game/version_manifest_v2.json)
+          MC=$(jq -r '.latest.release' <<< "$MANIFEST")
+          URL=$(jq -r --arg id "$MC" '.versions[] | select(.id == $id) | .url' <<< "$MANIFEST")
+          JAVA=$(curl -fsSL "$URL" | jq -r '.javaVersion.majorVersion')
+
+          # highest version that the test matrix already covers
+          SUPPORTED=$(sed -n 's/.*minecraft: "\([^"]*\)".*/\1/p' .github/workflows/test.yml | sort -V | tail -n 1)
+
+          echo "mc=$MC" >> "$GITHUB_OUTPUT"
+          echo "java=$JAVA" >> "$GITHUB_OUTPUT"
+          if [ "$MC" != "$SUPPORTED" ] && [ "$(printf '%s\n%s\n' "$SUPPORTED" "$MC" | sort -V | tail -n 1)" = "$MC" ]; then
+            echo "newer=true" >> "$GITHUB_OUTPUT"
+            echo "Latest Minecraft release $MC is newer than the supported $SUPPORTED (Java $JAVA)"
+          else
+            echo "newer=false" >> "$GITHUB_OUTPUT"
+            echo "Latest Minecraft release $MC is already covered by the test matrix (highest: $SUPPORTED)." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - uses: actions/setup-java@v4
+        if: steps.version.outputs.newer == 'true'
+        with:
+          distribution: temurin
+          java-version: ${{ steps.version.outputs.java }}
+
+      - name: Set up Fabric server, Fabric API and PackTest
+        id: setup
+        if: steps.version.outputs.newer == 'true'
+        run: |
+          set +e
+          bash .github/scripts/setup-test-server.sh "${{ steps.version.outputs.mc }}"
+          CODE=$?
+          if [ $CODE -eq 3 ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Minecraft ${{ steps.version.outputs.mc }} can't be tested yet, the test tooling isn't available for it. Trying again next time." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          [ $CODE -eq 0 ] || exit $CODE
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install datapacks
+        if: steps.setup.outputs.ready == 'true'
+        run: |
+          mkdir -p world/datapacks/timber world/datapacks/timber_test
+          cp -r data pack.mcmeta 121 world/datapacks/timber/
+          cp -r tests/. world/datapacks/timber_test/
+
+      - name: Run tests
+        id: tests
+        if: steps.setup.outputs.ready == 'true'
+        continue-on-error: true
+        run: java -Xmx2G -Dpacktest.auto -Dpacktest.auto.annotations -jar server.jar nogui
+
+      - name: Open an issue with the result
+        if: steps.setup.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MC: ${{ steps.version.outputs.mc }}
+          OUTCOME: ${{ steps.tests.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "$OUTCOME" = "success" ]; then
+            TITLE="Minecraft $MC works with the datapack"
+            BODY="The tests pass on Minecraft $MC ([run]($RUN_URL)).
+
+          To support it:
+          - bump \`max_format\` in \`pack.mcmeta\`
+          - add \`$MC\` to the matrix in \`.github/workflows/test.yml\`
+          - release the update"
+          else
+            TITLE="Minecraft $MC breaks the datapack"
+            BODY="The tests fail on Minecraft $MC ([run]($RUN_URL)). See the annotations of the run for the failed tests."
+          fi
+
+          # closed issues count too, so a handled version doesn't get reported again
+          EXISTING=$(gh issue list --state all --search "\"$TITLE\" in:title" --json title --jq "[.[] | select(.title == \"$TITLE\")] | length")
+          if [ "$EXISTING" -gt 0 ]; then
+            echo "Issue \"$TITLE\" already exists." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            gh issue create --title "$TITLE" --body "$BODY" --label "CI/CD"
+            echo "Opened issue \"$TITLE\"." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fail if the tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
