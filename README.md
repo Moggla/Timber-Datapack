@@ -36,9 +36,10 @@ To get descriptions and settings for this datapack use:
 <summary>If you don't have access to commands in your singleplayer world</summary>
 
 1. Pause the game  
-2. Click on Open to LAN  
-3. In the options, change **Allow Cheats**: OFF to ON  
-4. Click on Start LAN World  
+2. Click on `World Options...`
+3. Toggle `LAN` to `ON`
+4. Toggle `Command Access` to `ON`
+5. Click on `Apply Changes`
 
 </details><br>
 
