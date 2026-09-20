@@ -1,0 +1,48 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Minecraft ${{ matrix.minecraft }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - minecraft: "26.1.2"
+            java: "25"
+          - minecraft: "26.3"
+            java: "25"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+
+      - name: Set up Fabric server, Fabric API and PackTest
+        run: bash .github/scripts/setup-test-server.sh "${{ matrix.minecraft }}"
+
+      - name: Install datapacks
+        run: |
+          mkdir -p world/datapacks/timber world/datapacks/timber_test
+          cp -r data pack.mcmeta 121 world/datapacks/timber/
+          cp -r tests/. world/datapacks/timber_test/
+
+      - name: Run tests
+        run: java -Xmx2G -Dpacktest.auto -Dpacktest.auto.annotations -jar server.jar nogui
+
+  # single check to require in the branch ruleset, so changing the matrix doesn't need a ruleset update
+  test-result:
+    name: Test result
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if any test job failed or was cancelled
+        run: test "${{ needs.test.result }}" = "success"

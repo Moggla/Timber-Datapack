@@ -1,0 +1,8 @@
+{
+    "pack": {
+        "description": "Tests for Timber Datapack (run with PackTest)",
+        "pack_format": 121.0,
+        "min_format": 101.0,
+        "max_format": 121.0
+    }
+}
