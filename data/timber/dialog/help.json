@@ -36,17 +36,29 @@
   "pause": true,
   "actions": [
     {
-      "label": "Check for New Updates",
+      "label": "Toggle Timber for Me",
+      "tooltip": "Turns the datapack on or off for you only.",
       "action": {
-        "type": "minecraft:open_url",
-        "url": "https://github.com/Moggla/Timber-Datapack/releases"
+        "type": "minecraft:run_command",
+        "command": "trigger TimberToggle"
       }
     },
     {
       "label": "Settings",
+      "tooltip": {
+        "text": "Requires operator permissions.",
+        "color": "gray"
+      },
       "action": {
         "type": "minecraft:run_command",
         "command": "function timber:settings/open"
+      }
+    },
+    {
+      "label": "Check for New Updates",
+      "action": {
+        "type": "minecraft:open_url",
+        "url": "https://github.com/Moggla/Timber-Datapack/releases"
       }
     }
   ]
