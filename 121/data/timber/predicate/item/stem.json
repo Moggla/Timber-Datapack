@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:any_of",
+  "terms": [
+    {
+      "type": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "items": "#minecraft:logs"
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "items": "minecraft:mushroom_stem"
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "items": "minecraft:knowledge_book",
+            "components": {
+              "minecraft:custom_data": {
+                "Tags": [
+                  "timber_location"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
