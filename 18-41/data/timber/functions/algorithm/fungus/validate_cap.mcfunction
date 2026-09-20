@@ -1,6 +1,0 @@
-# mark leaf that have been checked
-execute positioned ~ ~ ~1 unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
-execute positioned ~ ~ ~-1 unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
-execute positioned ~1 ~ ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
-execute positioned ~-1 ~ ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
-execute positioned ~ ~ ~ unless entity @e[type=minecraft:marker,tag=timber_leaves_found,distance=...1,sort=nearest,limit=1] if predicate timber:block/cap run summon marker ~ ~ ~ {Tags:["timber_leaves_found"]}
