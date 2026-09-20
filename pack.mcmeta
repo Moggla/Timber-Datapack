@@ -7,7 +7,7 @@
     },
     "overlays": {
         "entries": [
-            {"formats": [121, 121], "directory": "121", "min_format": 121, "max_format": 121}
+            {"directory": "121", "min_format": 121, "max_format": 121}
         ]
     }
 }
