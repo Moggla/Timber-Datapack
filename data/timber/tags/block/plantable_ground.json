@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#minecraft:dirt",
+    {
+      "id": "#minecraft:grass_blocks",
+      "required": false
+    }
+  ]
+}
