@@ -1,0 +1,2 @@
+tellraw @s ["",{text:"Timber: ",color:"red"},{text:"Only Timber admins can change the settings. Operators can click "},{text:"[ /tag @s add timber_admin ]",color:"gray",click_event:{action:"suggest_command",command:"/tag @s add timber_admin"},hover_event:{action:"show_text",value:"Click to put the command into the chat. Only operators are allowed to run it."}},{text:" to become a Timber admin."}]
+dialog clear @s

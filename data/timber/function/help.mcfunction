@@ -1,1 +1,1 @@
-dialog show @s timber:help
+function timber:settings/open/help
