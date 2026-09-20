@@ -34,7 +34,7 @@ execute if score block_drops timber matches 0 run tellraw @a[tag=!noTimberWarnin
 
 # Getting the game version and checking if it is compatible with the datapack https://minecraft.fandom.com/wiki/Data_version
 execute store result score game_version timber run data get entity @r DataVersion
-execute if score game_version timber matches ..3442 run tellraw @a[tag=!noTimberWarning] ["",{text:"Timber Datapack Warning: ",color:"red"},{text:"This datapack is not compatible with all the versions before 1.20!"}]
+execute if score game_version timber matches ..4785 run tellraw @a[tag=!noTimberWarning] ["",{text:"Timber Datapack Warning: ",color:"red"},{text:"This datapack is not compatible with all the versions before 26.1!"}]
 
 # Checking if the server uses a different jar from the vanilla one
 function timber:utils/check_server
