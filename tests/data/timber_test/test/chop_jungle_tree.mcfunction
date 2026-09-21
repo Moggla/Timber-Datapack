@@ -9,7 +9,7 @@ assert block ~20 ~ ~20 #minecraft:logs
 
 # let the leaves settle before the tree is chopped
 await delay 1s
-function timber_test:count_d7
+function timber_test:count_d7 {test:"chop_jungle_tree"}
 
 function timber_test:player {name:"jungle_t",axe:"minecraft:iron_axe"}
 function timber_test:mine {name:"jungle_t"}
