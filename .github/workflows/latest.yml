@@ -68,6 +68,11 @@ jobs:
           cp -r data pack.mcmeta 121 world/datapacks/timber/
           cp -r tests/. world/datapacks/timber_test/
 
+      # the uninstall test checks the scoreboards the code of the datapack creates, without this step it fails
+      - name: Generate the uninstall check
+        if: steps.setup.outputs.ready == 'true'
+        run: python3 .github/scripts/gen-uninstall-check.py . world/datapacks/timber_test
+
       - name: Run tests
         id: tests
         if: steps.setup.outputs.ready == 'true'
