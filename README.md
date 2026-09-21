@@ -178,9 +178,9 @@ Status | Server software | Notes
 ✅ | Vanilla / Realm
 ✅ | Forge	|
 ✅ | Fabric |
-🆗 | CraftBukkit | - Huge mushrooms don't always drop loot - Whole stack of saplings that got auto-planted get deleted rather than only one
-🆗 | Spigot | - Huge mushrooms don't always drop loot - Whole stack of saplings that got auto-planted get deleted rather than only one
-🆗 | Paper | - Huge mushrooms don't always drop loot - Whole stack of saplings that got auto-planted get deleted rather than only one
+🆗 | CraftBukkit | - Huge mushrooms don't always drop loot<br> - Whole stack of saplings that got auto-planted get deleted rather than only one
+🆗 | Spigot | - Huge mushrooms don't always drop loot<br> - Whole stack of saplings that got auto-planted get deleted rather than only one
+🆗 | Paper | - Huge mushrooms don't always drop loot<br> - Whole stack of saplings that got auto-planted get deleted rather than only one
 
 As of October 4th, 2020
 
