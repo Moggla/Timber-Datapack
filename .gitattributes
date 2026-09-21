@@ -1,0 +1,16 @@
+# Text files are stored with LF in the repository and checked out with LF, whatever the local Git setting (core.autocrlf on Windows)
+# or the editor is. The shell scripts run under Linux, WSL and Git Bash, a CR at the end of a line breaks them, and Minecraft reads LF just fine.
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.mcfunction text eol=lf
+*.json text eol=lf
+*.mcmeta text eol=lf
+
+# never touch these
+*.png binary
+*.gif binary
+*.pdn binary
+*.nbt binary
