@@ -2,7 +2,7 @@
 schedule function timber:main 1t
 
 # if any kind of axe is used
-execute as @a[predicate=timber:used_axe,tag=!global.ignore] at @s run function timber:utils/check_max_command_sequence_length
+function timber:axes/scan
 
 # toggle timber datapack per player
 execute as @a[scores={TimberToggle=1},tag=!global.ignore] run function timber:settings/toggle/timber
