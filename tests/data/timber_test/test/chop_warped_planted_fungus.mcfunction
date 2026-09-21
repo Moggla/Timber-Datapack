@@ -1,4 +1,5 @@
 #> Mining the bottom stem of a warped fungus grown from a planted one with an axe chops down the whole fungus (chop_fungi is on)
+# @environment timber_test:chop_fungi_on
 # @template timber_test:arena
 # @timeout 400
 # @skyaccess true
@@ -9,16 +10,11 @@ setblock ~20 ~-1 ~20 minecraft:warped_nylium
 function timber_test:tree {feature:"minecraft:warped_fungus_planted"}
 assert block ~20 ~ ~20 #minecraft:logs
 
-# chop_fungi is off by default. It is a global setting and the tests run in parallel: the users are counted, it is switched
-# back only when the last one is done
-scoreboard players add #fungi_users timber_test 1
-scoreboard players set chop_fungi timber 1
-
 await delay 1s
 # With chop_fungi on, every chop of the datapack ends with a kill of ALL marker items of mushroom stems in the world (no distance
 # limit). A chop in the same tick that runs first deletes the marker of a mushroom, which then isn't chopped. So the fungus tests
-# wait until the trees are done and chop one after the other, 36 ticks after the first fungus test.
-await delay 136t
+# chop one after the other, 36 ticks after the first one.
+await delay 36t
 function timber_test:player {name:"warped_pl_t",axe:"minecraft:iron_axe"}
 function timber_test:mine {name:"warped_pl_t"}
 
@@ -30,8 +26,5 @@ function timber_test:mine {name:"warped_pl_t"}
 await not block ~20 ~ ~20 #minecraft:logs
 await delay 5t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
-
-scoreboard players remove #fungi_users timber_test 1
-execute if score #fungi_users timber_test matches ..0 run scoreboard players set chop_fungi timber 0
 
 function timber_test:assert_no_fungus {test:"chop_warped_planted_fungus"}
