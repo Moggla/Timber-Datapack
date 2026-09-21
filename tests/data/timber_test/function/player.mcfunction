@@ -6,3 +6,5 @@ $dummy $(name) spawn
 $tag @e[type=minecraft:player,name=$(name),limit=1] add timber_test_dummy
 $tp @e[type=minecraft:player,name=$(name),limit=1] ~19.5 ~ ~20.5
 $item replace entity @e[type=minecraft:player,name=$(name),limit=1] weapon.mainhand with $(axe)
+#> A tall mangrove trunk starts higher than the default reach of 4.5 blocks
+$attribute @e[type=minecraft:player,name=$(name),limit=1] minecraft:block_interaction_range base set 30
