@@ -1,4 +1,5 @@
 #> The golden axe chops a tree by default
+# @environment timber_test:group_2
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

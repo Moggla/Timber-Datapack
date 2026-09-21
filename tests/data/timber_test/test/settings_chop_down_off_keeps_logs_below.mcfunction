@@ -1,4 +1,5 @@
 #> By default only the part above the mined log is chopped: mining the third log keeps the two below
+# @environment timber_test:group_2
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

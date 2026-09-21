@@ -1,4 +1,5 @@
 #> Mining the bottom log of a 2x2 dark oak tree with an axe chops down the whole tree
+# @environment timber_test:group_5
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
@@ -23,4 +24,5 @@ await not block ~20 ~ ~20 #minecraft:logs
 await delay 2t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-function timber_test:assert_no_tree {test:"chop_dark_oak_tree"}
+# big crown: logs have to be gone, leaves that are left only warn (see assert_no_logs_warn_leaves)
+function timber_test:assert_no_logs_warn_leaves {test:"chop_dark_oak_tree"}

@@ -1,4 +1,5 @@
 #> By default chopping damages the axe more than the one block that was mined (vanilla takes 1)
+# @environment timber_test:group_1
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

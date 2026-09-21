@@ -1,4 +1,5 @@
 #> Mining a log with exactly 5 leaves next to the trunk chops the whole tree (min_leaves_found is 5)
+# @environment timber_test:group_5
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

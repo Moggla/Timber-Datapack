@@ -1,4 +1,5 @@
 #> Mining the bottom log of a spruce tree with an axe chops down the whole tree
+# @environment timber_test:group_1
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
