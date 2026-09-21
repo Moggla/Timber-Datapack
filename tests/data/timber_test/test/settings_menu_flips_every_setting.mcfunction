@@ -152,63 +152,72 @@ assert score persistent timber matches 0
 
 # wooden_axe: default 1
 assert score wooden_axe timber matches 1
-scoreboard players set #req timber 116
+scoreboard players set #req timber 200
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score wooden_axe timber matches 0
-scoreboard players set #req timber 116
+scoreboard players set #req timber 200
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score wooden_axe timber matches 1
 
-# golden_axe: default 1
-assert score golden_axe timber matches 1
-scoreboard players set #req timber 117
-execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
-assert score golden_axe timber matches 0
-scoreboard players set #req timber 117
-execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
-assert score golden_axe timber matches 1
-
 # stone_axe: default 1
 assert score stone_axe timber matches 1
-scoreboard players set #req timber 118
+scoreboard players set #req timber 201
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score stone_axe timber matches 0
-scoreboard players set #req timber 118
+scoreboard players set #req timber 201
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score stone_axe timber matches 1
 
 # copper_axe: default 1
 assert score copper_axe timber matches 1
-scoreboard players set #req timber 119
+scoreboard players set #req timber 202
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score copper_axe timber matches 0
-scoreboard players set #req timber 119
+scoreboard players set #req timber 202
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score copper_axe timber matches 1
 
 # iron_axe: default 1
 assert score iron_axe timber matches 1
-scoreboard players set #req timber 120
+scoreboard players set #req timber 203
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score iron_axe timber matches 0
-scoreboard players set #req timber 120
+scoreboard players set #req timber 203
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score iron_axe timber matches 1
 
+# golden_axe: default 1
+assert score golden_axe timber matches 1
+scoreboard players set #req timber 204
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score golden_axe timber matches 0
+scoreboard players set #req timber 204
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score golden_axe timber matches 1
+
 # diamond_axe: default 1
 assert score diamond_axe timber matches 1
-scoreboard players set #req timber 121
+scoreboard players set #req timber 205
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score diamond_axe timber matches 0
-scoreboard players set #req timber 121
+scoreboard players set #req timber 205
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score diamond_axe timber matches 1
 
 # netherite_axe: default 1
 assert score netherite_axe timber matches 1
-scoreboard players set #req timber 122
+scoreboard players set #req timber 206
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score netherite_axe timber matches 0
-scoreboard players set #req timber 122
+scoreboard players set #req timber 206
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score netherite_axe timber matches 1
+
+# stick: default 1
+assert score stick timber matches 1
+scoreboard players set #req timber 207
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score stick timber matches 0
+scoreboard players set #req timber 207
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score stick timber matches 1

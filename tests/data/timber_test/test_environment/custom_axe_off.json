@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:function",
+  "setup": "timber_test:env/custom_axe_off_setup",
+  "teardown": "timber_test:env/custom_axe_off_teardown"
+}
