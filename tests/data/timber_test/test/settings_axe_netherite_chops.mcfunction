@@ -1,4 +1,5 @@
 #> The netherite axe chops a tree by default
+# @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

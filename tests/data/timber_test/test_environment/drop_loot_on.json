@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:function",
+  "setup": "timber_test:env/drop_loot_on_setup",
+  "teardown": "timber_test:env/drop_loot_on_teardown"
+}

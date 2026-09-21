@@ -1,4 +1,5 @@
 #> Mining a log with only 4 leaves next to the trunk does not chop it (min_leaves_found is 5)
+# @environment timber_test:group_1
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

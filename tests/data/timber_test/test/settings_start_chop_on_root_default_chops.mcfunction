@@ -1,4 +1,5 @@
 #> By default mining a root chops the mangrove (start_chop_on_root is on)
+# @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

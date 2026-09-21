@@ -1,4 +1,5 @@
 #> By default (standing on, sneaking off) a sneaking player doesn't chop
+# @environment timber_test:group_3
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

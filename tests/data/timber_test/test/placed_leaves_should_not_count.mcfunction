@@ -1,4 +1,5 @@
 #> Five leaves placed by a player (persistent) next to a stack of logs: only natural leaves count (setting persistent is off), so it must not be chopped
+# @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

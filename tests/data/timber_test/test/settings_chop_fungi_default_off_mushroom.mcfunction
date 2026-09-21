@@ -1,4 +1,5 @@
 #> By default (chop_fungi off) a huge mushroom is not chopped: the stem above the mined block stays
+# @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

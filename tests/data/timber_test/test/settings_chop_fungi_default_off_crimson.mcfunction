@@ -1,4 +1,5 @@
 #> By default (chop_fungi off) a crimson fungus is not chopped
+# @environment timber_test:group_3
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

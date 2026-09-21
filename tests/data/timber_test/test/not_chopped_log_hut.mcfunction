@@ -1,4 +1,5 @@
 #> Mining a log of a hut built from logs (no leaves anywhere) does not chop it
+# @environment timber_test:group_2
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

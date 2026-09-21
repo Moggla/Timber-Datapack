@@ -1,4 +1,5 @@
 #> Mining the lowest log of a tall mangrove tree chops down the whole tree including its roots
+# @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

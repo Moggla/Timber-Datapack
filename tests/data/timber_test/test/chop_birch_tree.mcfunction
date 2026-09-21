@@ -1,4 +1,5 @@
 #> Mining the bottom log of a birch tree with an axe chops down the whole tree
+# @environment timber_test:group_3
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

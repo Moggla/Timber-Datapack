@@ -1,4 +1,5 @@
 #> Mining the bottom log of a stack of logs (no leaves anywhere) does not chop it
+# @environment timber_test:group_3
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true

@@ -1,4 +1,5 @@
 #> Mining a root of a mangrove tree chops down the whole tree (start_chop_on_root)
+# @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
