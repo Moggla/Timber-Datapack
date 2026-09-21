@@ -34,6 +34,10 @@ jobs:
           cp -r data pack.mcmeta 121 world/datapacks/timber/
           cp -r tests/. world/datapacks/timber_test/
 
+      # the uninstall test checks the scoreboards the code of the datapack creates, so a forgotten one can't slip through
+      - name: Generate the uninstall check
+        run: python3 .github/scripts/gen-uninstall-check.py . world/datapacks/timber_test
+
       - name: Run tests
         run: |
           set -o pipefail
