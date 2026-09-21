@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:function",
+  "setup": "timber_test:env/start_chop_on_root_off_setup",
+  "teardown": "timber_test:env/start_chop_on_root_off_teardown"
+}
