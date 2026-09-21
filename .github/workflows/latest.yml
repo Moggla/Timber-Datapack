@@ -9,8 +9,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # the badge goes to the branch "badges"
   issues: write
+  actions: write    # to enable this workflow again, see the last step
 
 jobs:
   latest:
@@ -108,6 +109,29 @@ jobs:
             gh issue create --title "$TITLE" --body "$BODY" --label "CI/CD"
             echo "Opened issue \"$TITLE\"." | tee -a "$GITHUB_STEP_SUMMARY"
           fi
+
+      # The badge of the README: orange when the test tools don't exist for the new release yet, see publish-latest-badge.sh
+      - name: Publish the badge
+        if: always()
+        continue-on-error: true
+        env:
+          REMOTE: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+          VERSION_OUTCOME: ${{ steps.version.outcome }}
+          MC: ${{ steps.version.outputs.mc }}
+          NEWER: ${{ steps.version.outputs.newer }}
+          READY: ${{ steps.setup.outputs.ready }}
+          TESTS: ${{ steps.tests.outcome }}
+        run: bash .github/scripts/publish-latest-badge.sh
+
+      # GitHub switches schedules off after 60 days without activity in the repository. Enabling the workflow again is reported to
+      # start those 60 days over (not confirmed by GitHub's documentation). It does no harm when it doesn't, and the "last check" badge
+      # turns orange and red by itself when the schedule stops anyway.
+      - name: Keep the schedule alive
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/${{ github.repository }}/actions/workflows/latest.yml/enable"
 
       - name: Fail if the tests failed
         if: steps.tests.outcome == 'failure'

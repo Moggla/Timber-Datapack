@@ -1,5 +1,8 @@
 ![logo](.github/resources/logo.png)  
 
+[![Test](https://github.com/Moggla/Timber-Datapack/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Moggla/Timber-Datapack/actions/workflows/test.yml) [![Latest Minecraft](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMoggla/Timber-Datapack%2Fbadges%2Flatest.json)](https://github.com/Moggla/Timber-Datapack/actions/workflows/latest.yml) [![Last check](https://img.shields.io/github/last-commit/Moggla/Timber-Datapack/badges?path=latest.json&label=last%20check)](https://github.com/Moggla/Timber-Datapack/actions/workflows/latest.yml)
+
+
 This is a really useful addition for those who don't want to spend expensive time on gathering resources! After installing, the Timber Datapack allows you to instantly chop down a tree just by breaking one log with any axe.  
 By default, sneaking while breaking will not chop the tree.  
 Optionally, you can adjust everything as you wish.  
