@@ -1,3 +1,0 @@
-#> Warns that a structure that should have been left alone was chopped. Same two paths as warn_d7 (log line for the CI, orange chat for players).
-$execute unless entity @a[tag=!timber_test_dummy] run say TIMBER-WARNING $(test): chopped although it is not a tree ($(before) logs before, $(after) left after adding the mined one), the datapack does not check that the leaves are natural
-$tellraw @a[tag=!timber_test_dummy] {"text":"Test warning $(test): chopped although it is not a tree ($(before) logs before, $(after) left after adding the mined one), the datapack does not check that the leaves are natural","color":"gold"}
