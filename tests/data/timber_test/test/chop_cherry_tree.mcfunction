@@ -1,18 +1,18 @@
-#> Mining the bottom log of an oak tree with an axe chops down the whole tree
+#> Mining the bottom log of a cherry tree with an axe chops down the whole tree
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
 
 function timber_test:platform
-function timber_test:tree {feature:"minecraft:oak"}
+function timber_test:tree {feature:"minecraft:cherry"}
 assert block ~20 ~ ~20 #minecraft:logs
 
 # let the leaves settle before the tree is chopped
 await delay 1s
 function timber_test:count_d7
 
-function timber_test:player {name:"oak_t",axe:"minecraft:iron_axe"}
-function timber_test:mine {name:"oak_t"}
+function timber_test:player {name:"cherry_t",axe:"minecraft:iron_axe"}
+function timber_test:mine {name:"cherry_t"}
 
 # wait until the datapack is done with the tree
 # (await doesn't work inside a called function, so this block is repeated in every test)
@@ -23,4 +23,4 @@ await not block ~20 ~ ~20 #minecraft:logs
 await delay 2t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-function timber_test:assert_no_tree {test:"chop_oak_tree"}
+function timber_test:assert_no_tree {test:"chop_cherry_tree"}
