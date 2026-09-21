@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "label": "latest Minecraft",
+  "message": "26.3 is in the test matrix",
+  "color": "brightgreen",
+  "cacheSeconds": 3600,
+  "checked": "2026-09-21T23:22Z"
+}
