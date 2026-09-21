@@ -76,83 +76,49 @@ If you have difficulties or errors in trying to change the timber datapack, then
 
 ## Add modded axes
 **(for example the emeraldaxe from supertools)** <br>
-(Small note: Your modded axe will break after or below zero durability. This shouldn't be a problem. It's not really worth to implement a fix, because you're only able to chop a few more logs)
+Timber knows its axes from a list, and the seven vanilla axes are in that list the same way. You add an axe with one command, in a small datapack of your own (no need to edit the files of Timber, so an update of Timber doesn't remove it).
 
-Get the name of your modded axe:
-Go ingame and type `/scoreboard objectives add x minecraft.used:` in chat. Now search for your modded axe there.
-In my example it's called `supertools.emeraldaxe`.
-
-Give your modded axe a nickname:
-In my case a gave him the name `timber_emera_axe`.
-This is technically the name of your axe used by the datapack. You can name it however you like just look that you write it everywhere the same and that you follow these points:
-Always use the prefix `timber_`
-The max. length of the nickname is `timber_123456789`
-Don't use names twice for other axes!
-
-`Timber/data/timber/functions/init.mcfunctions`
-
-Add this code at the place where similar commands are
+The command:
 ```
-scoreboard objectives add timber_emera_axe minecraft.used:supertools.emeraldaxe
+function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label:"Emerald Axe"}
 ```
+- `item` is the id of the axe, the one you get in the game with `/give @s supertools:emeraldaxe`.
+- `durability` is how much damage the axe can take. Timber removes the axe when it reaches this value.
+- `label` is the name of the button in the settings menu (`/trigger TimberSettings`). The button appears by itself.
 
-`Timber/data/timber/functions/used_axe.mcfunctions`
+Timber makes the scoreboard for the axe on its own (here `timber_axe.supertools.emeraldaxe`), you don't have to name anything. Calling the command again for the same item replaces the entry, so it doesn't matter how often it runs. If the item doesn't exist (the mod isn't installed) Timber tells you and adds nothing, so you can register axes of mods that not everybody has.
 
-Add this code at the place where similar commands are
+**Where to put the command:** in a function that Timber calls whenever it loads (also after `/reload`).
+
+`mypack/data/mypack/function/register_axes.mcfunction`
 ```
-execute unless score @s timber_disabled matches 1.. if score @s timber_emera_axe matches 1.. run function timber:sneaking
-Also add this code at the place where similar commands are
-scoreboard players set @s timber_emera_axe 0
+function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label:"Emerald Axe"}
 ```
 
-`Timber/data/timber/predicates/used_axe.json`
-
-The content of the upper part of this file should look like this.
+`mypack/data/timber/tags/function/register_axes.json`
 ```json
 {
-  "condition": "minecraft:any_of",
-  "terms": [
-    {
-      "condition": "minecraft:entity_scores",
-      "entity": "this",
-      "scores": {
-        "timber_emera_axe": {
-          "min": 1,
-          "max": 2147483647
-        }
-      }
-    },
-    {
-      "condition": "minecraft:entity_scores",
-      "entity": "this",
-      "scores": {
-        "timber_w_axe": {
-          "min": 1,
-          "max": 2147483647
-        }
-      }
-    },
-    .
-    .
-    .
-```
-
-`Timber/data/timber/tags/items/axes.json`
-
-The content should look like this. Don't forget to add the `,` after the `netherite_axe` and to change the `:` between `supertools` and `emeraldaxe`!
-```json
-{
-  "values":[
-    "minecraft:wooden_axe",
-    "minecraft:stone_axe",
-    "minecraft:iron_axe",
-    "minecraft:golden_axe",
-    "minecraft:diamond_axe",
-    "minecraft:netherite_axe",
-    "supertools:emeraldaxe"
-  ]
+  "values": [
+    "mypack:register_axes"
+  ]
 }
 ```
+
+Also add the axe to the item tag, it is used for the loot of mushroom stems:
+
+`mypack/data/timber/tags/item/axes.json`
+```json
+{
+  "values": [
+    "supertools:emeraldaxe"
+  ]
+}
+```
+(Without `pack.mcmeta` the folder isn't a datapack. Copy the one of Timber and change the description.)
+
+Notes:
+- Vanilla axes are registered exactly like this by Timber itself (`data/timber/function/axes/init.mcfunction`). You can change their durability there or register them again with another value.
+- Timber can only see the damage of the axe, so a modded axe with its own way of breaking may stay in the hand for a few more logs. That is not a problem.
 
 </details><br>
 
