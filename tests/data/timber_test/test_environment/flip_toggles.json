@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:function",
+  "setup": "timber_test:env/flip_toggles_setup",
+  "teardown": "timber_test:env/flip_toggles_teardown"
+}
