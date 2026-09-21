@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:function",
+  "setup": "timber_test:env/min_leaves_14_setup",
+  "teardown": "timber_test:env/min_leaves_14_teardown"
+}
