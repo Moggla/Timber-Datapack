@@ -1,4 +1,4 @@
-#> Five leaves placed by a player (persistent) next to a stack of logs: the README says only natural leaves count, so it should not be chopped
+#> Five leaves placed by a player (persistent) next to a stack of logs: only natural leaves count (setting persistent is off), so it must not be chopped
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
@@ -27,5 +27,4 @@ await not block ~20 ~ ~20 #minecraft:logs
 await delay 5t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-# known gap: warns if chopped, never fails
-function timber_test:report_chopped_structure {test:"placed_leaves_should_not_count"}
+function timber_test:assert_only_mined_gone {test:"placed_leaves_should_not_count"}
