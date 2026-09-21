@@ -35,7 +35,18 @@ jobs:
           cp -r tests/. world/datapacks/timber_test/
 
       - name: Run tests
-        run: java -Xmx2G -Dpacktest.auto -Dpacktest.auto.annotations -jar server.jar nogui
+        run: |
+          set -o pipefail
+          java -Xmx2G -Dpacktest.auto -Dpacktest.auto.annotations -jar server.jar nogui | tee server-output.log
+
+      # tests can log a line with TIMBER-WARNING and still pass, show those as warnings so they don't go unnoticed
+      - name: Report test warnings
+        if: always()
+        run: |
+          grep -h 'TIMBER-WARNING' server-output.log | sed 's/.*TIMBER-WARNING //' | while read -r line; do
+            echo "::warning title=Test warning (Minecraft ${{ matrix.minecraft }})::$line"
+            echo "- Minecraft ${{ matrix.minecraft }}: $line" >> "$GITHUB_STEP_SUMMARY"
+          done || true
 
   # single check to require in the branch ruleset, so changing the matrix doesn't need a ruleset update
   test-result:

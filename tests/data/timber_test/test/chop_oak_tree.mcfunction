@@ -2,25 +2,18 @@
 # @timeout 200
 # @skyaccess true
 
-# platform
-fill ~-3 ~-1 ~-4 ~5 ~-1 ~4 minecraft:dirt
+function timber_test:platform
+function timber_test:tree {feature:"minecraft:oak"}
+assert block ~8 ~ ~8 #minecraft:logs
+assert block ~8 ~2 ~8 #minecraft:logs
 
-# oak tree: 5 logs high with leaves around the top
-fill ~2 ~ ~ ~2 ~4 ~ minecraft:oak_log
-fill ~1 ~3 ~-2 ~3 ~4 ~2 minecraft:oak_leaves replace minecraft:air
-assert block ~2 ~4 ~ minecraft:oak_log
-assert block ~1 ~3 ~ minecraft:oak_leaves
+# let the leaves settle before the tree is chopped
+await delay 1s
+function timber_test:count_d7
 
-# player mines the bottom log with an axe
-dummy tester spawn
-tp @e[type=minecraft:player,name=tester,limit=1] ~0.5 ~ ~0.5
-item replace entity @e[type=minecraft:player,name=tester,limit=1] weapon.mainhand with minecraft:iron_axe
-dummy tester mine ~2 ~ ~
+function timber_test:player {axe:"minecraft:iron_axe"}
+dummy tester mine ~8 ~ ~8
 
-# the top log can only disappear when the whole tree is chopped
+# leaves are checked only after the chop had time to finish
 await delay 2s
-assert not block ~2 ~4 ~ minecraft:oak_log
-assert not block ~2 ~1 ~ minecraft:oak_log
-assert not block ~2 ~3 ~ minecraft:oak_log
-assert not block ~1 ~3 ~ minecraft:oak_leaves
-assert not block ~3 ~4 ~ minecraft:oak_leaves
+function timber_test:assert_no_tree {test:"chop_oak_tree"}
