@@ -15,4 +15,7 @@ function timber_test:warn_few_leaves with storage timber_test:tmp
 
 # the one mined log may be gone, nothing else
 scoreboard players add #logs1 timber_test 1
-$assert score #logs1 timber_test >= #logs0_$(test) timber_test
+# PackTest's assert doesn't take a comparison of two scores (the parse error inside a macro function is swallowed, the test can't fail):
+# subtract and compare with matches
+$scoreboard players operation #logs1 timber_test -= #logs0_$(test) timber_test
+assert score #logs1 timber_test matches 0..

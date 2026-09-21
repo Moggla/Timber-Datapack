@@ -6,4 +6,7 @@ execute store result score #logs1 timber_test run fill ~0 ~0 ~0 ~39 ~19 ~39 mine
 execute store result score #dtmp timber_test run fill ~0 ~20 ~0 ~39 ~39 ~39 minecraft:air replace #minecraft:logs
 scoreboard players operation #logs1 timber_test += #dtmp timber_test
 scoreboard players add #logs1 timber_test 1
-$assert score #logs1 timber_test >= #logs0_$(test) timber_test
+# PackTest's assert doesn't take a comparison of two scores (the parse error inside a macro function is swallowed, the test can't fail):
+# subtract and compare with matches
+$scoreboard players operation #logs1 timber_test -= #logs0_$(test) timber_test
+assert score #logs1 timber_test matches 0..
