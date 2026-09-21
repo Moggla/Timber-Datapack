@@ -1,5 +1,17 @@
-# stop main functions
+# stop main functions and everything else that reschedules itself
 schedule clear timber:main
+schedule clear timber:autoplant/loop
+schedule clear timber:autoplant/mud_fix
+schedule clear timber:settings/reset_gamerule
+schedule clear timber:slow_chop/loop
+schedule clear timber:utils/check_server
+schedule clear timber:utils/reset
+
+# remove stored data
+data remove storage timber:settings dialog
+data remove storage timber:slow_chop blocks_per_chop
+data remove storage timber:slow_chop time_between_chops
+data remove storage timber:max_command_sequence_length value
 
 # remove scoreboards
 scoreboard objectives remove timber_w_axe
