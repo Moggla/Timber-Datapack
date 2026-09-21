@@ -19,6 +19,7 @@ scoreboard players set iron_axe timber 1
 scoreboard players set golden_axe timber 1
 scoreboard players set diamond_axe timber 1
 scoreboard players set netherite_axe timber 1
+scoreboard players set stick timber 1
 scoreboard players set chop_trees timber 1
 scoreboard players set chop_fungi timber 0
 scoreboard players set persistent timber 0
