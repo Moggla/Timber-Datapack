@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:function",
+  "setup": "timber_test:env/tiny_tree_size_setup",
+  "teardown": "timber_test:env/tiny_tree_size_teardown"
+}
