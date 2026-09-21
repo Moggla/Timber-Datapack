@@ -13,14 +13,10 @@ data remove storage timber:slow_chop blocks_per_chop
 data remove storage timber:slow_chop time_between_chops
 data remove storage timber:max_command_sequence_length value
 
+# remove the scoreboards of the axes and what is stored for them
+function timber:axes/uninstall
+
 # remove scoreboards
-scoreboard objectives remove timber_w_axe
-scoreboard objectives remove timber_s_axe
-scoreboard objectives remove timber_c_axe
-scoreboard objectives remove timber_i_axe
-scoreboard objectives remove timber_g_axe
-scoreboard objectives remove timber_d_axe
-scoreboard objectives remove timber_n_axe
 scoreboard objectives remove timber
 scoreboard objectives remove TimberToggle
 scoreboard objectives remove TimberSettings

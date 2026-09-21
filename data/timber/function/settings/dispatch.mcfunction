@@ -28,10 +28,5 @@ execute if score #req timber matches 112 run function timber:settings/flip/stops
 execute if score #req timber matches 113 run function timber:settings/flip/chop_trees
 execute if score #req timber matches 114 run function timber:settings/flip/chop_fungi
 execute if score #req timber matches 115 run function timber:settings/flip/persistent
-execute if score #req timber matches 116 run function timber:settings/flip/wooden_axe
-execute if score #req timber matches 117 run function timber:settings/flip/golden_axe
-execute if score #req timber matches 118 run function timber:settings/flip/stone_axe
-execute if score #req timber matches 119 run function timber:settings/flip/copper_axe
-execute if score #req timber matches 120 run function timber:settings/flip/iron_axe
-execute if score #req timber matches 121 run function timber:settings/flip/diamond_axe
-execute if score #req timber matches 122 run function timber:settings/flip/netherite_axe
+# 200 and up: the axes of the tools page, in the order of the list
+execute if score #req timber matches 200..299 run function timber:settings/flip/axe
