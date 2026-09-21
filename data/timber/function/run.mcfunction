@@ -10,11 +10,11 @@ execute if score persistent timber matches 1.. run scoreboard players set @s tim
 # search last broken item (place of tree) and set a marker  (limit=1 removed, because carpet on log breaks this)
 execute at @e[type=minecraft:item,distance=..7,nbt={Age:0s}] run summon marker ~ ~ ~ {Tags:["timber_tree","global.ignore"]}
 
-# Enchantments randomizer
+# Enchantments randomizer (the enchantments component has no "levels" wrapper since 1.21.5)
 scoreboard players set unbreaking timber 0
-execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{levels:{"minecraft:unbreaking": 1}}}}}] run scoreboard players set unbreaking timber 1
-execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{levels:{"minecraft:unbreaking": 2}}}}}] run scoreboard players set unbreaking timber 2
-execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{levels:{"minecraft:unbreaking": 3}}}}}] run scoreboard players set unbreaking timber 3
+execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{"minecraft:unbreaking": 1}}}}] run scoreboard players set unbreaking timber 1
+execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{"minecraft:unbreaking": 2}}}}] run scoreboard players set unbreaking timber 2
+execute if entity @s[nbt={SelectedItem:{components:{"minecraft:enchantments":{"minecraft:unbreaking": 3}}}}] run scoreboard players set unbreaking timber 3
 
 # get durability
 function timber:tool/durability_get
