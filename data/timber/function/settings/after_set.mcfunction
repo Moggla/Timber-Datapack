@@ -1,7 +1,10 @@
 # options which exclude each other: the one that was just enabled wins
 execute if score slow_chop timber matches 1 if score drop_loot timber matches 1 if score #old_drop_loot timber matches 1 run scoreboard players set drop_loot timber 0
 execute if score slow_chop timber matches 1 if score drop_loot timber matches 1 unless score #old_drop_loot timber matches 1 run scoreboard players set slow_chop timber 0
+execute if score require_full_durability timber matches 1 if score stop_chopping timber matches 1 if score #old_stop_chopping timber matches 1 run scoreboard players set stop_chopping timber 0
+execute if score require_full_durability timber matches 1 if score stop_chopping timber matches 1 unless score #old_stop_chopping timber matches 1 run scoreboard players set require_full_durability timber 0
 execute if score stop_chopping timber matches 1 run scoreboard players set wear_out timber 1
+execute if score require_full_durability timber matches 1 run scoreboard players set wear_out timber 1
 
 # start optional loops
 execute if score slow_chop timber matches 1 unless score #old_slow_chop timber matches 1 run function timber:slow_chop/loop

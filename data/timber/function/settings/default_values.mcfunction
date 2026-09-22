@@ -9,6 +9,7 @@ execute unless score slow_chop timber = slow_chop timber run scoreboard players 
 execute unless score chop_down timber = chop_down timber run scoreboard players set chop_down timber 0
 execute unless score stop_chopping timber = stop_chopping timber run scoreboard players set stop_chopping timber 0
 execute unless score wear_out timber = wear_out timber run scoreboard players set wear_out timber 1
+execute unless score require_full_durability timber = require_full_durability timber run scoreboard players set require_full_durability timber 0
 execute unless score drop_loot timber = drop_loot timber run scoreboard players set drop_loot timber 0
 execute unless score hunger timber = hunger timber run scoreboard players set hunger timber 0
 execute unless score stopsound timber = stopsound timber run scoreboard players set stopsound timber 0

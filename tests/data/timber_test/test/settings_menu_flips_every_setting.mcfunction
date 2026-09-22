@@ -150,6 +150,15 @@ scoreboard players set #req timber 115
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score persistent timber matches 0
 
+# require_full_durability: default 0
+assert score require_full_durability timber matches 0
+scoreboard players set #req timber 116
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score require_full_durability timber matches 1
+scoreboard players set #req timber 116
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score require_full_durability timber matches 0
+
 # wooden_axe: default 1
 assert score wooden_axe timber matches 1
 scoreboard players set #req timber 200

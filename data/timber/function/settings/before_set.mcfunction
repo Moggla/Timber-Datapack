@@ -2,3 +2,4 @@
 scoreboard players operation #old_slow_chop timber = slow_chop timber
 scoreboard players operation #old_plant_sapling timber = plant_sapling timber
 scoreboard players operation #old_drop_loot timber = drop_loot timber
+scoreboard players operation #old_stop_chopping timber = stop_chopping timber
