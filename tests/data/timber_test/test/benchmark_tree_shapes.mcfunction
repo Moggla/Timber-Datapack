@@ -1,14 +1,16 @@
-#> Not a correctness test: reports the performance counters (see #11) for four deterministic, hand-built shapes, so the
+#> Not a correctness test: reports the performance counters (see #11) for five deterministic, hand-built shapes, so the
 #> numbers are exactly reproducible across runs and comparable before/after an algorithm change: a small baseline tree,
-#> then three ~38-log stress shapes spread long horizontally, straight up, and branching in every direction, to see
-#> whether a fix helps all shapes equally or just one. Runs alone (its own environment): the counters are shared
+#> three ~38-log stress shapes spread long horizontally, straight up, and branching in every direction, and a shared-
+#> canopy shape where many logs feed into one crown. Runs alone (its own environment): the counters are shared
 #> datapack-wide and would be corrupted by another chop happening at the same time.
-#> Every leaf is placed directly face-adjacent to a log (a "+" cross around each log run, no diagonal corners): the leaf
-#> search only steps to a strictly farther "distance" than where it came from, so a hand-built same-distance leaf that
-#> isn't itself touching a log needs a real, increasing distance gradient to be reachable, which it doesn't have.
+#> Every leaf in the first four shapes is placed directly face-adjacent to a log (a "+" cross, no diagonal corners):
+#> the leaf search only steps to a strictly farther "distance" than where it came from, so a same-distance leaf that
+#> isn't itself touching a log needs a real, increasing distance gradient to be reachable, which those shapes don't
+#> have. The shared-canopy shape below does use a real graduated gradient (1, 2, 3, ...) on its outward-reaching arms,
+#> specifically to test whether many logs feeding one crown causes worse-than-linear leaf-search cost.
 # @environment timber_test:benchmark
 # @template timber_test:arena
-# @timeout 400
+# @timeout 500
 # @skyaccess true
 
 function timber_test:platform
@@ -114,3 +116,39 @@ execute store result storage timber_test:tmp log_probes int 1 run scoreboard pla
 execute store result storage timber_test:tmp leaf_search_steps int 1 run scoreboard players get leaf_search_steps timber_bench
 function timber_test:report_benchmark with storage timber_test:tmp
 function timber_test:assert_no_tree {test:"benchmark_bushy"}
+
+# --- shared canopy: a 3x3, 5-tall trunk (45 logs, the 36 below the top level have no leaves near them at all, same as
+# a real trunk below its crown) feeding a shared 3x3 cap, with 4 arms reaching out from the cap with a real graduated
+# distance (2..6) so multiple entry logs can genuinely chain multiple hops into the same shared, distant territory.
+fill ~19 ~1 ~19 ~21 ~5 ~21 minecraft:oak_log[axis=y]
+fill ~19 ~6 ~19 ~21 ~6 ~21 minecraft:oak_leaves[persistent=false,distance=1]
+setblock ~18 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=2]
+setblock ~17 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=3]
+setblock ~16 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=4]
+setblock ~15 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=5]
+setblock ~14 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=6]
+setblock ~22 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=2]
+setblock ~23 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=3]
+setblock ~24 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=4]
+setblock ~25 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=5]
+setblock ~26 ~6 ~20 minecraft:oak_leaves[persistent=false,distance=6]
+setblock ~20 ~6 ~18 minecraft:oak_leaves[persistent=false,distance=2]
+setblock ~20 ~6 ~17 minecraft:oak_leaves[persistent=false,distance=3]
+setblock ~20 ~6 ~16 minecraft:oak_leaves[persistent=false,distance=4]
+setblock ~20 ~6 ~15 minecraft:oak_leaves[persistent=false,distance=5]
+setblock ~20 ~6 ~14 minecraft:oak_leaves[persistent=false,distance=6]
+setblock ~20 ~6 ~22 minecraft:oak_leaves[persistent=false,distance=2]
+setblock ~20 ~6 ~23 minecraft:oak_leaves[persistent=false,distance=3]
+setblock ~20 ~6 ~24 minecraft:oak_leaves[persistent=false,distance=4]
+setblock ~20 ~6 ~25 minecraft:oak_leaves[persistent=false,distance=5]
+setblock ~20 ~6 ~26 minecraft:oak_leaves[persistent=false,distance=6]
+assert block ~20 ~1 ~20 minecraft:oak_log
+dummy bench_t mine ~20 ~1 ~20
+await not block ~20 ~1 ~20 #minecraft:logs
+await delay 5t
+await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
+data modify storage timber_test:tmp test set value "benchmark_shared_canopy"
+execute store result storage timber_test:tmp log_probes int 1 run scoreboard players get log_probes timber_bench
+execute store result storage timber_test:tmp leaf_search_steps int 1 run scoreboard players get leaf_search_steps timber_bench
+function timber_test:report_benchmark with storage timber_test:tmp
+function timber_test:assert_no_tree {test:"benchmark_shared_canopy"}
