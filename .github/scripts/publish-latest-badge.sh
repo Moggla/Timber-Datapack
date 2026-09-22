@@ -19,13 +19,13 @@ MC="${MC:-}"; NEWER="${NEWER:-}"; READY="${READY:-}"; TESTS="${TESTS:-}"; VERSIO
 if [ "$VERSION_OUTCOME" != "success" ] || [ -z "$MC" ]; then
   MESSAGE="check did not run"; COLOR="lightgrey"
 elif [ "$NEWER" != "true" ]; then
-  MESSAGE="$MC is in the test matrix"; COLOR="brightgreen"
+  MESSAGE="$MC, already covered"; COLOR="brightgreen"
 elif [ "$READY" != "true" ]; then
-  MESSAGE="$MC, test tools not ready yet"; COLOR="orange"
+  MESSAGE="$MC, tools not ready"; COLOR="orange"
 elif [ "$TESTS" = "success" ]; then
-  MESSAGE="$MC works"; COLOR="brightgreen"
+  MESSAGE="$MC, works"; COLOR="brightgreen"
 else
-  MESSAGE="$MC breaks"; COLOR="red"
+  MESSAGE="$MC, breaks"; COLOR="red"
 fi
 CHECKED=$(date -u +%Y-%m-%dT%H:%MZ)
 echo "Badge: $MESSAGE ($COLOR)"
