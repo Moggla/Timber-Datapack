@@ -46,3 +46,12 @@ function timber:axes/name_modded with storage timber:axes build
 function timber:axes/name_objective with storage timber:axes build
 assert data storage timber:axes build{holder:"supertools.emeraldaxe",obj:"timber_axe.supertools.emeraldaxe"}
 data remove storage timber:axes build
+
+# a custom axe (added outside of a load, like the shears above) survives timber:axes/init, the way a real /reload would run it:
+# nothing would register it again, so init has to leave it alone
+function timber:axes/init
+execute store result score #n timber_test run data get storage timber:axes list
+assert score #n timber_test matches 9
+assert data storage timber:axes list[{item:"minecraft:shears",durability:300}]
+execute store success score #exists timber_test run scoreboard players add #probe timber_axe.minecraft.shears 0
+assert score #exists timber_test matches 1
