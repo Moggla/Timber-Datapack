@@ -26,7 +26,7 @@ scoreboard objectives remove TimberSetTreeSize
 scoreboard objectives remove TimberSetLeaves
 scoreboard objectives remove timber_menu
 scoreboard objectives remove timber_disabled
-scoreboard objectives remove timber_prsistent
+scoreboard objectives remove timber_persistent
 
 # remove markers
 kill @e[type=minecraft:marker,tag=timber_slow_chop]
