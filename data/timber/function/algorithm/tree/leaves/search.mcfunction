@@ -1,3 +1,5 @@
+scoreboard players add leaf_search_steps timber_bench 1
+
 # save leaves distance tag at its position
 summon marker ~ ~ ~ {Tags:["timber_leaf_distance"]}
 scoreboard players operation @e[type=minecraft:marker,tag=timber_leaf_distance,distance=...1,sort=arbitrary,limit=1] timber = leaf_distance timber

@@ -13,6 +13,7 @@ scoreboard objectives add timber_menu dummy
 scoreboard objectives add timber_disabled dummy
 scoreboard objectives remove timber_prsistent
 scoreboard objectives add timber_persistent dummy
+scoreboard objectives add timber_bench dummy
 
 scoreboard players reset * TimberSettings
 scoreboard players reset * TimberSetBlocks

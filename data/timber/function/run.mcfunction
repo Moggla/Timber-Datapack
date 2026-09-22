@@ -3,6 +3,11 @@ scoreboard players set leaves_found timber 0
 scoreboard players set tree_size timber 0
 scoreboard players set tree_type timber 0
 
+# performance counters (see #11): how many times the traversal probes for a neighboring log/root, and how many times it
+# (re-)enters the leaf/cap search. A dedicated benchmark test resets and reads these to get a comparable number across changes.
+scoreboard players set log_probes timber_bench 0
+scoreboard players set leaf_search_steps timber_bench 0
+
 # load settings to other scoreboard (leaves persistent)
 execute unless score persistent timber matches 1.. run scoreboard players set @s timber_persistent 0
 execute if score persistent timber matches 1.. run scoreboard players set @s timber_persistent 1
