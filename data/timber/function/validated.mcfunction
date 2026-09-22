@@ -1,3 +1,6 @@
+# with "Require Full Durability" on, don't chop anything (beyond the block that was already mined) if the axe wouldn't survive the whole tree
+execute if score require_full_durability timber matches 1 unless score unbreakable timber matches 1 unless score durability timber <= axe_max timber run return 0
+
 # when full inventory fix
 execute if score drop_loot timber matches 1.. store result score inventory timber run data get entity @s Inventory
 execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot:100b}]}] run scoreboard players remove inventory timber 1
