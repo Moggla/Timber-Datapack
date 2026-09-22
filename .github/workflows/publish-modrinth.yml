@@ -8,7 +8,7 @@ on:
     types: [published]
 
 permissions:
-  contents: read
+  contents: write   # to attach the zip to the GitHub release
 
 jobs:
   publish:
@@ -19,6 +19,11 @@ jobs:
 
       - name: Build the datapack zip
         run: git archive --format=zip -o "Timber-${{ github.event.release.tag_name }}.zip" HEAD -- data 121 pack.mcmeta pack.png LICENSE README.md
+
+      - name: Attach the zip to the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" "Timber-${{ github.event.release.tag_name }}.zip" --repo "$GITHUB_REPOSITORY"
 
       - name: Read the supported Minecraft version range
         id: versions
