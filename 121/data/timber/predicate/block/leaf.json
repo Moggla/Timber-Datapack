@@ -27,7 +27,7 @@
           "type": "minecraft:entity_scores",
           "entity": "this",
           "scores": {
-            "timber_prsistent": {
+            "timber_persistent": {
               "min": 1
             }
           }
