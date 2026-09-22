@@ -10,6 +10,6 @@ Release notes live on the [GitHub Releases page](https://github.com/Moggla/Timbe
 
 ## Releasing
 
-1. If the supported MC versions changed: bump `pack.mcmeta` (`min_format`/`max_format`) and match `.github/mc-version-range.txt` to it. [Pack format](https://minecraft.wiki/w/Pack_format) lists which MC version has which format number.
+1. If the supported MC versions changed: bump `pack.mcmeta` (`min_format`/`max_format`), match `.github/mc-version-range.txt` to it, and update the `matrix` in `.github/workflows/test.yml` to test the new version. [Pack format](https://minecraft.wiki/w/Pack_format) lists which MC version has which format number.
 2. Update the version string in `data/timber/dialog/help.json` and in `data/timber/function/settings/open/menu.mcfunction` (the Settings dialog body).
 3. Tag the commit `vX.Y.Z` and publish it as a GitHub Release, using "Generate release notes" for the body; that triggers the Modrinth upload and attaches the datapack zip to the release automatically.
