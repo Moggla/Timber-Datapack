@@ -58,44 +58,35 @@ Every player can individually turn the datapack ON or OFF by using:
 
 # Advanced Manual
 
+## Add a Custom Axe
+To add the axe of a mod (for example the emeraldaxe of supertools) run one command:
+
+```
+function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label:"Emerald Axe"}
+```
+- `item` is the id of the axe, the one you get with `/give @s supertools:emeraldaxe`.
+- `durability` is how much damage the axe can take. Timber takes the axe away when it reaches this value.
+- `label` is the name of its button in the settings menu. The button appears by itself.
+
+The command is forgotten at a `/reload`, so put it in a function that Timber runs on every load, see below.
+
+## For Other Datapacks
+
 <details>
 
-<summary>Click to reveal</summary>
+<summary>Click to reveal</summary><br>
 
-## About
-This Advanced Manual will help you to add or change certain elements of this datapack which require editing of your side.
+Timber has an API, so that your datapack can work together with it without changing any file of Timber (an update of Timber doesn't remove your changes). Everything below goes into a datapack of your own, with its own `pack.mcmeta`. Replace `mypack` with the namespace of your datapack.
 
-> [!IMPORTANT]  
-> In order to add or change the following you have to put the content of the datapack (`Timber.zip`) in a folder called `Timber`.
-> There are directories to different type of files. Open them with any kind of text editor. Below the directories is the code which you have to insert or replace (it's stated which one of these).
+### Register Axes When Timber Loads
+Timber runs every function of the function tag `timber:register_axes` after it has registered its own axes, at every load and `/reload`.
 
-
-## Debugging
-If you have difficulties or errors in trying to change the timber datapack, then please enable the output log (Minecraft Launcher → Settings → General → Enable `Open output log when Minecraft: Java Edition starts`).
-
-
-## Add modded axes
-**(for example the emeraldaxe from supertools)** <br>
-Timber knows its axes from a list, and the seven vanilla axes are in that list the same way. You add an axe with one command, in a small datapack of your own (no need to edit the files of Timber, so an update of Timber doesn't remove it).
-
-The command:
-```
-function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label:"Emerald Axe"}
-```
-- `item` is the id of the axe, the one you get in the game with `/give @s supertools:emeraldaxe`.
-- `durability` is how much damage the axe can take. Timber removes the axe when it reaches this value.
-- `label` is the name of the button in the settings menu (`/trigger TimberSettings`). The button appears by itself.
-
-Timber makes the scoreboard for the axe on its own (here `timber_axe.supertools.emeraldaxe`), you don't have to name anything. Calling the command again for the same item replaces the entry, so it doesn't matter how often it runs. If the item doesn't exist (the mod isn't installed) Timber tells you and adds nothing, so you can register axes of mods that not everybody has.
-
-**Where to put the command:** in a function that Timber calls whenever it loads (also after `/reload`).
-
-`mypack/data/mypack/function/register_axes.mcfunction`
+`data/mypack/function/register_axes.mcfunction`
 ```
 function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label:"Emerald Axe"}
 ```
 
-`mypack/data/timber/tags/function/register_axes.json`
+`data/timber/tags/function/register_axes.json`
 ```json
 {
   "values": [
@@ -104,9 +95,9 @@ function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label
 }
 ```
 
-Also add the axe to the item tag, it is used for the loot of mushroom stems:
+Also add the axe to the item tag `timber:axes`, it is used for the loot of mushroom stems:
 
-`mypack/data/timber/tags/item/axes.json`
+`data/timber/tags/item/axes.json`
 ```json
 {
   "values": [
@@ -114,15 +105,37 @@ Also add the axe to the item tag, it is used for the loot of mushroom stems:
   ]
 }
 ```
-(Without `pack.mcmeta` the folder isn't a datapack. Copy the one of Timber and change the description.)
 
-Notes:
-- Vanilla axes are registered exactly like this by Timber itself (`data/timber/function/axes/init.mcfunction`). You can change their durability there or register them again with another value.
-- Timber can only see the damage of the axe, so a modded axe with its own way of breaking may stay in the hand for a few more logs. That is not a problem.
+Good to know:
+- Timber registers its vanilla axes with the same command (`data/timber/function/axes/init.mcfunction`). If you register one of them again, your values replace the vanilla ones.
+- Timber only sees the damage of an axe. A modded axe with its own way of breaking may stay in the hand for a few more logs, that is not a problem.
+
+### React to Broken Blocks
+Timber runs these function tags for every block it chops, at the position of that block. Add your function to the tag to do something with it, for example to give xp or to play a sound.
+
+| Function tag | Runs for |
+|---|---|
+| `timber:api/break_log` | a log |
+| `timber:api/break_leaf` | leaves |
+| `timber:api/break_root` | a root (mangrove) |
+| `timber:api/break_stem` | the stem of a huge mushroom |
+| `timber:api/break_cap` | the cap of a huge mushroom |
+
+`data/timber/tags/function/api/break_log.json`
+```json
+{
+  "values": [
+    "mypack:on_log"
+  ]
+}
+```
+
+## Debugging
+If something doesn't work, enable the output log (Minecraft Launcher → Settings → General → Enable `Open output log when Minecraft: Java Edition starts`). Timber writes a warning to the chat of everybody without the tag `noTimberWarning` when a call of the API is wrong.
 
 </details><br>
 
-# Installation instructions
+# Installation Instructions
 - Download the Datapack
 - Start Minecraft (Java Edition)
 - Click on `Singleplayer`
