@@ -17,6 +17,10 @@ data modify storage timber:axes entry.durability set from storage timber:axes bu
 data modify storage timber:axes entry.label set from storage timber:axes build.label
 data modify storage timber:axes entry.obj set from storage timber:axes build.obj
 data modify storage timber:axes entry.holder set from storage timber:axes build.holder
+# custom axes (added outside of a load, for example typed in chat) survive the next load; timber:axes/init registers the vanilla
+# axes and the ones of the function tag itself at every load, so those don't need to
+execute if score #axes_loading timber matches 1 run data modify storage timber:axes entry.custom set value 0b
+execute unless score #axes_loading timber matches 1 run data modify storage timber:axes entry.custom set value 1b
 data modify storage timber:axes list append from storage timber:axes entry
 data remove storage timber:axes build
 data remove storage timber:axes entry
