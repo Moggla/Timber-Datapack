@@ -6,6 +6,10 @@ Version numbers are `MAJOR.MINOR.PATCH`:
 - **MINOR**: new feature, or support for a new MC version via `max_format` (even a pack.mcmeta-only bump)
 - **PATCH**: bug fix
 
-Releases before this file are tagged `V0.0.1` to `V7.2.0`. New tags use lowercase `v` (e.g. `v7.3.0`).
+Release notes live on the [GitHub Releases page](https://github.com/Moggla/Timber-Datapack/releases), not here. New tags use lowercase `v` (e.g. `v7.3.0`); releases before this file are tagged `V0.0.1` to `V7.2.0`.
 
-## [Unreleased]
+## Releasing
+
+1. If the supported MC versions changed: bump `pack.mcmeta` (`min_format`/`max_format`) and match `.github/mc-version-range.txt` to it. [Pack format](https://minecraft.wiki/w/Pack_format) lists which MC version has which format number.
+2. Update the version string in `data/timber/dialog/help.json`.
+3. Tag the commit `vX.Y.Z` and publish it as a GitHub Release, using "Generate release notes" for the body; that triggers the Modrinth upload automatically.
