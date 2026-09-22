@@ -1,4 +1,5 @@
-#> Flips that would break another setting are refused (slow chop and loot to inventory, stop on axe break and wear out)
+#> Flips that would break another setting are refused (slow chop and loot to inventory, stop on axe break and wear out,
+#> stop on axe break and require full durability)
 # @environment timber_test:flip_guards
 # @timeout 100
 
@@ -49,3 +50,47 @@ scoreboard players set #req timber 108
 execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
 assert score stop_chopping timber matches 1
 scoreboard players set stop_chopping timber 0
+
+# wear out is off: require full durability can't be switched on, with wear out on it can
+scoreboard players set wear_out timber 0
+scoreboard players set #req timber 116
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score require_full_durability timber matches 0
+scoreboard players set wear_out timber 1
+scoreboard players set #req timber 116
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score require_full_durability timber matches 1
+scoreboard players set require_full_durability timber 0
+
+# stop on axe break is on: require full durability can't be switched on, without it can
+scoreboard players set stop_chopping timber 1
+scoreboard players set #req timber 116
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score require_full_durability timber matches 0
+scoreboard players set stop_chopping timber 0
+scoreboard players set #req timber 116
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score require_full_durability timber matches 1
+scoreboard players set require_full_durability timber 0
+
+# require full durability is on: stop on axe break can't be switched on, without it can
+scoreboard players set require_full_durability timber 1
+scoreboard players set #req timber 108
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score stop_chopping timber matches 0
+scoreboard players set require_full_durability timber 0
+scoreboard players set #req timber 108
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score stop_chopping timber matches 1
+scoreboard players set stop_chopping timber 0
+
+# require full durability is on: wear out can't be switched off, without it can
+scoreboard players set require_full_durability timber 1
+scoreboard players set #req timber 109
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score wear_out timber matches 1
+scoreboard players set require_full_durability timber 0
+scoreboard players set #req timber 109
+execute as @e[type=minecraft:player,name=adm_t,limit=1] run function timber:settings/dispatch
+assert score wear_out timber matches 0
+scoreboard players set wear_out timber 1
