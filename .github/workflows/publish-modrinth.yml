@@ -1,0 +1,40 @@
+name: Publish to Modrinth
+
+# Runs whenever a GitHub Release is published and uploads that release as a new Modrinth version.
+# .github/mc-version-range.txt holds the two Minecraft versions (lowest, highest) this build supports; update it
+# in the same commit where pack.mcmeta's max_format (or min_format) changes.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to Modrinth
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the datapack zip
+        run: git archive --format=zip -o "Timber-${{ github.event.release.tag_name }}.zip" HEAD -- data 121 pack.mcmeta pack.png LICENSE README.md
+
+      - name: Read the supported Minecraft version range
+        id: versions
+        run: |
+          MIN=$(sed -n '1p' .github/mc-version-range.txt)
+          MAX=$(sed -n '2p' .github/mc-version-range.txt)
+          echo "range=[$MIN,$MAX]" >> "$GITHUB_OUTPUT"
+
+      - uses: Kira-NT/mc-publish@v3
+        with:
+          modrinth-id: gy7p6YNM
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          files: Timber-${{ github.event.release.tag_name }}.zip
+          name: ${{ github.event.release.name }}
+          version: ${{ github.event.release.tag_name }}
+          version-type: release
+          changelog: ${{ github.event.release.body }}
+          loaders: datapack
+          game-versions: ${{ steps.versions.outputs.range }}
