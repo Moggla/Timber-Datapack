@@ -58,7 +58,7 @@ Every player can individually turn the datapack ON or OFF by using:
 
 # Advanced Manual
 
-## Add a Custom Axe
+## Add Custom Axes
 To add the axe of a mod (for example the emeraldaxe of supertools) run one command:
 
 ```
@@ -67,8 +67,6 @@ function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label
 - `item` is the id of the axe, the one you get with `/give @s supertools:emeraldaxe`.
 - `durability` is how much damage the axe can take. Timber takes the axe away when it reaches this value.
 - `label` is the name of its button in the settings menu. The button appears by itself.
-
-The command is forgotten at a `/reload`, so put it in a function that Timber runs on every load, see below.
 
 ## For Other Datapacks
 
