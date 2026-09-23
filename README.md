@@ -3,21 +3,23 @@
 [![Test](https://github.com/Moggla/Timber-Datapack/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Moggla/Timber-Datapack/actions/workflows/test.yml) [![Latest Minecraft](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMoggla/Timber-Datapack%2Fbadges%2Flatest.json)](https://github.com/Moggla/Timber-Datapack/actions/workflows/latest.yml) [![Last check](https://img.shields.io/github/last-commit/Moggla/Timber-Datapack/badges?path=latest.json&label=last%20check)](https://github.com/Moggla/Timber-Datapack/actions/workflows/latest.yml)
 
 
-This is a really useful addition for those who don't want to spend expensive time on gathering resources! After installing, the Timber Datapack allows you to instantly chop down a tree just by breaking one log with any axe.  
+Break one log with any axe and the whole tree comes down. No more chopping log by log!  
 
 Optionally, you can adjust everything as you wish.  
 
 # Under the Hood Features
 - Chops only trees¹
 - Works with every type of log²
-- Supports custom trees³
+- Works with every axe³
+- Supports custom trees⁴
 - Leaves drop normal loot
 - Takes account of any enchantment
 - Many options for customization
 
 ¹ Trees are defined as logs with naturally generated leaves within 2 blocks of the trunk.  
 ² Logs in the tag #minecraft:logs.  
-³ All kind of custom trees like from **BiomesO'Plenty**, **The Biome Overhaul**, **Terrestria and Traverse**.  
+³ Axes in the tag #minecraft:axes, also those of mods.  
+⁴ Custom trees of mods and datapacks, e.g. **BiomesO'Plenty**, **The Biome Overhaul**, **Terrestria and Traverse**.  
 
 # Preview
 <img src=".github/resources/chop_tree.gif" width="40%" height="40%"/>
@@ -25,10 +27,10 @@ Optionally, you can adjust everything as you wish.
 <img src=".github/resources/chop_nether_tree.gif" width="20%" height="20%"/><img src=".github/resources/chop_fungi.gif" width="20%" height="20%"/>
  
 > [!NOTE]
-> Enable the option `Chop Fungi`
+> Fungi need the setting `Chop Fungi`
 
 # Settings
-To get descriptions and settings for this datapack use:
+Open the Timber menu from the pause menu (Esc) or run:
 
 ```
 /function timber:help
@@ -45,12 +47,6 @@ To get descriptions and settings for this datapack use:
 5. Click on `Apply Changes`
 
 </details><br>
-
-Every player can individually turn the datapack ON or OFF by using:
-
-```
-/trigger TimberToggle
-```
 
 ![help](.github/resources/help.png)  
 ![settings1](.github/resources/settings1.png)  
@@ -147,7 +143,7 @@ If something doesn't work, enable the output log (Minecraft Launcher → Setting
 - Finished! Enjoy!
 
 > [!NOTE]
-> It does not work in creative mode!
+> Doesn't work in Creative mode (Minecraft doesn't count it as using the axe).
 
 # Server Compatibility
 Other Minecraft servers, unlike Vanilla or Realm, often do not fully support Datapacks.  
