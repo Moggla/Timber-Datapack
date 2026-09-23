@@ -11,9 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      # the newest supported version (data/) plus the oldest version of each overlay range in pack.mcmeta
       matrix:
         include:
-          - minecraft: "26.1.2"
+          - minecraft: "26.1"
             java: "25"
           - minecraft: "26.3"
             java: "25"
