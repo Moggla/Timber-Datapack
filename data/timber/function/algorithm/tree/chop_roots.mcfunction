@@ -13,5 +13,6 @@ execute if score stop_chopping timber matches 1.. unless score unbreakable timbe
 # mark block that will get destroyed
 execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run summon marker ~ ~ ~ {Tags:["timber_root"]}
 
-# search for next log/root
-execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber run function timber:algorithm/tree/search_1
+# search for next root, only sideways and downwards and never into a log: roots of trees next to each other touch,
+# going up from a root would climb into the trunk of the neighbor and chop the whole forest
+execute if score durability_okay timber matches 1.. if score tree_size timber < max_tree_size timber if score destroy_roots timber matches 1.. run function timber:algorithm/tree/roots/search_1
