@@ -1,7 +1,18 @@
 # replace item-sapling with block-sapling   (special case for mud, because fallingblock get destroyed. 0.125 is the height when you sink into the mud)
-execute unless block ~ ~ ~ minecraft:air run summon marker ~ ~ ~ {Tags:["timber_mud","global.ignore"]}
-execute unless block ~ ~ ~ minecraft:air run schedule function timber:autoplant/mud_fix 1t
-execute unless block ~ ~ ~ minecraft:air run setblock ~ ~ ~ minecraft:muddy_mangrove_roots
+execute if block ~ ~ ~ minecraft:mud run summon marker ~ ~ ~ {Tags:["timber_mud","global.ignore"]}
+execute if block ~ ~ ~ minecraft:mud run schedule function timber:autoplant/mud_fix 1t
+execute if block ~ ~ ~ minecraft:mud run setblock ~ ~ ~ minecraft:muddy_mangrove_roots
+# same for farmland (a bit lower than a full block, the falling block would land inside of it): a dirt block for a moment, so the falling block has something to land on. The marker remembers the moisture, farmland_fix sets it again
+execute if block ~ ~ ~ minecraft:farmland[moisture=0] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_0","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=1] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_1","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=2] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_2","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=3] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_3","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=4] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_4","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=5] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_5","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=6] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_6","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland[moisture=7] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_7","global.ignore"]}
+execute if block ~ ~ ~ minecraft:farmland run schedule function timber:autoplant/farmland_fix 3t
+execute if block ~ ~ ~ minecraft:farmland run setblock ~ ~ ~ minecraft:dirt
 summon minecraft:falling_block ~ ~0.125 ~ {BlockState:"minecraft:barrier",Time:1,DropItem:0b,Tags:["timber_item_to_block"]}
 execute positioned ~ ~0.125 ~ run data modify entity @e[type=minecraft:falling_block,tag=timber_item_to_block,distance=...1,sort=arbitrary,limit=1] BlockState set from entity @s Item.id
 

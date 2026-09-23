@@ -38,6 +38,10 @@ jobs:
       - name: Generate the uninstall check
         run: python3 .github/scripts/gen-uninstall-check.py . world/datapacks/timber_test
 
+      # one autoplant test per block a sapling can be planted on, read from the tag of the vanilla jar, so new blocks are covered
+      - name: Generate the sapling ground tests
+        run: python3 .github/scripts/gen-sapling-ground-tests.py . world/datapacks/timber_test
+
       - name: Run tests
         run: |
           set -o pipefail

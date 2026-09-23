@@ -2,6 +2,7 @@
 schedule clear timber:main
 schedule clear timber:autoplant/loop
 schedule clear timber:autoplant/mud_fix
+schedule clear timber:autoplant/farmland_fix
 schedule clear timber:settings/reset_gamerule
 schedule clear timber:slow_chop/loop
 schedule clear timber:utils/check_server

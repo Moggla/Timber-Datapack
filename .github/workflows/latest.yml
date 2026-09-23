@@ -74,6 +74,11 @@ jobs:
         if: steps.setup.outputs.ready == 'true'
         run: python3 .github/scripts/gen-uninstall-check.py . world/datapacks/timber_test
 
+      # one autoplant test per block a sapling can be planted on, read from the tag of the vanilla jar, so new blocks are covered
+      - name: Generate the sapling ground tests
+        if: steps.setup.outputs.ready == 'true'
+        run: python3 .github/scripts/gen-sapling-ground-tests.py . world/datapacks/timber_test
+
       - name: Run tests
         id: tests
         if: steps.setup.outputs.ready == 'true'
