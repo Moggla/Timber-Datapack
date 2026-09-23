@@ -4,7 +4,7 @@
 
 
 This is a really useful addition for those who don't want to spend expensive time on gathering resources! After installing, the Timber Datapack allows you to instantly chop down a tree just by breaking one log with any axe.  
-By default, sneaking while breaking will not chop the tree.  
+
 Optionally, you can adjust everything as you wish.  
 
 # Under the Hood Features
