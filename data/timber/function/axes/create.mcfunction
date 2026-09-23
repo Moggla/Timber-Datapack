@@ -17,6 +17,8 @@ data modify storage timber:axes entry.durability set from storage timber:axes bu
 data modify storage timber:axes entry.label set from storage timber:axes build.label
 data modify storage timber:axes entry.obj set from storage timber:axes build.obj
 data modify storage timber:axes entry.holder set from storage timber:axes build.holder
+# an axe that timber:axes/auto found: the settings menu shows the name of the item
+execute if data storage timber:axes build{auto:1b} run function timber:axes/auto/key with storage timber:axes build
 # custom axes (added outside of a load, for example typed in chat) survive the next load; timber:axes/init registers the vanilla
 # axes and the ones of the function tag itself at every load, so those don't need to
 execute if score #axes_loading timber matches 1 run data modify storage timber:axes entry.custom set value 0b

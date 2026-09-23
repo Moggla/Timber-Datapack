@@ -33,10 +33,21 @@
             "tag": "{Tags:[\"timber_location\"]}"
           },
           "condition": {
-            "type": "minecraft:match_tool",
-            "predicate": {
-              "items": "#timber:axes"
-            }
+            "type": "minecraft:any_of",
+            "terms": [
+              {
+                "type": "minecraft:match_tool",
+                "predicate": {
+                  "items": "#timber:axes"
+                }
+              },
+              {
+                "type": "minecraft:match_tool",
+                "predicate": {
+                  "items": "#minecraft:axes"
+                }
+              }
+            ]
           }
         }
       ]

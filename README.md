@@ -58,8 +58,14 @@ Every player can individually turn the datapack ON or OFF by using:
 
 # Advanced Manual
 
+<details>
+
+<summary>Click to reveal</summary><br>
+
 ## Add Custom Axes
-To add the axe of a mod (for example the emeraldaxe of supertools) run one command:
+Axes of mods in the item tag `#minecraft:axes` work by themselves: Timber adds one as soon as it is in the hotbar, with the durability of the item. It gets its own button in the settings menu, where it can be turned off.
+
+To add an axe that is not in that tag, or to give one another durability or label, run one command (for example for the emeraldaxe of supertools):
 
 ```
 function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label:"Emerald Axe"}
@@ -69,11 +75,6 @@ function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label
 - `label` is the name of its button in the settings menu. The button appears by itself.
 
 ## For Other Datapacks
-
-<details>
-
-<summary>Click to reveal</summary><br>
-
 Timber has an API, so that your datapack can work together with it without changing any file of Timber (an update of Timber doesn't remove your changes). Everything below goes into a datapack of your own, with its own `pack.mcmeta`. Replace `mypack` with the namespace of your datapack.
 
 ### Register Axes When Timber Loads
@@ -93,7 +94,7 @@ function timber:api/add_axe {item:"supertools:emeraldaxe", durability:500, label
 }
 ```
 
-Also add the axe to the item tag `timber:axes`, it is used for the loot of mushroom stems:
+If the axe is not in `#minecraft:axes`, also add it to the item tag `timber:axes`, it is used for the loot of mushroom stems:
 
 `data/timber/tags/item/axes.json`
 ```json
@@ -106,6 +107,7 @@ Also add the axe to the item tag `timber:axes`, it is used for the loot of mushr
 
 Good to know:
 - Timber registers its vanilla axes with the same command (`data/timber/function/axes/init.mcfunction`). If you register one of them again, your values replace the vanilla ones.
+- An axe you register is never replaced by the automatic detection. An axe that was found automatically is replaced by your values.
 - Timber only sees the damage of an axe. A modded axe with its own way of breaking may stay in the hand for a few more logs, that is not a problem.
 
 ### React to Broken Blocks
