@@ -20,4 +20,5 @@ execute unless score persistent timber = persistent timber run scoreboard player
 execute unless score blocks_per_chop timber = blocks_per_chop timber run scoreboard players set blocks_per_chop timber 1
 execute unless score time_between_chops timber = time_between_chops timber run scoreboard players set time_between_chops timber 1
 execute unless score max_tree_size timber = max_tree_size timber run scoreboard players set max_tree_size timber 555
-execute unless score min_leaves_found timber = min_leaves_found timber run scoreboard players set min_leaves_found timber 5
+execute unless score min_leaves_found timber = min_leaves_found timber run scoreboard players set min_leaves_found timber 6
+execute unless score min_caps_found timber = min_caps_found timber run scoreboard players set min_caps_found timber 5

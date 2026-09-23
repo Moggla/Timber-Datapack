@@ -1,2 +1,2 @@
 #> Back to the defaults
-scoreboard players set min_leaves_found timber 5
+scoreboard players set min_leaves_found timber 6

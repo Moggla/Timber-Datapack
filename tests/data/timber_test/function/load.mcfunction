@@ -4,3 +4,6 @@
 #> left a few leaves of a tree standing (0 in 30 runs with it). One player chopping at a time in a real world does not get near the limit:
 #> the biggest trees of the tests (500 blocks) pass with the default when they run alone.
 gamerule minecraft:max_command_forks 1000000000
+#> No random block ticks: farmland dries out without water nearby, leaves with distance=7 decay and saplings grow while a test waits.
+#> Then a test would depend on luck. The datapack itself doesn't need them.
+gamerule minecraft:random_tick_speed 0

@@ -5,7 +5,7 @@
 # @skyaccess true
 
 function timber_test:platform
-# a mangrove: 6 logs from height 1 on, 6 roots (three sides at height 1 and below them), 5 natural leaves. The dummy stands on the fourth side
+# a mangrove: 6 logs from height 1 on, 6 roots (three sides at height 1 and below them), 6 natural leaves. The dummy stands on the fourth side
 fill ~20 ~1 ~20 ~20 ~6 ~20 minecraft:mangrove_log
 setblock ~21 ~1 ~20 minecraft:mangrove_roots
 setblock ~20 ~1 ~21 minecraft:mangrove_roots
@@ -18,6 +18,7 @@ setblock ~19 ~4 ~20 minecraft:mangrove_leaves[distance=1,persistent=false]
 setblock ~20 ~4 ~21 minecraft:mangrove_leaves[distance=1,persistent=false]
 setblock ~20 ~4 ~19 minecraft:mangrove_leaves[distance=1,persistent=false]
 setblock ~20 ~7 ~20 minecraft:mangrove_leaves[distance=1,persistent=false]
+setblock ~21 ~5 ~20 minecraft:mangrove_leaves[distance=1,persistent=false]
 
 await delay 1s
 function timber_test:count_d7 {test:"settings_start_chop_on_root_default_chops"}

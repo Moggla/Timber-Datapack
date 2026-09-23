@@ -1,12 +1,12 @@
-#> Mining a log with exactly 5 leaves next to the trunk chops the whole tree (min_leaves_found is 5)
-# @environment timber_test:group_5
+#> Mining a log with only 5 leaves next to the trunk does not chop it (min_leaves_found is 6)
+# @environment timber_test:group_1
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
 
 function timber_test:platform
-# the rule is built for the default of 5 leaves
-assert score min_leaves_found timber matches 5
+# the rule is built for the default of 6 leaves
+assert score min_leaves_found timber matches 6
 # a column of 6 logs with 5 leaves: 4 at its sides, one on top
 fill ~20 ~0 ~20 ~20 ~5 ~20 minecraft:oak_log
 setblock ~21 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=false]
@@ -15,11 +15,10 @@ setblock ~20 ~3 ~21 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~3 ~19 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~6 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 
-function timber_test:count_d7 {test:"chopped_five_leaves"}
 
-function timber_test:count_logs {test:"chopped_five_leaves"}
-function timber_test:player {name:"pos5_t",axe:"minecraft:iron_axe"}
-function timber_test:mine {name:"pos5_t"}
+function timber_test:count_logs {test:"not_chopped_five_leaves"}
+function timber_test:player {name:"neg5_t",axe:"minecraft:iron_axe"}
+function timber_test:mine {name:"neg5_t"}
 
 # wait until the datapack has had its chance to act
 # (await doesn't work inside a called function, so this block is repeated in every test)
@@ -30,4 +29,4 @@ await not block ~20 ~ ~20 #minecraft:logs
 await delay 5t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-function timber_test:assert_no_tree {test:"chopped_five_leaves"}
+function timber_test:assert_only_mined_gone {test:"not_chopped_five_leaves"}

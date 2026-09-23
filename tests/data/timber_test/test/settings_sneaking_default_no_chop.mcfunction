@@ -5,13 +5,14 @@
 # @skyaccess true
 
 function timber_test:platform
-# a column of 6 logs with 5 natural leaves from height 3 on (a random oak can have leaves right above the dummy, then it can't duck)
+# a column of 6 logs with 6 natural leaves from height 3 on (a random oak can have leaves right above the dummy, then it can't duck)
 fill ~20 ~0 ~20 ~20 ~5 ~20 minecraft:oak_log
 setblock ~21 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~19 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~3 ~21 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~3 ~19 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~21 ~4 ~20 minecraft:oak_leaves[distance=1,persistent=false]
+setblock ~19 ~4 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 
 await delay 1s
 function timber_test:count_logs {test:"settings_sneaking_default_no_chop"}
