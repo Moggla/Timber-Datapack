@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the datapack zip
-        run: git archive --format=zip -o "Timber-${{ github.event.release.tag_name }}.zip" HEAD -- data 121 pack.mcmeta pack.png LICENSE README.md
+        run: git archive --format=zip -o "Timber-${{ github.event.release.tag_name }}.zip" HEAD -- data 101 pack.mcmeta pack.png LICENSE README.md
 
       - name: Attach the zip to the GitHub release
         env:

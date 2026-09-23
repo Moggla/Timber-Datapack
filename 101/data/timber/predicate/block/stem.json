@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:any_of",
+  "condition": "minecraft:any_of",
   "terms": [
     {
-      "type": "minecraft:location_check",
+      "condition": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "#minecraft:logs"
@@ -10,7 +10,7 @@
       }
     },
     {
-      "type": "minecraft:location_check",
+      "condition": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "minecraft:mushroom_stem"

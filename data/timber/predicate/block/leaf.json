@@ -1,8 +1,8 @@
 {
-  "condition": "minecraft:any_of",
+  "type": "minecraft:any_of",
   "terms": [
     {
-      "condition": "minecraft:location_check",
+      "type": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "#minecraft:leaves",
@@ -13,10 +13,10 @@
       }
     },
     {
-      "condition": "minecraft:all_of",
+      "type": "minecraft:all_of",
       "terms": [
         {
-          "condition": "minecraft:location_check",
+          "type": "minecraft:location_check",
           "predicate": {
             "block": {
               "blocks": "#minecraft:leaves"
@@ -24,7 +24,7 @@
           }
         },
         {
-          "condition": "minecraft:entity_scores",
+          "type": "minecraft:entity_scores",
           "entity": "this",
           "scores": {
             "timber_persistent": {
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "condition": "minecraft:location_check",
+      "type": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "minecraft:mangrove_propagule",

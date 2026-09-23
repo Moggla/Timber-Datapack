@@ -13,8 +13,8 @@ execute if block ~ ~ ~ minecraft:farmland[moisture=6] run summon marker ~ ~ ~ {T
 execute if block ~ ~ ~ minecraft:farmland[moisture=7] run summon marker ~ ~ ~ {Tags:["timber_farmland","timber_moisture_7","global.ignore"]}
 execute if block ~ ~ ~ minecraft:farmland run schedule function timber:autoplant/farmland_fix 3t
 execute if block ~ ~ ~ minecraft:farmland run setblock ~ ~ ~ minecraft:dirt
-summon minecraft:falling_block ~ ~0.125 ~ {BlockState:{Name:"minecraft:barrier"},Time:1,DropItem:0b,Tags:["timber_item_to_block"]}
-execute positioned ~ ~0.125 ~ run data modify entity @e[type=minecraft:falling_block,tag=timber_item_to_block,distance=...1,sort=arbitrary,limit=1] BlockState.Name set from entity @s Item.id
+summon minecraft:falling_block ~ ~0.125 ~ {BlockState:"minecraft:barrier",Time:1,DropItem:0b,Tags:["timber_item_to_block"]}
+execute positioned ~ ~0.125 ~ run data modify entity @e[type=minecraft:falling_block,tag=timber_item_to_block,distance=...1,sort=arbitrary,limit=1] BlockState set from entity @s Item.id
 
 # on stacks -1
 execute store result score @s timber run data get entity @s Item.count
