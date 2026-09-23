@@ -8,3 +8,4 @@ data remove storage timber:axes build
 data remove storage timber:axes entry
 data remove storage timber:axes pick
 data remove storage timber:axes wear
+data remove storage timber:axes auto
