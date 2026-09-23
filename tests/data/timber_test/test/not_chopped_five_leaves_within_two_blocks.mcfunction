@@ -1,25 +1,26 @@
-#> Mining a log with 3 leaves next to the trunk and 2 more 2 blocks away chops the whole tree (min_leaves_found is 5, leaves within 2 blocks count)
+#> Mining a log with 3 leaves next to the trunk, 2 more 2 blocks away and 1 that is 3 blocks away does not chop it (min_leaves_found is 6, only leaves within 2 blocks count)
 # @environment timber_test:group_5
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
 
 function timber_test:platform
-# the rule is built for the default of 5 leaves
-assert score min_leaves_found timber matches 5
-# a column of 6 logs with 3 leaves at its sides, and 2 leaves 2 blocks away that hang on 2 of them
+# the rule is built for the default of 6 leaves
+assert score min_leaves_found timber matches 6
+# a column of 6 logs with 3 leaves at its sides, 2 leaves 2 blocks away straight out from side leaves and 1 leaf 3 blocks away
+# behind one of them
 fill ~20 ~0 ~20 ~20 ~5 ~20 minecraft:oak_log
 setblock ~21 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~19 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~3 ~21 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~22 ~3 ~20 minecraft:oak_leaves[distance=2,persistent=false]
 setblock ~18 ~3 ~20 minecraft:oak_leaves[distance=2,persistent=false]
+setblock ~23 ~3 ~20 minecraft:oak_leaves[distance=3,persistent=false]
 
-function timber_test:count_d7 {test:"chopped_five_leaves_within_two_blocks"}
 
-function timber_test:count_logs {test:"chopped_five_leaves_within_two_blocks"}
-function timber_test:player {name:"pos5w_t",axe:"minecraft:iron_axe"}
-function timber_test:mine {name:"pos5w_t"}
+function timber_test:count_logs {test:"not_chopped_five_leaves_within_two_blocks"}
+function timber_test:player {name:"neg5w_t",axe:"minecraft:iron_axe"}
+function timber_test:mine {name:"neg5w_t"}
 
 # wait until the datapack has had its chance to act
 # (await doesn't work inside a called function, so this block is repeated in every test)
@@ -30,4 +31,4 @@ await not block ~20 ~ ~20 #minecraft:logs
 await delay 5t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-function timber_test:assert_no_tree {test:"chopped_five_leaves_within_two_blocks"}
+function timber_test:assert_only_mined_gone {test:"not_chopped_five_leaves_within_two_blocks"}

@@ -10,8 +10,6 @@ function timber_test:tree {feature:"minecraft:mangrove"}
 # let the leaves settle before the tree is chopped
 await delay 1s
 function timber_test:count_d7 {test:"chop_mangrove_log_tree"}
-function timber_test:count_adjacent {test:"chop_mangrove_log_tree"}
-function timber_test:count_logs {test:"chop_mangrove_log_tree"}
 
 function timber_test:player {name:"mangrove_log_t",axe:"minecraft:iron_axe"}
 # mine the lowest log of the whole tree, from a spot next to it (see find_lowest_log and mine_here for why)
@@ -28,9 +26,6 @@ await entity @e[type=minecraft:item,dx=39,dy=39,dz=39,nbt={Item:{id:"minecraft:m
 await delay 2t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-# the datapack only chops a tree with at least min_leaves_found leaves within 2 blocks of a trunk. Small mangroves often have fewer
-# than 5 right next to it, within 2 blocks all of them had enough (measured with 40 trees each on 26.1.2 and 26.3). If one ever has
-# fewer, that is a gap in the datapack, the goal is to chop every tree, so such a tree doesn't fail the test but must not be chopped and gives a warning
-# a chop from a log can leave parts of the tree standing or chop nothing (it searches upwards and sideways, see report_leftovers): warning, no failure
-execute if score #adj_chop_mangrove_log_tree timber_test >= min_leaves_found timber run function timber_test:report_leftovers {test:"chop_mangrove_log_tree"}
-execute if score #adj_chop_mangrove_log_tree timber_test < min_leaves_found timber run function timber_test:assert_not_chopped {test:"chop_mangrove_log_tree"}
+# big crown: logs and roots have to be gone, leaves that are left only warn (see assert_no_logs_warn_leaves)
+function timber_test:assert_no_logs_warn_leaves {test:"chop_mangrove_log_tree"}
+function timber_test:assert_no_roots

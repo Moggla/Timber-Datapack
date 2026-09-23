@@ -5,13 +5,14 @@
 # @skyaccess true
 
 function timber_test:platform
-# a column of 8 logs with 5 natural leaves at its two lowest logs, so it is a tree for the datapack even if only the first logs are looked at
+# a column of 8 logs with 6 natural leaves at its two lowest logs, so it is a tree for the datapack even if only the first logs are looked at
 fill ~20 ~0 ~20 ~20 ~7 ~20 minecraft:oak_log
 setblock ~21 ~1 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~19 ~1 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~1 ~21 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~20 ~1 ~19 minecraft:oak_leaves[distance=1,persistent=false]
 setblock ~21 ~2 ~20 minecraft:oak_leaves[distance=1,persistent=false]
+setblock ~21 ~0 ~20 minecraft:oak_leaves[distance=1,persistent=false]
 
 await delay 1s
 function timber_test:count_logs {test:"settings_max_tree_size_caps_the_chop"}

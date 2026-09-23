@@ -26,6 +26,7 @@ scoreboard players set persistent timber 0
 scoreboard players set blocks_per_chop timber 1
 scoreboard players set time_between_chops timber 1
 scoreboard players set max_tree_size timber 555
-scoreboard players set min_leaves_found timber 5
+scoreboard players set min_leaves_found timber 6
+scoreboard players set min_caps_found timber 5
 schedule clear timber:slow_chop/loop
 schedule clear timber:autoplant/loop

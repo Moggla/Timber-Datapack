@@ -5,13 +5,14 @@
 # @skyaccess true
 
 function timber_test:platform
-# a column of 6 logs with 5 leaves placed by a player (persistent=true)
+# a column of 6 logs with 6 leaves placed by a player (persistent=true)
 fill ~20 ~0 ~20 ~20 ~5 ~20 minecraft:oak_log
 setblock ~21 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~19 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~20 ~3 ~21 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~20 ~3 ~19 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~21 ~4 ~20 minecraft:oak_leaves[distance=1,persistent=true]
+setblock ~19 ~4 ~20 minecraft:oak_leaves[distance=1,persistent=true]
 
 await delay 1s
 function timber_test:count_logs {test:"settings_slow_chop_ignores_player_placed_leaves"}

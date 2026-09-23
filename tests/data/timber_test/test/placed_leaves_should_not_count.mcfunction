@@ -1,19 +1,20 @@
-#> Five leaves placed by a player (persistent) next to a stack of logs: only natural leaves count (setting persistent is off), so it must not be chopped
+#> Six leaves placed by a player (persistent) next to a stack of logs: only natural leaves count (setting persistent is off), so it must not be chopped
 # @environment timber_test:group_4
 # @template timber_test:arena
 # @timeout 200
 # @skyaccess true
 
 function timber_test:platform
-# the rule is built for the default of 5 leaves
-assert score min_leaves_found timber matches 5
-# a column of 6 logs with 5 player placed leaves (persistent=true) next to it
+# the rule is built for the default of 6 leaves
+assert score min_leaves_found timber matches 6
+# a column of 6 logs with 6 player placed leaves (persistent=true) next to it
 fill ~20 ~0 ~20 ~20 ~5 ~20 minecraft:oak_log
 setblock ~21 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~19 ~3 ~20 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~20 ~3 ~21 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~20 ~3 ~19 minecraft:oak_leaves[distance=1,persistent=true]
 setblock ~21 ~4 ~20 minecraft:oak_leaves[distance=1,persistent=true]
+setblock ~19 ~4 ~20 minecraft:oak_leaves[distance=1,persistent=true]
 
 function timber_test:count_logs {test:"placed_leaves_should_not_count"}
 function timber_test:player {name:"placed_lv_t",axe:"minecraft:iron_axe"}
