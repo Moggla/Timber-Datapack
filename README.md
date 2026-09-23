@@ -15,7 +15,7 @@ Optionally, you can adjust everything as you wish.
 - Takes account of any enchantment
 - Many options for customization
 
-¹ Trees are defined as logs that are next to naturally generated leaves.  
+¹ Trees are defined as logs with naturally generated leaves within 2 blocks of the trunk.  
 ² Logs in the tag #minecraft:logs.  
 ³ All kind of custom trees like from **BiomesO'Plenty**, **The Biome Overhaul**, **Terrestria and Traverse**.  
 

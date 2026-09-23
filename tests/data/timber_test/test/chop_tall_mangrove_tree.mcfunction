@@ -28,9 +28,9 @@ await entity @e[type=minecraft:item,dx=39,dy=39,dz=39,nbt={Item:{id:"minecraft:m
 await delay 2t
 await not entity @e[type=minecraft:marker,dx=39,dy=39,dz=39]
 
-# the datapack only chops a tree with at least min_leaves_found leaves next to a trunk. Some mangroves have fewer (measured with
-# 40 trees each: mangrove 15 %, tall mangrove 10 % below 5, the tall one down to 0). That is a gap in the datapack, the goal is to
-# chop every tree, so such a tree doesn't fail the test but must not be chopped and gives a warning
+# the datapack only chops a tree with at least min_leaves_found leaves within 2 blocks of a trunk. Small mangroves often have fewer
+# than 5 right next to it, within 2 blocks all of them had enough (measured with 40 trees each on 26.1.2 and 26.3). If one ever has
+# fewer, that is a gap in the datapack, the goal is to chop every tree, so such a tree doesn't fail the test but must not be chopped and gives a warning
 # a chop from a log can leave parts of the tree standing or chop nothing (it searches upwards and sideways, see report_leftovers): warning, no failure
 execute if score #adj_chop_tall_mangrove_tree timber_test >= min_leaves_found timber run function timber_test:report_leftovers {test:"chop_tall_mangrove_tree"}
 execute if score #adj_chop_tall_mangrove_tree timber_test < min_leaves_found timber run function timber_test:assert_not_chopped {test:"chop_tall_mangrove_tree"}

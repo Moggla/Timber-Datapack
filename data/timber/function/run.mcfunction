@@ -28,6 +28,9 @@ function timber:tool/durability_get
     # tree  (limit=1,sort=arbitrary removed, because carpet on log breaks this)
         execute if score chop_trees timber matches 1.. at @e[type=minecraft:marker,tag=timber_tree,tag=!timber_slow_chop,distance=..7] run function timber:algorithm/tree/run
         execute store result score leaves_found timber if entity @e[type=minecraft:marker,tag=timber_leaves_found]
+        # too few leaves right at the trunk (small mangroves): count the leaves 2 blocks away from it too
+        execute if score leaves_found timber < min_leaves_found timber unless score tree_size timber matches 0 at @e[type=minecraft:marker,tag=timber_log,tag=!timber_destroy] run function timber:algorithm/tree/find_leaves_2
+        execute store result score leaves_found timber if entity @e[type=minecraft:marker,tag=timber_leaves_found]
         # if tree is valid
         execute if score leaves_found timber >= min_leaves_found timber unless score tree_size timber matches 0 run scoreboard players set tree_type timber 1
 

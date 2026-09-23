@@ -1,4 +1,4 @@
-#> An oak has 13 leaves next to its trunk: min_leaves_found 13 chops it
+#> An oak has 13 leaves next to its trunk: min_leaves_found 13 chops it (the leaves 2 blocks away are only counted when there are too few)
 # @environment timber_test:min_leaves_13
 # @template timber_test:arena
 # @timeout 200
