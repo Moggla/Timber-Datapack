@@ -129,6 +129,15 @@ Timber runs these function tags for every block it chops, at the position of tha
 ## Debugging
 If something doesn't work, enable the output log (Minecraft Launcher → Settings → General → Enable `Open output log when Minecraft: Java Edition starts`). Timber writes a warning to the chat of everybody without the tag `noTimberWarning` when a call of the API is wrong.
 
+## Hide Warnings
+Timber writes its warnings (for example about an incompatible datapack or a wrong gamerule) to the chat of every player. To hide them for yourself, run:
+
+```
+tag @s add noTimberWarning
+```
+
+To show them again, run `tag @s remove noTimberWarning`.
+
 </details><br>
 
 # Installation Instructions
