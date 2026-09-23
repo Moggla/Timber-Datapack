@@ -18,8 +18,8 @@ import sys
 
 repo, dest = sys.argv[1], sys.argv[2]
 
-# 121/ holds the overlay of the newest pack format, both are scanned
-folders = [os.path.join(repo, "data", "timber", "function"), os.path.join(repo, "121", "data", "timber", "function")]
+# 101/ holds the overlay of the older pack formats, both are scanned
+folders = [os.path.join(repo, "data", "timber", "function"), os.path.join(repo, "101", "data", "timber", "function")]
 uninstall_text = ""
 objectives, schedules, storage_keys = set(), set(), set()
 for folder in folders:

@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:any_of",
+  "condition": "minecraft:any_of",
   "terms": [
     {
-      "type": "minecraft:location_check",
+      "condition": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "#minecraft:wart_blocks"
@@ -10,7 +10,7 @@
       }
     },
     {
-      "type": "minecraft:location_check",
+      "condition": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "minecraft:shroomlight"
@@ -18,7 +18,7 @@
       }
     },
     {
-      "type": "minecraft:location_check",
+      "condition": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "minecraft:brown_mushroom_block"
@@ -26,7 +26,7 @@
       }
     },
     {
-      "type": "minecraft:location_check",
+      "condition": "minecraft:location_check",
       "predicate": {
         "block": {
           "blocks": "minecraft:red_mushroom_block"

@@ -31,7 +31,7 @@ jobs:
       - name: Install datapacks
         run: |
           mkdir -p world/datapacks/timber world/datapacks/timber_test
-          cp -r data pack.mcmeta 121 world/datapacks/timber/
+          cp -r data pack.mcmeta 101 world/datapacks/timber/
           cp -r tests/. world/datapacks/timber_test/
 
       # the uninstall test checks the scoreboards the code of the datapack creates, so a forgotten one can't slip through
