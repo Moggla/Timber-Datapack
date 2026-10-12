@@ -26,10 +26,14 @@ execute if score drop_loot timber matches 1.. if entity @s[nbt={Inventory:[{Slot
     execute unless score slow_chop timber matches 1.. unless score drop_loot timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
     execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 36.. at @e[type=minecraft:marker,tag=timber_destroy] run loot give @s mine ~ ~ ~ mainhand
     execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. if score inventory timber matches 36.. at @e[type=minecraft:marker,tag=timber_destroy] run loot spawn ~ ~ ~ mine ~ ~ ~ mainhand
-    # destroy animation (minecraft:block_drops can be changed, because datapack wouldn't get to this point otherwise)
-    gamerule minecraft:block_drops false
+    # destroy animation. minecraft:block_drops stays on: blocks that hang on the tree (cocoa, torches, lanterns, ...) break with it and drop like in vanilla.
+    # The destroyed blocks drop like broken by hand too, those drops are removed again, their loot is the one from above.
+    execute unless score slow_chop timber matches 1.. run tag @e[type=minecraft:item] add timber_keep
     execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy] run setblock ~ ~ ~ minecraft:air destroy
-    gamerule minecraft:block_drops true
+    execute unless score slow_chop timber matches 1.. at @e[type=minecraft:marker,tag=timber_destroy] align xyz run kill @e[type=minecraft:item,tag=!timber_keep,dx=0,dy=0,dz=0]
+    # the new items that are left are the drops of the blocks that hung on the tree, with "Drop Loot into Inventory" they go to the player
+    execute unless score slow_chop timber matches 1.. if score drop_loot timber matches 1.. unless score inventory timber matches 36.. run tp @e[type=minecraft:item,tag=!timber_keep] @s
+    execute unless score slow_chop timber matches 1.. run tag @e[type=minecraft:item] remove timber_keep
     # remove destroy marker
     execute unless score slow_chop timber matches 1.. run kill @e[type=minecraft:marker,tag=timber_destroy]
 

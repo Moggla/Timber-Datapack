@@ -4,5 +4,10 @@
         "pack_format": 121.0,
         "min_format": 101.0,
         "max_format": 121.0
+    },
+    "overlays": {
+        "entries": [
+            {"directory": "101", "min_format": 101, "max_format": 120}
+        ]
     }
 }
