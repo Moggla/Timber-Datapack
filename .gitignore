@@ -1,0 +1,13 @@
+# Local Fabric / PackTest server artifacts
+/.fabric/
+/crash-reports/
+/eula.txt
+/libraries/
+/logs/
+/mods/
+/server.jar
+/server.properties
+/server-output.log
+/usercache.json
+/versions/
+/world/
