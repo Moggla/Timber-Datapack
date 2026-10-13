@@ -15,7 +15,7 @@ jobs:
     name: Publish to Modrinth
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build the datapack zip
         run: git archive --format=zip -o "Timber-${{ github.event.release.tag_name }}.zip" HEAD -- data 101 pack.mcmeta pack.png LICENSE README.md
@@ -40,6 +40,8 @@ jobs:
           name: ${{ github.event.release.name }}
           version: ${{ github.event.release.tag_name }}
           version-type: release
+          # Featuring makes mc-publish edit the older versions afterwards, which needs the token scope "Write versions".
+          modrinth-featured: false
           changelog: ${{ github.event.release.body }}
           loaders: datapack
           game-versions: ${{ steps.versions.outputs.range }}
